@@ -1,0 +1,120 @@
+{
+  "purpose": "GitHub README展示；既有课程案例，与v1通用模板功能验收分别说明",
+  "materials": [
+    {
+      "file": "01-token.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "01-文字怎样变成模型的输入.mp4",
+      "timeSeconds": 90,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "a529cef3a0358fd37317359555738f9043397436b0e97f4da77402ba06186965"
+    },
+    {
+      "file": "02-context.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "02-Transformer怎样利用上下文.mp4",
+      "timeSeconds": 119,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "5cfe6c6a4eea70b01c32eecf72521901f9577d25d0e3337449575949ef5192cd"
+    },
+    {
+      "file": "03-messages.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "03-用提示词和消息组织一次对话.mp4",
+      "timeSeconds": 128,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "d68b57e1cbb485e856499f16d2f5b78018cfd6a20a1c56a5c266a6981fe44d48"
+    },
+    {
+      "file": "04-service.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "04-从模型权重到可调用的服务.mp4",
+      "timeSeconds": 65,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "ccd03ebb7cf2721656c99bcc3820f9309608e3361522dac0cbdcba6664ee223f"
+    },
+    {
+      "file": "05-api.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "05-读懂API请求与返回.mp4",
+      "timeSeconds": 8,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "61ba2a23f2b453b28554e31c021d3cef057e00bd88dbee9b0fd554b94f8a2d04"
+    },
+    {
+      "file": "06-baseline.png",
+      "sourceType": "existing lesson 2 final video",
+      "sourceVideo": "06-保存无资料基线并检查回答.mp4",
+      "timeSeconds": 8,
+      "operation": "从原视频解码截取，等比例缩小到1280×720；未重新生成画面",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "59cb602f410b13863dcd0e791f135f62afa41f02046af4cac4b1f8063a2e763b"
+    },
+    {
+      "file": "lesson2-overview.jpg",
+      "sourceFrames": [
+        "02-context-008.png",
+        "03-messages-008.png",
+        "04-service-008.png",
+        "06-baseline-008.png"
+      ],
+      "sourceTimeSeconds": 8,
+      "operation": "四张原片静帧等比例拼排，加细分隔线；原画面未重绘",
+      "sha256": "8c8d28acf80dc42220b9cbe6faaaf69699e994621fab3874a2a3b110b8dc2a58"
+    },
+    {
+      "file": "service-flow.gif",
+      "sourceVideo": "04-从模型权重到可调用的服务.mp4",
+      "startSeconds": 59,
+      "endSeconds": 65,
+      "frames": 47,
+      "durationMs": 6000,
+      "size": [
+        800,
+        450
+      ],
+      "audio": false,
+      "operation": "按8fps截取原片画面并编码为循环GIF，未重绘或修改知识内容",
+      "sha256": "c5c16e97157d0d1ec8c6b39adf6230fa0f2a32d480f9bf51d1748da0919bfb05",
+      "sourceFrames": 48
+    },
+    {
+      "file": "editor.png",
+      "sourceProject": "03-用提示词和消息组织一次对话.html",
+      "scene": 8,
+      "timelineSeconds": 128,
+      "operation": "已有课程编辑器在1600×1000视口的实际截图；未加入虚构控件",
+      "sha256": "634aeb2e12238f4891d04fe96d1aa69aa6af34de4a7c4e974b7268a82b1beaac"
+    }
+  ],
+  "privacy": "仅发布已检查的展示截图与无声片段，不包含教材原件、模型权重、完整课程、真实凭证或本机路径",
+  "referenceReadme": "https://github.com/alchaincyf/huashu-design",
+  "headerBadges": {
+    "file": "badges.svg",
+    "source": "本仓库文档标签，原创SVG排版",
+    "sha256": "facec19147447fb72dca6fd3f3102c0dafa05f3a52ac42717af5dc0596d13960"
+  }
+}

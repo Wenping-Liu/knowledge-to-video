@@ -6,7 +6,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a5496cf9b004f26f478fd9c167e009615c715163c802c7f5e85aff96a8e08b90"
+      "sha256": "f620fb7c6302582d3e21cc3ed6c5306cb4d1e6187581939be562e85b298082ce"
     },
     {
       "path": "SKILL.md",
@@ -55,6 +55,50 @@
     {
       "path": "assets/schemas/project.schema.json",
       "sha256": "abb2a959ee53c4ba606e7ecda7624153fd8b9fc87ab4480cc3720a91928fe6f2"
+    },
+    {
+      "path": "docs/readme/01-token.png",
+      "sha256": "a529cef3a0358fd37317359555738f9043397436b0e97f4da77402ba06186965"
+    },
+    {
+      "path": "docs/readme/02-context.png",
+      "sha256": "5cfe6c6a4eea70b01c32eecf72521901f9577d25d0e3337449575949ef5192cd"
+    },
+    {
+      "path": "docs/readme/03-messages.png",
+      "sha256": "d68b57e1cbb485e856499f16d2f5b78018cfd6a20a1c56a5c266a6981fe44d48"
+    },
+    {
+      "path": "docs/readme/04-service.png",
+      "sha256": "ccd03ebb7cf2721656c99bcc3820f9309608e3361522dac0cbdcba6664ee223f"
+    },
+    {
+      "path": "docs/readme/05-api.png",
+      "sha256": "61ba2a23f2b453b28554e31c021d3cef057e00bd88dbee9b0fd554b94f8a2d04"
+    },
+    {
+      "path": "docs/readme/06-baseline.png",
+      "sha256": "59cb602f410b13863dcd0e791f135f62afa41f02046af4cac4b1f8063a2e763b"
+    },
+    {
+      "path": "docs/readme/badges.svg",
+      "sha256": "facec19147447fb72dca6fd3f3102c0dafa05f3a52ac42717af5dc0596d13960"
+    },
+    {
+      "path": "docs/readme/editor.png",
+      "sha256": "634aeb2e12238f4891d04fe96d1aa69aa6af34de4a7c4e974b7268a82b1beaac"
+    },
+    {
+      "path": "docs/readme/lesson2-overview.jpg",
+      "sha256": "8c8d28acf80dc42220b9cbe6faaaf69699e994621fab3874a2a3b110b8dc2a58"
+    },
+    {
+      "path": "docs/readme/media-sources.json",
+      "sha256": "a6cc690366ee1c069e177847a6f13e3ee1a0f4014b46f5629628bbcfe2cca813"
+    },
+    {
+      "path": "docs/readme/service-flow.gif",
+      "sha256": "c5c16e97157d0d1ec8c6b39adf6230fa0f2a32d480f9bf51d1748da0919bfb05"
     },
     {
       "path": "references/01-intake-and-scope.md",
