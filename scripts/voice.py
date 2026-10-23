@@ -30,8 +30,10 @@ def synthesize(text,voice,root):
         elif backend=='qwen':
             import torch
             from qwen_tts import Qwen3TTSModel
-            dtype=getattr(torch,cfg.get('dtype','float32'))
-            if key not in _ENGINES:_ENGINES[key]=Qwen3TTSModel.from_pretrained(str(model),device_map=cfg.get('device','cpu'),dtype=dtype)
+            device=cfg.get('device','cpu')
+            if device=='auto':device='cuda:0' if torch.cuda.is_available() else 'cpu'
+            dtype=getattr(torch,cfg.get('dtype','float16' if device.startswith('cuda') else 'float32'))
+            if key not in _ENGINES:_ENGINES[key]=Qwen3TTSModel.from_pretrained(str(model),device_map=device,dtype=dtype)
             torch.manual_seed(int(voice.get('seed',42)))
             waves,sr=_ENGINES[key].generate_custom_voice(text=text,language=voice.get('language','Chinese'),speaker='Serena',instruct=voice.get('instruction',''),temperature=voice.get('temperature',.65))
             audio=np.asarray(waves[0])
@@ -72,5 +74,7 @@ def generate_project(path,scene_id=None,import_path=None):
     return p
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--scene');ap.add_argument('--import-audio');a=ap.parse_args()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(Path(a.project).resolve().parent)
     try:generate_project(a.project,a.scene,a.import_audio)
     except Exception as e:ap.exit(1,str(e)+'\n')

@@ -69,5 +69,7 @@ def render(path,out=None,height=None,fps=None,progress=lambda m:print(m,flush=Tr
     write(root.parent/'资料与来源/渲染记录.json',record);progress('有声MP4已生成：'+str(destination));return destination
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--out');ap.add_argument('--height',type=int);ap.add_argument('--fps',type=float);a=ap.parse_args()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(Path(a.project).resolve().parent)
     try:render(a.project,a.out,a.height,a.fps)
     except Exception as e:ap.exit(1,str(e)+'\n')

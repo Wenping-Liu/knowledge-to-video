@@ -2,7 +2,7 @@
 name: knowledge-to-video
 description: 将教材、导学单和参考素材制作成面向学生的知识点讲解视频，交付有声MP4、可编辑HTML工程及剪映素材。用于新课程样片、按已确认标准继续制作、修改已有讲解视频的讲稿/画面/配音，以及整理这些工程的交付文件。普通知识问答、仅阅读教材或普通视频转码无需启动完整制作流程。
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # 知识点讲解视频制作
@@ -14,7 +14,8 @@ metadata:
 1. 先查看用户给出的资料目录、已交付工程、确认意见与当前任务范围。读取[资料与范围](references/01-intake-and-scope.md)。只询问无法从资料和历史决定的关键缺项。
 2. 选择模式：新课样片、已确认标准下继续制作、局部修改、整理交付。新课先完成一个知识点供确认；已有继续制作授权时直接继承。音频单项修改无需重新采访画风。
 3. 默认配置为[曦曦白底漫画与Serena](assets/profiles/xixi-comic-serena.json)。按用户要求覆盖并保存到工程；图片、模型与素材来源仍需实际核对。
-4. 执行 `python3 <skill>/scripts/doctor.py`。模型和本机路径放在工程的 `runtime.settings.json` 或 `KTV_*` 环境变量中；不复制凭证与模型权重。工具缺失时说清受影响功能，推进独立可完成部分；指定声音缺失时保留选择，禁止静默替换。
+4. 执行 `python3 <skill>/scripts/doctor.py --check`。安装Skill文件与准备视频运行环境是两步；首次缺少依赖时读取[运行环境与安装](references/runtime.md)。实际制作已获授权时，说明将准备隔离环境、浏览器和数GB的Serena模型，并在授权范围内执行 `python3 <skill>/scripts/setup.py --yes`；已有模型可加 `--model-path`，仅需渲染/导入配音可加 `--voice none`。用户只查看资料或安装Skill文件时不主动下载模型。
+5. 安装器默认完成真实配音与有声MP4验证，并保存本机配置。后续命令自动切换到已安装环境，新工程自动继承路径；无需每次激活虚拟环境。使用默认共享缓存、工程配置或 `KTV_*` 覆盖，不把本机路径和模型权重写入公共Skill。网络/权限不足时报告具体失败步骤及重试命令，推进独立可完成部分；指定声音缺失时保留选择，禁止静默替换。
 
 ## 生产路径
 
@@ -69,4 +70,5 @@ python3 <skill>/scripts/validate.py --project <工程数据.json> --delivery
 
 - 工具、模型、平台配置：[运行环境](references/runtime.md)。运行库和模型许可分别核对。
 - 新版本功能验收：`python3 <skill>/tests/run_checks.py --out <独立测试目录>`；视频/浏览器实测见其 `--help`。测试输出不放进用户课程。
+- 首次安装：`python3 <skill>/scripts/setup.py --yes`；只看计划加 `--plan`。安装逻辑回归：`python3 <skill>/tests/test_setup.py`。
 - 用户使用与验证：[使用与验证.txt](使用与验证.txt)。验证报告只描述实际执行过的用例。

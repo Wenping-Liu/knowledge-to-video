@@ -1,4 +1,4 @@
-knowledge-to-video 1.0.0 — 使用与验证
+knowledge-to-video 1.1.0 — 使用与验证
 
 一、这是什么
 这是提供给AI编码助手使用的知识点讲解视频Skill，包含教学流程、资源规范、工程模板和工具脚本。它指导助手依据实际教材创作讲稿与动画；初始化生成的是待制作工程，不是自动完成的教材课程。
@@ -7,7 +7,8 @@ knowledge-to-video 1.0.0 — 使用与验证
 SKILL.md：必需入口，包含名称、触发描述、模式与七个工作模块。
 agents/openai.yaml：界面显示名称和默认调用提示，保留正常自动选择策略。
 references/：资料范围、教学讲稿、分镜素材、配音时间轴、编辑器、检查、交付清理，以及运行配置。
-scripts/：doctor环境检测、project新建/迁移/导入、voice配音、render渲染、package整理、validate核验、serve本地服务，共享逻辑在lib。
+requirements/：渲染、Apple Silicon MLX和其他平台PyTorch依赖分开管理。
+scripts/：setup首次安装、smoke_test真实出片验证、doctor环境检测、project新建/迁移/导入、voice配音、render渲染、package整理、validate核验、serve本地服务，共享逻辑在lib。
 assets/：离线编辑器、工程Schema、曦曦漫画Serena配置、说明与跨平台启动模板。
 tests/：可重复运行的功能检查与触发场景评测集。
 
@@ -19,15 +20,17 @@ tests/：可重复运行的功能检查与触发场景评测集。
 局部修改：
 “只调整第三镜旁白和图片，重新生成该镜配音，检查时间轴并更新交付。”
 
-安装发现由目标宿主管理：可复制整个knowledge-to-video文件夹到宿主支持的个人或项目Skill目录，保持目录名与name一致。项目级常见目录是.agents/skills/knowledge-to-video；个人位置以当前宿主实际说明为准。此次只交付本项目中的文件夹，不自动改全局配置。识别后可显式输入$knowledge-to-video；更新未显示时重新加载宿主。
+安装发现由目标宿主管理：可复制整个knowledge-to-video文件夹到宿主支持的个人或项目Skill目录，保持目录名与name一致。项目级常见目录是.agents/skills/knowledge-to-video；个人位置以当前宿主实际说明为准。复制Skill与准备运行环境是两步：识别Skill后，还需运行一次安装器。识别后可显式输入$knowledge-to-video；更新未显示时重新加载宿主。
 
 四、命令行试用（在Skill文件夹中执行）
-1. 检测环境：
-python3 scripts/doctor.py
+1. 首次准备环境（需网络，默认下载缺少的模型，并实际出片验证）：
+python3 scripts/setup.py --yes
+安装后自检：
+python3 scripts/doctor.py --check
 2. 新建独立视频目录（目标须不存在）：
 python3 scripts/project.py init --out ../我的视频/01-电流 --title 电流怎样形成
 3. 编辑生成的工程数据、讲稿、图层与关键帧，核对教材依据；编辑器可直接离线打开。
-4. 配置“可编辑工程/runtime.settings.json”：模型、FFmpeg、浏览器和Python路径只保存在本机配置。KTV_MODEL、KTV_CHROMIUM等变量可覆盖。
+4. 新工程自动继承安装器保存的本机配置，日常命令自动选择已配置的Python。需要项目专属设置时编辑“可编辑工程/runtime.settings.json”。KTV_MODEL、KTV_CHROMIUM等变量可覆盖。
 5. 配音：
 python3 scripts/voice.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
 只生成某镜加--scene s01；导入音频另加--import-audio 音频.wav。
@@ -39,11 +42,18 @@ python3 scripts/validate.py --project ../我的视频/01-电流/可编辑工程/
 python3 scripts/serve.py --project ../我的视频/01-电流/可编辑工程/工程数据.json --open
 也可双击交付目录中当前系统的启动入口。保持终端运行。请按实际路径加引号，特别是目录含空格时。
 
-五、环境依赖
-Python 3.10+；基础数据处理用标准库。视频渲染安装playwright和Chromium，以及FFmpeg；ffprobe优先，缺少时有FFmpeg解析回退。安装示例：
-python3 -m pip install playwright imageio-ffmpeg
-python3 -m playwright install chromium
-Serena配音另需numpy和兼容的mlx-audio，或qwen-tts/torch运行环境及本地1.7B CustomVoice模型。模型权重不包含在Skill包里，不自动下载。官方模型与MLX量化版本以各自上游许可为准，首次安装核对版本和接口。
+五、首次安装与依赖
+推荐先准备Python 3.12；安装器支持3.10–3.13，有uv时可自动准备用户级3.12，保留系统Python。在Skill根目录运行：
+python3 scripts/setup.py --yes
+也可按系统双击安装环境.command / 安装环境.cmd，Linux可运行sh 安装环境.sh。Windows命令行用py -3.12 scripts/setup.py --yes。
+安装器创建隔离环境、安装渲染和语音依赖、准备Chromium和FFmpeg、复用或下载Serena模型，实际生成有声验证样片。成功后保存共享配置，失败保留旧配置、日志及下载缓存，可重试。模型和第三方运行库单独下载，不随Git仓库或Skill ZIP附带。
+Apple Silicon默认MLX；其他平台采用Qwen/PyTorch，CPU可能较慢。Windows/Linux仍需实际机器验证。首次MLX8bit权重约3.1GB，另需浏览器和依赖空间，准备时需要网络。已有模型：
+python3 scripts/setup.py --yes --model-path "/本地模型目录"
+只准备编辑/渲染、配音手动导入：
+python3 scripts/setup.py --yes --voice none
+只看计划，不下载也不写入：
+python3 scripts/setup.py --plan
+配置及模型默认在本机缓存，详见references/runtime.md。Linux可能需额外安装浏览器系统库；安装器按错误给出提示，不自动sudo。首次真实试制验证成功后，核心配音/渲染可离线使用。
 
 六、功能边界
 离线可用：内嵌HTML播放、暂停、拖动、逐镜、文字/素材编辑、图片/配音导入、JSON保存加载、保存当前HTML。浏览器支持时可离线录制有声WebM。
@@ -54,11 +64,13 @@ SRT默认无精细cues时每镜一条，字幕区间对应真实音频；需要�
 技术通过不能证明课堂讲解质量；必须完整审看并试听。Windows/Linux启动模板与官方PyTorch配音适配器的实际验证状态见验收记录，未经实测不宣称通过。
 
 七、怎样验证Skill
+安装器逻辑与故障保护：
+python3 tests/test_setup.py
 基础功能：
 python3 tests/run_checks.py --out ../knowledge-to-video-测试
 浏览器和实际MP4：
 python3 tests/run_checks.py --out ../knowledge-to-video-测试 --browser --video
-真实Serena（先配置KTV_MODEL等）：
+真实Serena（先完成安装器验证）：
 python3 tests/run_checks.py --out ../knowledge-to-video-测试 --browser --video --serena
 每次在指定目录中新建run-随机编号，不覆盖已有项目。测试报告checks.json与页面截图、导出视频一起保留。基础测试使用明确标注的测试音，不冒充Serena；只有--serena才测试本地真实声音。
 

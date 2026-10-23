@@ -62,5 +62,7 @@ def package(path,video=None,preview720=False):
     return {'root':str(out),'videoReady':video_ready,'note':'请运行validate.py --delivery，并完成观看与试听'}
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--video');ap.add_argument('--preview720',action='store_true');a=ap.parse_args()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(Path(a.project).resolve().parent)
     try:print(json.dumps(package(a.project,a.video,a.preview720),ensure_ascii=False,indent=2))
     except Exception as e:ap.exit(1,str(e)+'\n')

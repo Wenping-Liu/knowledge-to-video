@@ -43,13 +43,45 @@
 
 ```bash
 git clone https://github.com/Wenping-Liu/knowledge-to-video.git
+cd knowledge-to-video
 ```
 
 保留整个文件夹，包括 `SKILL.md`、`references/`、`scripts/`、`assets/` 和 `tests/`。将其放入目标 Agent 支持的 Skill 目录，或直接让能读取本地文件的 Agent 阅读其中的 `SKILL.md`。
 
 本 Skill 的完整制作过程需要文件读写、代码执行，以及本地浏览器和音视频工具。具体依赖见 [运行环境](references/runtime.md)。
 
-### 2. 给出教材位置与制作要求
+### 2. 首次运行安装器
+
+```bash
+python3 scripts/setup.py --yes
+```
+
+安装器会按系统选择运行路线：Apple Silicon 默认 MLX，其他平台默认官方 PyTorch 路线；创建隔离 Python 环境，准备浏览器、FFmpeg 和 Serena 模型，最后实际生成一支有声验证短片。**系统 Python 和已有课程文件保持原样。**
+
+建议先准备 Python 3.12；已有 `uv` 时可由安装器准备用户级 Python。首次模型下载需要数 GB 空间（MLX 8bit 约 3.1 GB），另有浏览器和 Python 依赖；之后复用本地缓存。macOS 可运行根目录 `安装环境.command`，Windows 运行 `安装环境.cmd`，Linux 运行 `安装环境.sh`。Windows 命令行也可用 `py -3.12 scripts/setup.py --yes`。
+
+按需选择：
+
+```bash
+# 已经有模型：复用它，省去模型下载
+python3 scripts/setup.py --yes --model-path "/你的本地模型目录"
+
+# 暂时只做画面和视频导出：跳过自动配音和模型下载
+python3 scripts/setup.py --yes --voice none
+
+# 只看安装计划，暂不下载或修改文件
+python3 scripts/setup.py --plan
+```
+
+安装成功后检查：
+
+```bash
+python3 scripts/doctor.py --check
+```
+
+后续命令会自动使用已配置的隔离环境。模型、依赖和本机路径存放在本机缓存，不进入 Git 仓库。安装中断可按日志提示修复后重跑同一命令，已有下载和环境保留。完整参数与常见问题见 [安装与运行说明](references/runtime.md)。
+
+### 3. 给出教材位置与制作要求
 
 ```text
 请读取 knowledge-to-video/SKILL.md，按这个 Skill 制作。
@@ -74,7 +106,7 @@ git clone https://github.com/Wenping-Liu/knowledge-to-video.git
 重新生成该镜配音，调整时间轴，并更新 HTML、MP4 和 SRT。
 ```
 
-### 3. 先确认一个样片
+### 4. 先确认一个样片
 
 核对四件事：**内容讲清楚了吗、画风合适吗、动作帮助理解吗、声音自然吗**。已有确认意见会随工程保留，后续制作继承相同标准。
 
@@ -149,7 +181,7 @@ git clone https://github.com/Wenping-Liu/knowledge-to-video.git
 - 配音生成期间切换镜头，结果绑定原镜头；原文稿已变化时拒绝绑定旧请求结果。
 - SRT 有核对后的句级计时则使用句级计时；否则按每镜的真实旁白区间输出，并标明需要时再细分。
 
-模型权重单独配置。默认配音在本地生成，具体适配方式与依赖见 [配音规范](references/04-voice-and-timing.md) 和 [运行环境](references/runtime.md)。
+模型由首次安装器准备，也可复用本地路径。默认配音在本地生成，具体适配方式与依赖见 [配音规范](references/04-voice-and-timing.md) 和 [运行环境](references/runtime.md)。
 
 ---
 
@@ -216,7 +248,10 @@ git clone https://github.com/Wenping-Liu/knowledge-to-video.git
 
 ```bash
 # 检测本机环境
-python3 scripts/doctor.py
+python3 scripts/doctor.py --check
+
+# 安装器逻辑、模型完整性及故障保护检查
+python3 tests/test_setup.py
 
 # 基础检查，输出到独立测试目录
 python3 tests/run_checks.py --out ../knowledge-to-video-check
@@ -228,7 +263,7 @@ python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video
 python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video --serena
 ```
 
-已在 **macOS Apple Silicon** 完成 40 项功能回归，覆盖文稿改动、异步配音绑定、保存恢复、有声 MP4/WebM、移动工程后渲染，以及真实 Serena 生成；另完成时长显示复验。
+已在 **macOS Apple Silicon** 完成 40 项功能回归，覆盖文稿改动、异步配音绑定、保存恢复、有声 MP4/WebM、移动工程后渲染，以及真实 Serena 生成；另完成时长显示复验。v1.1 新增 23 项安装检查，并实测全新隔离环境安装（uv / 标准 pip 两条路径）、浏览器下载、已有模型复用、真实 Serena 有声验证短片和系统 Python 自动切换。模型下载 API 与配置下载已核验，大体积权重沿用本地已验证文件，未重复下载。
 
 [查看验收记录](验收记录.json) · [查看精简测试证据](tests/evidence) · [完整使用与验证说明](使用与验证.txt)
 
@@ -240,14 +275,14 @@ python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video 
 
 | 项目 | 说明 |
 |---|---|
-| 基础运行 | Python 3.10+ |
+| 基础运行 | 推荐 Python 3.12；安装器支持 3.10–3.13，并优先寻找或用已有 uv 准备 3.12 |
 | MP4 导出 | Playwright、Chromium、FFmpeg；优先用 ffprobe 探测，缺少时支持 FFmpeg 解析回退 |
 | Serena 配音 | 本地 1.7B CustomVoice 模型及相应 MLX / PyTorch 运行环境 |
 | 已实测平台 | macOS Apple Silicon，MLX 配音路线 |
 | 待实机验证 | Windows/Linux 启动入口、PyTorch 配音适配器 |
 | 按需制作 | 透明人物素材、复杂自定义动画及更高质量的短片处理策略 |
 
-模型权重和第三方运行库需要单独准备。当前短片预处理默认最多 30 秒、8 fps 帧序列，保留原片；需要更流畅的片段时应调整处理策略并重新验证。宿主自动触发率和新教材的教学效果需分别评估。
+模型权重和第三方运行库由安装器单独下载或复用，仓库保持轻量。当前短片预处理默认最多 30 秒、8 fps 帧序列，保留原片；需要更流畅的片段时应调整处理策略并重新验证。宿主自动触发率和新教材的教学效果需分别评估。
 
 ---
 
@@ -261,7 +296,9 @@ knowledge-to-video/
 ├── 验收记录.json             # 实际验证范围与结果
 ├── agents/openai.yaml       # 界面信息与默认调用提示
 ├── references/              # 七个模块与运行环境规范
-├── scripts/                 # 创建、配音、渲染、打包、核验与服务
+├── 安装环境.command / .cmd / .sh  # 按系统选择的首次安装入口
+├── requirements/            # 渲染、MLX与PyTorch依赖分别管理
+├── scripts/                 # 安装、自检、创建、配音、渲染、打包与服务
 ├── assets/                  # 编辑器、Schema、声音画风配置及模板
 ├── tests/                   # 回归检查、触发用例与精简证据
 └── docs/readme/             # 第二课截图、动图及来源记录

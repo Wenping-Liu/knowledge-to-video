@@ -1,6 +1,7 @@
 """Portable project I/O. Standard library; every media reference stays in the project."""
 import base64, copy, hashlib, json, math, mimetypes, os, re, shutil, subprocess, tempfile
 from pathlib import Path
+from .environment import merged_settings
 
 SCHEMA_VERSION=1
 MEDIA_TYPES={'audio':('audio/', '配音'), 'image':('image/', '图片'), 'video':('video/', '案例视频')}
@@ -81,11 +82,10 @@ def fit_duration(s):
     s['duration']=round(float(s.get('leadIn',.22))+float((s.get('audio') or {}).get('duration',0))+float(s.get('gapAfter',.5)),4)
 
 def settings(root):
-    path=Path(root)/'runtime.settings.json'
-    return read(path) if path.exists() else {}
+    return merged_settings(root)
 
 def tool(name,root=None):
-    config=settings(root) if root else {}
+    config=settings(root)
     requested=os.environ.get('KTV_'+name.upper()) or config.get(name)
     if requested:
         p=Path(requested).expanduser()

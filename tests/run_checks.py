@@ -2,6 +2,7 @@
 import argparse,array,base64,copy,functools,http.server,io,json,math,os,shutil,subprocess,sys,threading,time,urllib.request,urllib.error,uuid,wave
 from pathlib import Path
 SKILL=Path(__file__).resolve().parents[1];sys.path.insert(0,str(SKILL/'scripts'))
+from lib.environment import bootstrap_cli
 from project import create
 from package import build_html,package
 from lib.project_data import read,write,validate,materialize,pack,signature,bytes_for,fingerprint,sha,tool
@@ -167,4 +168,4 @@ def assert_raises(fn,cls):
     except cls:return
     raise AssertionError('expected '+cls.__name__)
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',required=True);ap.add_argument('--browser',action='store_true');ap.add_argument('--video',action='store_true');ap.add_argument('--serena',action='store_true');a=ap.parse_args();main(a)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',required=True);ap.add_argument('--browser',action='store_true');ap.add_argument('--video',action='store_true');ap.add_argument('--serena',action='store_true');a=ap.parse_args();bootstrap_cli();main(a)

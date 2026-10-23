@@ -1,7 +1,7 @@
 {
   "timeSeconds": 1,
-  "psnrDb": 39.562366,
+  "psnrDb": 39.707059,
   "thresholdDb": 30,
-  "preview": "reference.png",
-  "encodedFrame": "encoded.png"
+  "preview": "本地测试生成的reference.png，未附带原图",
+  "encodedFrame": "本地测试生成的encoded.png，未附带原图"
 }

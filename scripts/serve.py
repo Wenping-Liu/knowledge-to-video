@@ -85,10 +85,9 @@ def make_server(project,port=0):
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--port',type=int,default=0);ap.add_argument('--open',action='store_true');a=ap.parse_args()
-    path=Path(a.project).resolve();cfg=settings(path.parent);interpreter=os.environ.get('KTV_PYTHON') or cfg.get('python')
-    if interpreter and not os.environ.get('KTV_REEXEC') and Path(interpreter).resolve()!=Path(sys.executable).resolve():
-        if not Path(interpreter).is_file():ap.exit(1,'配置的Python路径不存在\n')
-        os.environ['KTV_REEXEC']='1';os.execv(interpreter,[interpreter,str(Path(__file__).resolve()),*sys.argv[1:]])
+    path=Path(a.project).resolve()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(path.parent)
     build_html(path);server=make_server(path,a.port);print('编辑器：'+server.ktv_url,flush=True)
     if a.open:webbrowser.open(server.ktv_url)
     try:server.serve_forever()

@@ -70,6 +70,8 @@ def report(path,require_audio=False,delivery=False):
     return {'status':'fail' if errors else 'pass','projectFingerprint':fingerprint(p),'errors':errors,'warnings':warnings,'details':details}
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--require-audio',action='store_true');ap.add_argument('--delivery',action='store_true');ap.add_argument('--out');a=ap.parse_args()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(Path(a.project).resolve().parent)
     try:
         r=report(a.project,a.require_audio,a.delivery);print(json.dumps(r,ensure_ascii=False,indent=2))
         if a.out:write(a.out,r)

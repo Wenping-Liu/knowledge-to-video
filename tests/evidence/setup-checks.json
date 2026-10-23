@@ -1,0 +1,90 @@
+{
+  "version": "1.1.0",
+  "date": "2026-10-23",
+  "platform": "macOS Apple Silicon",
+  "unitTests": {
+    "passed": 23,
+    "failed": 0,
+    "command": "python3 tests/test_setup.py"
+  },
+  "coldRenderer": {
+    "status": "pass",
+    "installer": "uv",
+    "freshVenv": true,
+    "actualBrowserDownload": true,
+    "voice": "none",
+    "testAudio": "explicit synthetic test tone"
+  },
+  "coldSerena": {
+    "status": "verified",
+    "freshVenv": true,
+    "installer": "uv",
+    "voice": "mlx",
+    "modelSource": "existing local 1.7B CustomVoice MLX 8bit weights",
+    "actualNewDependencyInstallation": true,
+    "video": {
+      "duration": 5.58,
+      "video": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "12"
+      },
+      "audio": {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      "rms": 0.14080275143260837,
+      "loudness": {
+        "input_i": "-16.15",
+        "input_tp": "-2.00",
+        "input_lra": "1.00",
+        "input_thresh": "-26.37",
+        "output_i": "-16.02",
+        "output_tp": "-1.84",
+        "output_lra": "0.40",
+        "output_thresh": "-26.20",
+        "normalization_type": "dynamic",
+        "target_offset": "0.02"
+      },
+      "fullDecode": true,
+      "errors": []
+    },
+    "subjectiveListening": "pending"
+  },
+  "standardPip": {
+    "status": "verified",
+    "freshVenv": true,
+    "installer": "venv/pip",
+    "voice": "none",
+    "existingChromiumReused": true,
+    "actualVoicedTestToneMP4": "pass"
+  },
+  "repeatSetup": {
+    "status": "verified",
+    "existingModelAndBrowserReused": true,
+    "realSerenaMP4": "pass"
+  },
+  "configuredPythonAutoDiscovery": {
+    "status": "pass",
+    "invokedWith": "system Python 3.15",
+    "actualInterpreter": "managed Python 3.12.14",
+    "configurationReady": true
+  },
+  "modelDownloadAPI": {
+    "status": "pass",
+    "repo": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit",
+    "revision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96",
+    "downloaded": "config.json only",
+    "modelType": "qwen3_tts",
+    "size": "1b7",
+    "voiceType": "custom_voice",
+    "fullWeightDownload": "not repeated; real inference used existing local weights"
+  },
+  "notVerified": [
+    "Windows/Linux实机",
+    "官方PyTorch模型实际生成",
+    "全量多GB模型下载（避免重复下载，复用已有权重并完成真实生成）"
+  ]
+}

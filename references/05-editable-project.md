@@ -8,6 +8,6 @@ project.schema.json定义portable v1结构。稳定镜头ID与顺序分开；图
 
 保存HTML先读取当前全部引用素材，内嵌当前工程和当前renderer/editor代码；失败时不下载残缺文件。JSON导出同样内嵌素材，可独立导回。保存到工程目录先materialize导入数据，所有新素材落入交付目录，再构建HTML。文件浏览器的默认下载目录由浏览器控制；本地服务导出MP4默认写根目录，前端不能承诺绕过浏览器目录权限。
 
-项目自带runtime脚本与模板，离开原Skill目录也能运行。外部Python库、浏览器、模型/权重不捆绑；运行配置单独放本机，移机后doctor检测。启动入口可以用KTV_PYTHON指定解释器，也可读取runtime.settings.json中的python。
+项目自带runtime脚本与模板，离开原Skill目录也能运行。外部Python库、浏览器、模型/权重不捆绑；项目内runtime/scripts/setup.py和requirements可在新机器准备隔离环境，运行配置由安装器保存到本机共享缓存，移机后doctor检测。启动入口可以用KTV_PYTHON指定解释器，也可读取runtime.settings.json中的python。
 
 原有课程使用不同字段时，先 `project.py migrate --source ... --out <新文件夹>` 复制迁移，旧项目保持不变。迁移不能完整移植自定义绘图代码，须手工适配并审查，避免把“数据可读”误报“画面完全一致”。

@@ -1,7 +1,7 @@
 """Create independent lesson folders; import media or migrate legacy data without overwriting originals."""
 import argparse,copy,json,os,shutil,sys
 from pathlib import Path
-from lib.project_data import read,write,pack,materialize
+from lib.project_data import read,write,pack,materialize,settings
 from lib.media_paths import ingest
 
 SKILL=Path(__file__).resolve().parents[1]
@@ -10,7 +10,8 @@ def install_runtime(root):
     root=Path(root);runtime=root/'runtime';runtime.mkdir(exist_ok=True)
     shutil.copytree(SKILL/'scripts',runtime/'scripts',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     shutil.copytree(SKILL/'assets',runtime/'assets',dirs_exist_ok=True)
-    (runtime/'requirements.txt').write_text('playwright>=1.48,<2\nimageio-ffmpeg>=0.5,<1\n# Optional voice: numpy + mlx-audio (Apple Silicon), or numpy + torch + qwen-tts\n',encoding='utf-8')
+    if (SKILL/'requirements').is_dir():shutil.copytree(SKILL/'requirements',runtime/'requirements',dirs_exist_ok=True)
+    (runtime/'requirements.txt').write_text('-r requirements/render.txt\n# Voice: requirements/voice-mlx.txt or requirements/voice-qwen.txt\n',encoding='utf-8')
     shutil.copytree(SKILL/'assets/editor-template',root/'动画代码',dirs_exist_ok=True)
 
 def create(out,title,profile=None):
@@ -19,9 +20,12 @@ def create(out,title,profile=None):
     root=out/'可编辑工程';root.mkdir(parents=True)
     for folder in ['图片','案例视频','配音']:(root/folder).mkdir()
     for folder in ['剪映素材/分镜配音','剪映素材/分镜画面参考','资料与来源']:(out/folder).mkdir(parents=True)
+    explicit_profile=profile is not None
     profile=read(profile or SKILL/'assets/profiles/xixi-comic-serena.json')
+    cfg=settings(None)
+    if not explicit_profile and cfg.get('voiceBackend') in ['mlx','qwen']:profile['voice']['backend']=cfg['voiceBackend']
     p={'schemaVersion':1,'title':title,'revision':1,'canvas':{'width':1280,'height':720,'fps':30},'profile':profile,'voice':profile['voice'],'approvals':{'sample':{'status':'pending','evidence':''}},'sources':[],'coverage':[],'review':{},'scenes':[{'id':'s01','title':'待编写的教学分镜','narration':'大家好，我是曦曦。本节我们要来学习，请填写本节知识点。','leadIn':profile['leadIn'],'gapAfter':profile['gapAfter'],'duration':8,'audio':None,'sourceIds':[],'layers':[{'id':'title','type':'text','text':title,'fontSize':54,'fill':'#171717','x':100,'y':70,'width':1080,'height':160,'scale':1,'visible':True},{'id':'object','type':'shape','shape':'rect','x':140,'y':320,'width':300,'height':220,'scale':1,'fill':'#FFCE45','dots':True,'visible':True,'keyframes':[{'at':0,'x':140},{'at':3,'x':760},{'at':6,'x':140}]}]}]}
-    write(root/'工程数据.json',p);write(root/'runtime.settings.json',{'python':'','ffmpeg':'','ffprobe':'','chromium':'','modelPath':'','voiceBackend':profile['voice']['backend'],'device':'cpu','dtype':'float32'})
+    write(root/'工程数据.json',p);write(root/'runtime.settings.json',{k:cfg.get(k,'') for k in ['python','ffmpeg','ffprobe','chromium','modelPath','voiceBackend','device','dtype']})
     install_runtime(root)
     (out/'资料与来源/AI生成说明.txt').write_text('待制作：逐项记录实际生成的文字、图片、声音、模型、提示词和使用限制。\n',encoding='utf-8')
     from package import build_html,launchers
@@ -53,6 +57,8 @@ if __name__=='__main__':
     a=sp.add_parser('migrate');a.add_argument('--source',required=True);a.add_argument('--out',required=True)
     a=sp.add_parser('media');a.add_argument('--project',required=True);a.add_argument('--scene',required=True);a.add_argument('--layer',required=True);a.add_argument('--source',required=True);a.add_argument('--kind',choices=['image','video'],required=True)
     args=ap.parse_args()
+    from lib.environment import bootstrap_cli
+    bootstrap_cli(Path(args.project).resolve().parent if args.action=='media' else None)
     try:
         if args.action=='init':print(create(args.out,args.title,args.profile))
         elif args.action=='migrate':print(migrate(args.source,args.out))

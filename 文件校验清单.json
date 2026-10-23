@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f620fb7c6302582d3e21cc3ed6c5306cb4d1e6187581939be562e85b298082ce"
+      "sha256": "f173482de66915b8068b3837a9940c73de7cb8c48a909a2efe30a4c9324b53eb"
     },
     {
       "path": "SKILL.md",
-      "sha256": "a4983a8fa4fbea177faf725f5d53a9e3c3178042d4d558833e701889d4ddc094"
+      "sha256": "bc327ed663cd5adaee43c94b5d8c07fb6245ccbc22090e5112ce8f4b3fd78d00"
     },
     {
       "path": "agents/openai.yaml",
@@ -26,11 +26,11 @@
     },
     {
       "path": "assets/delivery-templates/launchers/windows.cmd.template",
-      "sha256": "21fcc95da967f2386510f8f13936131cd8f3d663e0e1c5f9668008e94b2edb14"
+      "sha256": "15276727773d72c8c410f05509bd47c4c3b17ff3146a2d2a36bebf0fcbca37ee"
     },
     {
       "path": "assets/delivery-templates/使用说明.template.txt",
-      "sha256": "2660d5bdb2f72cf3e3be77baa9fef3c7ba092ea03df2f68a9899fcb08cd719f9"
+      "sha256": "3e5cb97fca87f022cf36b8da2764f12ae9823527d5ddd097f4f09a92cd0ca1f7"
     },
     {
       "path": "assets/editor-template/editor.css",
@@ -118,7 +118,7 @@
     },
     {
       "path": "references/05-editable-project.md",
-      "sha256": "c4779c8b752a5ca68494e62d5326c21a0be99ea10befd9e2461c09790e599662"
+      "sha256": "8dcacd7abda66c9287107c90d111d38ae426f16f2bb0af0f43198d321725f786"
     },
     {
       "path": "references/06-quality-checks.md",
@@ -130,23 +130,43 @@
     },
     {
       "path": "references/runtime.md",
-      "sha256": "7ee971203233bc98f0625e7a723cd817627462278b0f53656bee889b11cd1e8b"
+      "sha256": "999c4fecd219c2f3d5bee6e5561e7646205c76d5426d12ac227be0e9b2f0d746"
+    },
+    {
+      "path": "requirements/render.txt",
+      "sha256": "3f96b53f1469f946cfee9fb0ffb5d8f6b827b30f90cc1ef0464fc9514f8fbfb3"
+    },
+    {
+      "path": "requirements/voice-mlx.txt",
+      "sha256": "29a83c602884636a98ffc01c3d5eafdf25548eab4e44158faf515afe44ac9792"
+    },
+    {
+      "path": "requirements/voice-qwen.txt",
+      "sha256": "4f2ee27243756d511e9c2ecc5f43334d306d30a3778d5e55e78e44595697c6d2"
     },
     {
       "path": "scripts/doctor.py",
-      "sha256": "8ec225d65487a4f56af828fb1ed52db8b90fd43bfa349f5bd46e34cb95e11a24"
+      "sha256": "b2cbc9794d998c77e04825d0d67a726f05dcaba374bd877c1d627701cfae7c79"
     },
     {
       "path": "scripts/lib/__init__.py",
       "sha256": "d27aa4f06798b41006364580847a416e9d07eace684fbef3ee9f60fc5eee6c80"
     },
     {
+      "path": "scripts/lib/environment.py",
+      "sha256": "6fb5e3c93e3175f0080236410ef6fca89f762a88d936c078e9932828be181e6a"
+    },
+    {
       "path": "scripts/lib/media_paths.py",
       "sha256": "a4cba6c59efcbe7a514540ac4c40f0fe5546f11a7661cf5137a30b52cc6ad183"
     },
     {
+      "path": "scripts/lib/model_assets.py",
+      "sha256": "9e76a2a51cb7a92b88ef843a751fd15f1f413b449054fa35775f9652f4f4addd"
+    },
+    {
       "path": "scripts/lib/project_data.py",
-      "sha256": "10bd72393b6aa0878b9ff1c2a0b5ef2bc6c734d4a78ec8622dbf35eef61b2663"
+      "sha256": "489bdd6c87c66ed2d4929a16eb47e451c1f5075748a12172c73c2a3e0ba93457"
     },
     {
       "path": "scripts/lib/timeline.py",
@@ -154,43 +174,59 @@
     },
     {
       "path": "scripts/package.py",
-      "sha256": "081d05cf45adf1e1a0619095e7f668fd29fa0d1da03e71faf9e7188fb67005b2"
+      "sha256": "3ee438a0d5ded03f338bdeb76948e902128ad94f7aaf7d59561242f30c75950a"
     },
     {
       "path": "scripts/project.py",
-      "sha256": "f750b58115317a7c092bc12539c96cd350ebb5ab123042cac3dd03510888dea5"
+      "sha256": "c7332e73d298dc06311827990904482bcfa32717c732d35c719e0c7dab092991"
     },
     {
       "path": "scripts/render.py",
-      "sha256": "494d10d68fdc3afa1d7d6a8a25833c227e43793f5f9e40f1667dd896d0169553"
+      "sha256": "79fc041a898c15082fe5ea487e92a4af3d0ce10b4fe9e48bc899dacdc00db526"
     },
     {
       "path": "scripts/serve.py",
-      "sha256": "bfab87f8d8e29d107fe33ad9aca4609a35a60d2f3468e4e77d339ddfe178a579"
+      "sha256": "24c60f071f80b27ceadb779d5c614333d7342756c1d6c437f43b996fc525dc8e"
+    },
+    {
+      "path": "scripts/setup.py",
+      "sha256": "d6e01ec3c3ebd0862cf7bf0ff2de8e72b38c7bd59863c2d025be881f30a1c09d"
+    },
+    {
+      "path": "scripts/smoke_test.py",
+      "sha256": "062c4e29f07ee99ed0cfa09c11493e9c9f7d869a1fddba76ae856a2c12d44581"
     },
     {
       "path": "scripts/validate.py",
-      "sha256": "a452b7b2d18b1d819d55b2ee024f1febcb6588e7f37a4afc93b0ff55c29efdbf"
+      "sha256": "16976ba148fcebf1c6d75cfda5f8a3cba8836aa783d0a3a5229ac50686b800ef"
     },
     {
       "path": "scripts/voice.py",
-      "sha256": "f8a0c736331ece8b9a7f4a842d1ec3378fe81ecf557f19ee5fee6ac6bc3aaa23"
+      "sha256": "03b3c090376aec5cdcebf4035f2868d6090082cde56dbc1be177b264e081261d"
     },
     {
       "path": "tests/evidence/checks.json",
-      "sha256": "cee0f174c5d62ffdb0a52e7816cbe66057d5e191a1546b2505aa7f108bd5b0df"
+      "sha256": "a4d78822548ca22087dafef69cd3a5792de19208bd55d42ec5d5d4c2a642edb7"
     },
     {
       "path": "tests/evidence/preview-export-comparison.json",
-      "sha256": "d111ca0b17e819ecd57b2f2f9da8298a0bc68cb0b53a576b81c37fafbdf81aad"
+      "sha256": "6cf44a08a73429d106e11d05901c986e127a2bea2888858f12a3d03d1ca15d12"
     },
     {
       "path": "tests/evidence/serena-video-check.json",
-      "sha256": "8d1ad39c9fa989a26f0e5fce4e1bdc113f263d156d30117908330a22efa41490"
+      "sha256": "b25ac6230d3e73feea32dcd4da2fb1f561ce855951a12eb7bb920731282a2a6c"
+    },
+    {
+      "path": "tests/evidence/setup-checks.json",
+      "sha256": "930cfecddfab393c4463af79641571c66af121501e1f93d8b9eaeb5510bb8b85"
     },
     {
       "path": "tests/run_checks.py",
-      "sha256": "3df514553795eecb95d869a8d43eb2147c485f3f722a7433ff07c369a56a1c62"
+      "sha256": "346d968efa478487ca237814b9964df3720f7f04e46c44d7151a72a408bf0aa6"
+    },
+    {
+      "path": "tests/test_setup.py",
+      "sha256": "c038d9ded96e51bb1b9c445aaac05f434f0e8783e0473e9cebef553b52897817"
     },
     {
       "path": "tests/trigger-cases.json",
@@ -198,11 +234,23 @@
     },
     {
       "path": "使用与验证.txt",
-      "sha256": "13dd4443a78ef873a8ccd5875bd6d3f36c4f77bd2e96f5138368b4671ef70124"
+      "sha256": "eda0ea505fd10e10e8951e546fe5fcf191c3a51c0b2abbe5c44544b23379bdf7"
+    },
+    {
+      "path": "安装环境.cmd",
+      "sha256": "54d82204068167765e273f3569848a803fa4766b4aef60aa7851b8505bc7bfa5"
+    },
+    {
+      "path": "安装环境.command",
+      "sha256": "1b4eb82a4189b13a9b8c3ab2740fdaf51817d8a029f0b2988884a8d121086934"
+    },
+    {
+      "path": "安装环境.sh",
+      "sha256": "1b4eb82a4189b13a9b8c3ab2740fdaf51817d8a029f0b2988884a8d121086934"
     },
     {
       "path": "验收记录.json",
-      "sha256": "96a3438691acd534e9dbe2da5668d938198449fb1611965220cfc1d12fb334f6"
+      "sha256": "f2a9d2c70b1e0b0428ff13e4f9fbcd746258084fa27ba761c5afc156fd0631fa"
     }
   ]
 }
