@@ -1,0 +1,4 @@
+interface:
+  display_name: "知识点讲解视频制作"
+  short_description: "将教材和导学单制作成有声漫画讲解视频、可编辑工程及剪映素材"
+  default_prompt: "使用 $knowledge-to-video，根据提供的教材和导学单先制作一个知识点样片，并交付可编辑工程和有声视频。"

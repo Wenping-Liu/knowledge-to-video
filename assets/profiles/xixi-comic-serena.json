@@ -1,0 +1,24 @@
+{
+  "name":"曦曦白底漫画与Serena",
+  "audience":"零基础、初中生也能理解",
+  "background":"#FFFFFF",
+  "palette":["#171717","#FFCE45","#F07846","#82B8CB"],
+  "style":"原创漫画，粗墨线与适量网点，大主体，动作解释机制",
+  "opening":"大家好，我是曦曦。本节我们要来学习……",
+  "closing":"本节课我们学习了……",
+  "narrationSubtitles":false,
+  "characterEnabled":false,
+  "excludedScreenTerms":["happyllm"],
+  "leadIn":0.22,
+  "gapAfter":0.5,
+  "voice":{
+    "backend":"mlx",
+    "modelFamily":"Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "speaker":"Serena",
+    "language":"Chinese",
+    "instruction":"用标准普通话，像一位亲切、清晰的年轻女老师，面对初中生娓娓道来地讲解。每段起句从容，开头的短语稍缓，再顺着句意进入适中的正常语速。语气温和自然，语流连贯，按完整意思停顿，重点词轻轻强调。",
+    "temperature":0.65,
+    "seed":42,
+    "speed":1.0
+  }
+}

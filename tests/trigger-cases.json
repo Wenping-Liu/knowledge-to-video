@@ -1,0 +1,12 @@
+[
+ {"query":"把这个文件夹的教材和导学单做成初中生能听懂的知识点视频，先做一个样片。","shouldTrigger":true,"mode":"sample"},
+ {"query":"样片画风和声音已经确认，继续制作剩余四个知识点，各给一个可编辑HTML和有声视频。","shouldTrigger":true,"mode":"continue"},
+ {"query":"把这个讲解动画的第三镜旁白改一下，重新生成Serena配音并更新导出文件。","shouldTrigger":true,"mode":"revise"},
+ {"query":"把已做完的课程整理为独立文件夹，给我剪映素材、字幕和可迁移工程。","shouldTrigger":true,"mode":"deliver"},
+ {"query":"可编辑课件修改文字后旧声音还在，帮我修复并核验保存恢复和MP4。","shouldTrigger":true,"mode":"repair"},
+ {"query":"解释一下什么是电流，用一个例子说清楚。","shouldTrigger":false,"reason":"普通文字问答"},
+ {"query":"读这份教材，列出知识点，先别做视频。","shouldTrigger":false,"reason":"仅阅读和梳理资料"},
+ {"query":"把这个生日视频从MOV转换为MP4。","shouldTrigger":false,"reason":"普通转码"},
+ {"query":"我要一张漫画风电路插画。","shouldTrigger":false,"reason":"单张图片创作"},
+ {"query":"只检查这段录音是否有削波，给出响度。","shouldTrigger":false,"reason":"独立音频技术检测"}
+]

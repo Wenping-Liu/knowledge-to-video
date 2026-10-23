@@ -1,0 +1,72 @@
+knowledge-to-video 1.0.0 — 使用与验证
+
+一、这是什么
+这是提供给AI编码助手使用的知识点讲解视频Skill，包含教学流程、资源规范、工程模板和工具脚本。它指导助手依据实际教材创作讲稿与动画；初始化生成的是待制作工程，不是自动完成的教材课程。
+
+二、有哪些部分
+SKILL.md：必需入口，包含名称、触发描述、模式与七个工作模块。
+agents/openai.yaml：界面显示名称和默认调用提示，保留正常自动选择策略。
+references/：资料范围、教学讲稿、分镜素材、配音时间轴、编辑器、检查、交付清理，以及运行配置。
+scripts/：doctor环境检测、project新建/迁移/导入、voice配音、render渲染、package整理、validate核验、serve本地服务，共享逻辑在lib。
+assets/：离线编辑器、工程Schema、曦曦漫画Serena配置、说明与跨平台启动模板。
+tests/：可重复运行的功能检查与触发场景评测集。
+
+三、怎样调用
+无需先安装，也可以在当前聊天明确提供Skill路径：
+“请读取这个文件夹的SKILL.md，按knowledge-to-video制作。教材在……，先做一个知识点样片，输出到……。”
+已有样片：
+“继续按已确认的白底漫画和Serena声音制作其余知识点，继承工程中的确认记录。”
+局部修改：
+“只调整第三镜旁白和图片，重新生成该镜配音，检查时间轴并更新交付。”
+
+安装发现由目标宿主管理：可复制整个knowledge-to-video文件夹到宿主支持的个人或项目Skill目录，保持目录名与name一致。项目级常见目录是.agents/skills/knowledge-to-video；个人位置以当前宿主实际说明为准。此次只交付本项目中的文件夹，不自动改全局配置。识别后可显式输入$knowledge-to-video；更新未显示时重新加载宿主。
+
+四、命令行试用（在Skill文件夹中执行）
+1. 检测环境：
+python3 scripts/doctor.py
+2. 新建独立视频目录（目标须不存在）：
+python3 scripts/project.py init --out ../我的视频/01-电流 --title 电流怎样形成
+3. 编辑生成的工程数据、讲稿、图层与关键帧，核对教材依据；编辑器可直接离线打开。
+4. 配置“可编辑工程/runtime.settings.json”：模型、FFmpeg、浏览器和Python路径只保存在本机配置。KTV_MODEL、KTV_CHROMIUM等变量可覆盖。
+5. 配音：
+python3 scripts/voice.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
+只生成某镜加--scene s01；导入音频另加--import-audio 音频.wav。
+6. 渲染、整理、验证：
+python3 scripts/render.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
+python3 scripts/package.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
+python3 scripts/validate.py --project ../我的视频/01-电流/可编辑工程/工程数据.json --delivery
+7. 本地编辑器：
+python3 scripts/serve.py --project ../我的视频/01-电流/可编辑工程/工程数据.json --open
+也可双击交付目录中当前系统的启动入口。保持终端运行。请按实际路径加引号，特别是目录含空格时。
+
+五、环境依赖
+Python 3.10+；基础数据处理用标准库。视频渲染安装playwright和Chromium，以及FFmpeg；ffprobe优先，缺少时有FFmpeg解析回退。安装示例：
+python3 -m pip install playwright imageio-ffmpeg
+python3 -m playwright install chromium
+Serena配音另需numpy和兼容的mlx-audio，或qwen-tts/torch运行环境及本地1.7B CustomVoice模型。模型权重不包含在Skill包里，不自动下载。官方模型与MLX量化版本以各自上游许可为准，首次安装核对版本和接口。
+
+六、功能边界
+离线可用：内嵌HTML播放、暂停、拖动、逐镜、文字/素材编辑、图片/配音导入、JSON保存加载、保存当前HTML。浏览器支持时可离线录制有声WebM。
+本地服务：生成Serena配音、短片预处理、保存到交付目录、渲染有声MP4。
+联网：资料搜索、可选图片生成、首次安装依赖/模型等。
+默认人物不出镜；透明曦曦需要另行启用并制作。原视频以原片+帧序列交付，模板预处理默认8fps、最多30秒，复杂视频需按内容调整策略。
+SRT默认无精细cues时每镜一条，字幕区间对应真实音频；需要短句字幕可填核对后的cues，重新配音后旧cues清空。SRT没有声音/字体/动画，剪映配合无字幕有声视频使用。
+技术通过不能证明课堂讲解质量；必须完整审看并试听。Windows/Linux启动模板与官方PyTorch配音适配器的实际验证状态见验收记录，未经实测不宣称通过。
+
+七、怎样验证Skill
+基础功能：
+python3 tests/run_checks.py --out ../knowledge-to-video-测试
+浏览器和实际MP4：
+python3 tests/run_checks.py --out ../knowledge-to-video-测试 --browser --video
+真实Serena（先配置KTV_MODEL等）：
+python3 tests/run_checks.py --out ../knowledge-to-video-测试 --browser --video --serena
+每次在指定目录中新建run-随机编号，不覆盖已有项目。测试报告checks.json与页面截图、导出视频一起保留。基础测试使用明确标注的测试音，不冒充Serena；只有--serena才测试本地真实声音。
+
+静态Skill格式校验可用宿主skill-creator提供的quick_validate.py（依赖PyYAML）。JSON Schema可用支持Draft2020-12的校验器检测；runtime还有独立标准库语义校验。
+触发描述评测：将tests/trigger-cases.json逐条交给目标宿主，记录是否调用本Skill；这是用例集，不能当成已测出的自动触发率。
+
+人工验收：换一份未参与开发的教材，制作一个真实样片，检查知识点覆盖、概念和比喻边界、讲课连贯性、文字布局、动作解释力、声音自然度。再修改一镜、重生成声音、保存恢复、移动整个交付目录并重新导出，检查成片有声且对应新文稿。
+
+八、文件整理与清理
+交付结构见references/07-delivery-and-cleanup.md。每支视频独立目录；分镜素材按001、002编号，静态参考图明确标识；默认无旁白字幕版保留声音。
+只有用户明确要求清理旧版时执行；先验证最终视频和移动后的工程，再清理被替代输出，保留独有原始素材及其他项目。Skill不提供递归删除脚本。

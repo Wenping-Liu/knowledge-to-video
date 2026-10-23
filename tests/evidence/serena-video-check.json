@@ -1,0 +1,36 @@
+{
+  "duration": 4.666666666666667,
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "technical": {
+    "duration": 4.67,
+    "video": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "avg_frame_rate": "30"
+    },
+    "audio": {
+      "codec_name": "aac",
+      "sample_rate": "48000",
+      "channels": 1
+    },
+    "rms": 0.1422852315939214,
+    "loudness": {
+      "input_i": "-16.02",
+      "input_tp": "-2.09",
+      "input_lra": "1.30",
+      "input_thresh": "-26.16",
+      "output_i": "-14.98",
+      "output_tp": "-1.00",
+      "output_lra": "1.20",
+      "output_thresh": "-25.09",
+      "normalization_type": "dynamic",
+      "target_offset": "-1.02"
+    },
+    "fullDecode": true,
+    "errors": []
+  },
+  "visualAndListeningReview": "pending"
+}

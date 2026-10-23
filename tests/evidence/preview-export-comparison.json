@@ -1,0 +1,7 @@
+{
+  "timeSeconds": 1,
+  "psnrDb": 39.562366,
+  "thresholdDb": 30,
+  "preview": "reference.png",
+  "encodedFrame": "encoded.png"
+}

@@ -1,0 +1,164 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "000e7c98d4860a64bd8403dcf7668c3f97be67e39903ad1c105d00e3e3c5858b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a5496cf9b004f26f478fd9c167e009615c715163c802c7f5e85aff96a8e08b90"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "a4983a8fa4fbea177faf725f5d53a9e3c3178042d4d558833e701889d4ddc094"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "01915b98a99bc2f6e7b9758dfd90d9bab282297dbb797b90c0d45e91ff06f85c"
+    },
+    {
+      "path": "assets/delivery-templates/launchers/linux.sh.template",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "assets/delivery-templates/launchers/macos.command.template",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "assets/delivery-templates/launchers/windows.cmd.template",
+      "sha256": "21fcc95da967f2386510f8f13936131cd8f3d663e0e1c5f9668008e94b2edb14"
+    },
+    {
+      "path": "assets/delivery-templates/使用说明.template.txt",
+      "sha256": "2660d5bdb2f72cf3e3be77baa9fef3c7ba092ea03df2f68a9899fcb08cd719f9"
+    },
+    {
+      "path": "assets/editor-template/editor.css",
+      "sha256": "6b0df3e533e05658ac7a3d384774dcab9a64a62f7745fab46c7697e17faa86ac"
+    },
+    {
+      "path": "assets/editor-template/editor.js",
+      "sha256": "78f8aa94b70d7e5711b92788fc870310126cc931e5f7f7143b7252ec9a0a0939"
+    },
+    {
+      "path": "assets/editor-template/index.html",
+      "sha256": "55f9788462922cda345e4dfef0a05af6f7e1187c7f93a89911f2fb0fdfc9ba11"
+    },
+    {
+      "path": "assets/editor-template/renderer.js",
+      "sha256": "423e4f8d1a9a5b3980ee5ad664720053d711f0b02c760e204ed60693fa9f6be0"
+    },
+    {
+      "path": "assets/profiles/xixi-comic-serena.json",
+      "sha256": "c6c8f724a3954e7d505311a39440df724284e2a2562300ac2190e29e79090d94"
+    },
+    {
+      "path": "assets/schemas/project.schema.json",
+      "sha256": "abb2a959ee53c4ba606e7ecda7624153fd8b9fc87ab4480cc3720a91928fe6f2"
+    },
+    {
+      "path": "references/01-intake-and-scope.md",
+      "sha256": "a31d29a9fdc164008e821f66e7dc6a69e7c39d35a69a0e58e9c1a19ceeed8fa6"
+    },
+    {
+      "path": "references/02-teaching-and-script.md",
+      "sha256": "e24841a76e47e1d630e02745868b4bd203ad49b7ff68e4c571b9465f5595dfa1"
+    },
+    {
+      "path": "references/03-storyboard-and-media.md",
+      "sha256": "199a0adc7b8aa61c24ce81ec648a2c383c638637123efdbdd645dcbd6dd038e5"
+    },
+    {
+      "path": "references/04-voice-and-timing.md",
+      "sha256": "bb87974446b5b394f20a3d790ecd1b8235c61afdaa4229e129df0690248b0381"
+    },
+    {
+      "path": "references/05-editable-project.md",
+      "sha256": "c4779c8b752a5ca68494e62d5326c21a0be99ea10befd9e2461c09790e599662"
+    },
+    {
+      "path": "references/06-quality-checks.md",
+      "sha256": "045f0ba4b1d9b568f18337e4c999ea8d7b142eebd535ca6652ea347b018d62cb"
+    },
+    {
+      "path": "references/07-delivery-and-cleanup.md",
+      "sha256": "b67f49d57ac580534079e5ce8df4d0ca8e183e5c4b59b8f8761656025f093129"
+    },
+    {
+      "path": "references/runtime.md",
+      "sha256": "7ee971203233bc98f0625e7a723cd817627462278b0f53656bee889b11cd1e8b"
+    },
+    {
+      "path": "scripts/doctor.py",
+      "sha256": "8ec225d65487a4f56af828fb1ed52db8b90fd43bfa349f5bd46e34cb95e11a24"
+    },
+    {
+      "path": "scripts/lib/__init__.py",
+      "sha256": "d27aa4f06798b41006364580847a416e9d07eace684fbef3ee9f60fc5eee6c80"
+    },
+    {
+      "path": "scripts/lib/media_paths.py",
+      "sha256": "a4cba6c59efcbe7a514540ac4c40f0fe5546f11a7661cf5137a30b52cc6ad183"
+    },
+    {
+      "path": "scripts/lib/project_data.py",
+      "sha256": "10bd72393b6aa0878b9ff1c2a0b5ef2bc6c734d4a78ec8622dbf35eef61b2663"
+    },
+    {
+      "path": "scripts/lib/timeline.py",
+      "sha256": "e195695c6a81e02c62d1877d3e50371b798a03d1408b1c4152b14822d9f2312c"
+    },
+    {
+      "path": "scripts/package.py",
+      "sha256": "081d05cf45adf1e1a0619095e7f668fd29fa0d1da03e71faf9e7188fb67005b2"
+    },
+    {
+      "path": "scripts/project.py",
+      "sha256": "f750b58115317a7c092bc12539c96cd350ebb5ab123042cac3dd03510888dea5"
+    },
+    {
+      "path": "scripts/render.py",
+      "sha256": "494d10d68fdc3afa1d7d6a8a25833c227e43793f5f9e40f1667dd896d0169553"
+    },
+    {
+      "path": "scripts/serve.py",
+      "sha256": "bfab87f8d8e29d107fe33ad9aca4609a35a60d2f3468e4e77d339ddfe178a579"
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "a452b7b2d18b1d819d55b2ee024f1febcb6588e7f37a4afc93b0ff55c29efdbf"
+    },
+    {
+      "path": "scripts/voice.py",
+      "sha256": "f8a0c736331ece8b9a7f4a842d1ec3378fe81ecf557f19ee5fee6ac6bc3aaa23"
+    },
+    {
+      "path": "tests/evidence/checks.json",
+      "sha256": "cee0f174c5d62ffdb0a52e7816cbe66057d5e191a1546b2505aa7f108bd5b0df"
+    },
+    {
+      "path": "tests/evidence/preview-export-comparison.json",
+      "sha256": "d111ca0b17e819ecd57b2f2f9da8298a0bc68cb0b53a576b81c37fafbdf81aad"
+    },
+    {
+      "path": "tests/evidence/serena-video-check.json",
+      "sha256": "8d1ad39c9fa989a26f0e5fce4e1bdc113f263d156d30117908330a22efa41490"
+    },
+    {
+      "path": "tests/run_checks.py",
+      "sha256": "3df514553795eecb95d869a8d43eb2147c485f3f722a7433ff07c369a56a1c62"
+    },
+    {
+      "path": "tests/trigger-cases.json",
+      "sha256": "541d3ccd4b76b7e02d463877388a77c3d0102774faf22cf42f059fa4de284352"
+    },
+    {
+      "path": "使用与验证.txt",
+      "sha256": "13dd4443a78ef873a8ccd5875bd6d3f36c4f77bd2e96f5138368b4671ef70124"
+    },
+    {
+      "path": "验收记录.json",
+      "sha256": "96a3438691acd534e9dbe2da5668d938198449fb1611965220cfc1d12fb334f6"
+    }
+  ]
+}

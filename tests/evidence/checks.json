@@ -1,0 +1,209 @@
+{
+  "checks": [
+    {
+      "name": "valid current audio",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "materialize-pack audio MIME roundtrip",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "signature integers canonical",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "edited narration invalidates audio",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "changed voice invalidates audio",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "duplicate IDs rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "path traversal rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "missing media rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "changed bytes detected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "short scene rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "SRT uses audio interval and sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "invalid subtitle cues rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "service token enforced",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "foreign Origin rejected",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "authenticated health",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "browser agrees audio signature",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "UI edit stops stale audio",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "async import binds original scene",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "image added",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "async TTS binds original scene",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "stale TTS response rejected after text edit",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "moving animated layer shifts its keyframes",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "JSON snapshot embeds audio/images",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "saved HTML restores current narration and media",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "saved HTML excludes session token",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "actual playback advances timeline",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "local save response",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "service saves edited project",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "editor export button completes real voiced MP4 job",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "offline WebM has audio and video",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "no browser errors",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "video import retains original and frame sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "actual voiced MP4 and complete delivery",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "old video rejected after saved project change",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "moved project references exist",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "copied runtime validates without original skill",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "moved project renders",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "preview/export PSNR above 30dB",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "actual Serena local generation",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "actual Serena voiced MP4",
+      "status": "pass",
+      "detail": null
+    }
+  ],
+  "passed": 40,
+  "failed": 0,
+  "testAudio": "synthetic tones clearly labelled, plus real Serena only when --serena",
+  "subjectiveReview": "pending",
+  "platform": "darwin"
+}
