@@ -295,7 +295,7 @@ python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video
 python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video --serena
 ```
 
-v1.2 已在 **macOS Apple Silicon** 通过 44 项真实浏览器/音视频功能检查、23 项教学计时与审查绑定回归、23 项安装检查。新版检查覆盖改文稿/表达后声音失效、语音锚点重排、装饰与循环排除、导出计时门禁、SVG分组保留、工程移动后渲染，以及预览与MP4画面一致性。真实 Serena 生成、局部声学对齐和有声样片另行记录；自然度与教学效果仍需实际审看和试听。
+v1.2 已在 **macOS Apple Silicon** 通过 44 项真实浏览器/音视频功能检查、23 项教学计时与审查绑定回归、23 项安装检查；v1.2.1另增加3项保音高倍速检查。新版检查覆盖改文稿/表达后声音失效、语音锚点重排、装饰与循环排除、导出计时门禁、SVG分组保留、工程移动后渲染，以及预览与MP4画面一致性。真实 Serena 生成、局部声学对齐和有声样片另行记录；自然度与教学效果仍需实际审看和试听。
 
 [查看验收记录](验收记录.json) · [查看精简测试证据](tests/evidence) · [完整使用与验证说明](使用与验证.txt)
 

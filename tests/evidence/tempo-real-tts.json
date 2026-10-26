@@ -1,0 +1,21 @@
+{
+  "sha256": "550ba848ed3fafa3912c34e1810ebbfe9b5cc5fa23a2485893e02d4db616fd06",
+  "duration": 4.648541666666667,
+  "signature": "b7cce1bae42177cdfbadd92b905126bf61781743ee74b4a8d5b772411b800002",
+  "provenance": {
+    "type": "local-tts",
+    "backend": "mlx",
+    "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "speaker": "Serena",
+    "seed": 42,
+    "temperature": 0.65,
+    "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa",
+    "tempo": {
+      "method": "ffmpeg-atempo",
+      "factor": 1.2,
+      "preservePitch": true
+    }
+  },
+  "alignmentReady": true,
+  "scope": "Actual local Serena synthesis at voice.speed=1.2 and forced alignment; not a subjective listening evaluation"
+}

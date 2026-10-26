@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-26",
+  "platform": "macOS Apple Silicon",
+  "passed": 3,
+  "failed": 0,
+  "evidence": "test_1_2_rate_shortens_audio_without_raising_pitch (test_audio_tempo.TempoChecks.test_1_2_rate_shortens_audio_without_raising_pitch) ... ok\ntest_invalid_rates_rejected (test_audio_tempo.TempoChecks.test_invalid_rates_rejected) ... ok\ntest_normal_rate_preserves_original_bytes (test_audio_tempo.TempoChecks.test_normal_rate_preserves_original_bytes) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.028s\n\nOK\n",
+  "scope": "real WAV duration and pitch, not human listening"
+}

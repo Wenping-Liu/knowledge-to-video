@@ -1,13 +1,23 @@
 """Local Qwen3-TTS adapters; never changes speaker or uploads narration."""
-import argparse, base64, io, json, os, subprocess, tempfile, threading, wave
+import argparse, base64, io, json, math, os, subprocess, tempfile, threading, wave
 from pathlib import Path
 from lib.project_data import read,write,settings,signature,sha,fit_duration,audio_valid,tool,inside,effective_voice
 _ENGINES={};_LOCK=threading.Lock()
 
+def tempo_factor(value):
+    factor=float(value)
+    if not math.isfinite(factor) or not .5<=factor<=2:raise ValueError('配音speed须为0.5至2.0倍；通过保音高处理调整')
+    return factor
+
+def apply_tempo(raw,factor,root):
+    factor=tempo_factor(factor)
+    if factor==1:return raw
+    return subprocess.check_output([tool('ffmpeg',root),'-v','error','-nostdin','-i','pipe:0','-af',f'atempo={factor:g}','-ar','24000','-ac','1','-c:a','pcm_s16le','-f','wav','pipe:1'],input=raw)
+
 def synthesize(text,voice,root):
     if not text.strip() or len(text)>3000:raise ValueError('每段旁白须为1–3000字')
     if voice.get('speaker')!='Serena' or '1.7B' not in voice.get('modelFamily',''):raise ValueError('当前适配器需要指定的Qwen3-TTS 1.7B Serena')
-    if voice.get('speed',1)!=1:raise ValueError('当前适配器使用原速1.0；通过讲稿与课堂指令调整节奏')
+    speed=tempo_factor(voice.get('speed',1))
     cfg=settings(root);model=Path(os.environ.get('KTV_MODEL') or cfg.get('modelPath','')).expanduser()
     if not model.is_dir() or not (model/'config.json').is_file():raise RuntimeError('请在runtime.settings.json中配置本地1.7B CustomVoice模型路径，或设置KTV_MODEL')
     backend=voice.get('backend','mlx')
@@ -41,8 +51,9 @@ def synthesize(text,voice,root):
     if not audio.size or not np.isfinite(audio).all() or float(np.sqrt(np.mean(audio**2)))<.0001:raise RuntimeError('配音为空、无效或仅有静音')
     stream=io.BytesIO()
     with wave.open(stream,'wb') as w:w.setparams((1,2,int(sr),0,'NONE','not compressed'));w.writeframes(np.int16(np.clip(audio,-1,1)*32767).tobytes())
-    raw=normalize(stream.getvalue(),root)
+    raw=normalize(apply_tempo(stream.getvalue(),speed,root),root)
     result=bind_audio(raw,text,voice,{'type':'local-tts','backend':backend,'modelFamily':voice['modelFamily'],'speaker':'Serena','seed':voice.get('seed',42),'temperature':voice.get('temperature',.65),'modelConfigHash':sha((model/'config.json').read_bytes())})
+    if speed!=1:result['provenance']['tempo']={'method':'ffmpeg-atempo','factor':speed,'preservePitch':True}
     if cfg.get('alignmentModelPath'):
         try:
             from align import align_audio

@@ -1,6 +1,6 @@
 {
   "skill": "knowledge-to-video",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "date": "2026-10-26",
   "platformTested": "macOS Apple Silicon",
   "static": {
@@ -302,5 +302,12 @@
     "failed": 0,
     "evidence": "tests/evidence/teaching-regressions.json",
     "scope": "structure, freshness and motion activity; not proof of teaching or natural listening"
+  },
+  "tempoRegression": {
+    "passed": 3,
+    "failed": 0,
+    "evidence": "tests/evidence/tempo-regressions.json",
+    "scope": "explicit speed request; actual 1.2x duration and preserved 440Hz test tone; not subjective listening",
+    "actualSerenaGeneration": "tests/evidence/tempo-real-tts.json"
   }
 }

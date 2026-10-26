@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "5e7ecfa7bf44ca5dbb8990579e2ff646fea470bb64ad70ea11310bc68852206b"
+      "sha256": "bceb495b6abb06583b340a084cb5356ac590050fb80ec2c650e1c770402906f3"
     },
     {
       "path": "SKILL.md",
-      "sha256": "d28349e3cdf05099dac99963891f3f77e6fb8581291e64fa4d4d9cade19eba10"
+      "sha256": "9b937937cebdcd99e9c6cf6570da3433ab6840109c659980a6ee23db2b3bf597"
     },
     {
       "path": "agents/openai.yaml",
@@ -114,7 +114,7 @@
     },
     {
       "path": "references/04-voice-and-timing.md",
-      "sha256": "2f606ae738a6032f4dfb613c556838241df4a89adba7cebd9d43bd76ee32f796"
+      "sha256": "effeaab993aaf7a323dff2b1713e4ce152791dca206cfae3036feb85c0d7ab01"
     },
     {
       "path": "references/05-editable-project.md",
@@ -218,7 +218,7 @@
     },
     {
       "path": "scripts/voice.py",
-      "sha256": "1a5c01aeff8f921cb66006790a370d6f3065630dd856aad8d2913f45f9f2105d"
+      "sha256": "f8c3256f1ef309644a2ff40e62145f808295db615f3e7781c5ff14199e21fcde"
     },
     {
       "path": "tests/evidence/checks.json",
@@ -249,6 +249,14 @@
       "sha256": "f12cb6bc32fc29e825b77355d2d313a56f0c069c29856a1fdb935b4c10db04fd"
     },
     {
+      "path": "tests/evidence/tempo-real-tts.json",
+      "sha256": "d162896337cb7e1e1c76e77d3de3018cf6f88e3914f53a2c9cc6923d79337c15"
+    },
+    {
+      "path": "tests/evidence/tempo-regressions.json",
+      "sha256": "417183e3b24e2f8eea98c44c0d71cb42a0cc32d2002d73fdfda6871812061312"
+    },
+    {
       "path": "tests/evidence/v1.1-acceptance.json",
       "sha256": "fac80fe03d59fd8434642064d097b3f8ba4d35642f4893e8d324f0946af98f1a"
     },
@@ -259,6 +267,10 @@
     {
       "path": "tests/run_checks.py",
       "sha256": "d8033ceb39dc1e40d06e5a01bb964725882f07c937d7c6a40751f3a664c8d13e"
+    },
+    {
+      "path": "tests/test_audio_tempo.py",
+      "sha256": "4ee92030e5b2f23693f2cdab8a7568abc3520d7453823360d773a1021387d0e4"
     },
     {
       "path": "tests/test_setup.py",
@@ -290,7 +302,7 @@
     },
     {
       "path": "验收记录.json",
-      "sha256": "03fa1c24f7f99ff86db6bd8d64408fbea1aa024036d2a1013b4b5f97675630fd"
+      "sha256": "e5f4b5b0a064467423d15dad53f37499901ec5a13ce725f8f21c3931205ce5bd"
     }
   ]
 }
