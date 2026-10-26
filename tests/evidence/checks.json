@@ -81,6 +81,21 @@
       "detail": null
     },
     {
+      "name": "scene delivery edit invalidates old voice in UI",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "SVG retains editable text and named object groups",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "SVG sources retain nested vector groups with unique IDs",
+      "status": "pass",
+      "detail": null
+    },
+    {
       "name": "UI edit stops stale audio",
       "status": "pass",
       "detail": null
@@ -151,6 +166,16 @@
       "detail": null
     },
     {
+      "name": "export rejects unresolved teaching timing in UI",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "webm rejects unresolved teaching timing in UI",
+      "status": "pass",
+      "detail": null
+    },
+    {
       "name": "no browser errors",
       "status": "pass",
       "detail": null
@@ -162,6 +187,11 @@
     },
     {
       "name": "actual voiced MP4 and complete delivery",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "render blocks an incomplete teaching plan",
       "status": "pass",
       "detail": null
     },
@@ -189,19 +219,9 @@
       "name": "preview/export PSNR above 30dB",
       "status": "pass",
       "detail": null
-    },
-    {
-      "name": "actual Serena local generation",
-      "status": "pass",
-      "detail": null
-    },
-    {
-      "name": "actual Serena voiced MP4",
-      "status": "pass",
-      "detail": null
     }
   ],
-  "passed": 40,
+  "passed": 44,
   "failed": 0,
   "testAudio": "synthetic tones clearly labelled, plus real Serena only when --serena",
   "subjectiveReview": "pending",

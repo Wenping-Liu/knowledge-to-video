@@ -1,7 +1,7 @@
 """Render the project's exact Canvas function and current valid narration into H.264/AAC."""
 import argparse,array,base64,functools,http.server,json,math,os,subprocess,tempfile,threading,wave
 from pathlib import Path
-from lib.project_data import read,write,validate,tool,pack,bytes_for,fingerprint,sha,settings
+from lib.project_data import read,write,validate,tool,pack,bytes_for,fingerprint,sha,settings,render_fingerprint,content_fingerprint
 from lib.timeline import timeline,slug
 
 def browser_path(root):return os.environ.get('KTV_CHROMIUM') or settings(root).get('chromium') or None
@@ -9,6 +9,10 @@ def browser_path(root):return os.environ.get('KTV_CHROMIUM') or settings(root).g
 def render(path,out=None,height=None,fps=None,progress=lambda m:print(m,flush=True)):
     path=Path(path).resolve();root=path.parent;p=read(path);errors=validate(p,root,True)
     if errors:raise ValueError('\n'.join(errors))
+    if p.get('teaching'):
+        from quality import inspect
+        teaching=inspect(p,root,'timing')
+        if teaching['errors']:raise ValueError('教学计时检查未通过：\n'+'\n'.join(teaching['errors']))
     destination=Path(out).resolve() if out else root.parent/(slug(p['title'])+'.mp4');destination.parent.mkdir(parents=True,exist_ok=True)
     from playwright.sync_api import sync_playwright
     q=pack(p,root);width=p['canvas']['width'];native_height=p['canvas']['height'];height=height or native_height;output_width=round(width*height/native_height/2)*2
@@ -34,6 +38,7 @@ def render(path,out=None,height=None,fps=None,progress=lambda m:print(m,flush=Tr
                         if i%max(1,int(fps*3))==0:progress(f'画面 {i}/{nframes} 帧')
                     for j,s,start in timeline(p):
                         image=page.evaluate('t=>window.draw(t)',start+min(s['duration']/2,s['leadIn']+1));(refs/f'{j+1:03}-{slug(s["title"])}.png').write_bytes(base64.b64decode(image))
+                        svg=page.evaluate('t=>KTVRenderer.toSVG(P,t)',start+min(s['duration']/2,s['leadIn']+1));(refs/f'{j+1:03}-{slug(s["title"])}.svg').write_text(svg,encoding='utf-8')
                     browser.close()
                     if page_errors:raise RuntimeError('页面错误：'+';'.join(page_errors))
                 encoder.stdin.close()
@@ -65,7 +70,7 @@ def render(path,out=None,height=None,fps=None,progress=lambda m:print(m,flush=Tr
         report=check_video(rendered,root,duration)
         if report['errors']:raise RuntimeError('; '.join(report['errors']))
         os.replace(rendered,destination)
-    record={'projectFingerprint':fingerprint(p),'file':str(destination.relative_to(root.parent)) if destination.is_relative_to(root.parent) else str(destination),'sha256':sha(destination.read_bytes()),'duration':duration,'width':output_width,'height':height,'fps':fps,'technical':report,'visualAndListeningReview':'pending'}
+    record={'renderFingerprint':render_fingerprint(p,root),'rendererSHA256':sha((root/'动画代码/renderer.js').read_bytes()),'projectFingerprint':content_fingerprint(p),'file':str(destination.relative_to(root.parent)) if destination.is_relative_to(root.parent) else str(destination),'sha256':sha(destination.read_bytes()),'duration':duration,'width':output_width,'height':height,'fps':fps,'technical':report,'visualAndListeningReview':'pending'}
     write(root.parent/'资料与来源/渲染记录.json',record);progress('有声MP4已生成：'+str(destination));return destination
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--out');ap.add_argument('--height',type=int);ap.add_argument('--fps',type=float);a=ap.parse_args()

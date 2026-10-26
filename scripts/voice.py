@@ -1,7 +1,7 @@
 """Local Qwen3-TTS adapters; never changes speaker or uploads narration."""
 import argparse, base64, io, json, os, subprocess, tempfile, threading, wave
 from pathlib import Path
-from lib.project_data import read,write,settings,signature,sha,fit_duration,audio_valid,tool,inside
+from lib.project_data import read,write,settings,signature,sha,fit_duration,audio_valid,tool,inside,effective_voice
 _ENGINES={};_LOCK=threading.Lock()
 
 def synthesize(text,voice,root):
@@ -42,7 +42,13 @@ def synthesize(text,voice,root):
     stream=io.BytesIO()
     with wave.open(stream,'wb') as w:w.setparams((1,2,int(sr),0,'NONE','not compressed'));w.writeframes(np.int16(np.clip(audio,-1,1)*32767).tobytes())
     raw=normalize(stream.getvalue(),root)
-    return bind_audio(raw,text,voice,{'type':'local-tts','backend':backend,'modelFamily':voice['modelFamily'],'speaker':'Serena','seed':voice.get('seed',42),'temperature':voice.get('temperature',.65),'modelConfigHash':sha((model/'config.json').read_bytes())})
+    result=bind_audio(raw,text,voice,{'type':'local-tts','backend':backend,'modelFamily':voice['modelFamily'],'speaker':'Serena','seed':voice.get('seed',42),'temperature':voice.get('temperature',.65),'modelConfigHash':sha((model/'config.json').read_bytes())})
+    if cfg.get('alignmentModelPath'):
+        try:
+            from align import align_audio
+            result['cues'],result['alignment']=align_audio(raw,text,result['duration'],root,cfg['alignmentModelPath'])
+        except Exception as e:result['alignmentError']=str(e)
+    return result
 
 def normalize(raw,root):
     with tempfile.TemporaryDirectory(prefix='ktv-voice-') as td:
@@ -65,10 +71,16 @@ def generate_project(path,scene_id=None,import_path=None):
         count+=1
         if import_path:
             if not scene_id:raise ValueError('导入音频须指定--scene')
-            raw=normalize(Path(import_path).read_bytes(),root);a=bind_audio(raw,s['narration'],p['voice'],{'type':'user-import','file':Path(import_path).name,'transcriptConfirmedByUser':True})
+            raw=normalize(Path(import_path).read_bytes(),root);a=bind_audio(raw,s['narration'],effective_voice(p,s),{'type':'user-import','file':Path(import_path).name,'transcriptConfirmedByUser':True})
         elif audio_valid(s,p):continue
-        else:a=synthesize(s['narration'],p['voice'],root)
-        raw=base64.b64decode(a['src'].split(',',1)[1]);rel='配音/'+s['id']+'-'+a['sha256'][:12]+'.wav';dest=inside(root,rel);dest.parent.mkdir(exist_ok=True);dest.write_bytes(raw);a['src']=rel;s['audio']=a;fit_duration(s);p['revision']=p.get('revision',0)+1;write(path,p)
+        else:a=synthesize(s['narration'],effective_voice(p,s),root)
+        raw=base64.b64decode(a['src'].split(',',1)[1]);rel='配音/'+s['id']+'-'+a['sha256'][:12]+'.wav';dest=inside(root,rel);dest.parent.mkdir(exist_ok=True);dest.write_bytes(raw);a['src']=rel;s['audio']=a;fit_duration(s)
+        if s.get('beats'):
+            try:
+                from lib.teaching_timing import retime_scene
+                retime_scene(s)
+            except ValueError as e:s['timing']={'status':'pending','reason':str(e),'audioSHA256':a['sha256']}
+        p['revision']=p.get('revision',0)+1;write(path,p)
         print(s['id'],round(a['duration'],2),'秒',flush=True)
     if not count:raise ValueError('找不到指定镜头')
     return p

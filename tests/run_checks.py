@@ -25,13 +25,13 @@ def main(a):
             r=fn();checks.append({'name':name,'status':'pass','detail':r});write(run/'checks.json',{'checks':checks,'passed':sum(x['status']=='pass' for x in checks),'failed':sum(x['status']=='fail' for x in checks),'status':'running'})
         except Exception as e:
             checks.append({'name':name,'status':'fail','error':str(e)});write(run/'checks.json',{'checks':checks,'passed':sum(x['status']=='pass' for x in checks),'failed':1,'status':'fail'});raise
-    path=create(run/'01-电路示例','电路中的电流（功能测试）');root=path.parent;p=read(path)
+    path=create(run/'01-电路示例','电路中的电流（功能测试）');root=path.parent;p=read(path);p.pop('teaching',None)
     p['canvas']={'width':960,'height':540,'fps':12};p['scenes'][0].update(title='电荷移动',narration='电流表示电荷的定向移动。')
     p['scenes'][0]['layers']=[{'id':'wire','type':'shape','shape':'rect','x':60,'y':220,'width':840,'height':90,'scale':1,'visible':True,'fill':'#FFCE45','dots':True},{'id':'charge','type':'shape','shape':'circle','x':100,'y':230,'width':70,'height':70,'scale':1,'visible':True,'fill':'#F07846','keyframes':[{'at':0,'x':100},{'at':2.72,'x':750}]},{'id':'label','type':'text','text':'电荷沿导线定向移动','x':80,'y':70,'width':800,'height':100,'scale':1,'fontSize':42,'fill':'#171717','visible':True}]
     p['scenes'].append(copy.deepcopy(p['scenes'][0]));p['scenes'][1].update(id='s02',title='比喻的边界',narration='水流帮助理解流动，电荷沿电路移动。')
     p['sources']=[{'id':'fixture','title':'功能测试自建示例，待正式教材审定','license':'test-only'}];p['coverage']=[{'sourceId':'fixture','scenes':['s01','s02'],'note':'仅验证功能，不作为学生课程交付'}]
     for i,s in enumerate(p['scenes']):
-        s['sourceIds']=['fixture'];s['audio']=bind_audio(tone(2,440+i*110),s['narration'],p['voice'],{'type':'synthetic-test-tone','notSerena':True});s['duration']=2.72
+        s['leadIn']=.22;s['gapAfter']=.5;s['sourceIds']=['fixture'];s['audio']=bind_audio(tone(2,440+i*110),s['narration'],p['voice'],{'type':'synthetic-test-tone','notSerena':True});s['duration']=2.72
     p=materialize(p,root);write(path,p);build_html(path)
     check('valid current audio',lambda:assert_empty(validate(p,root,True)))
     check('materialize-pack audio MIME roundtrip',lambda:assert_true(all(s['audio']['src'].startswith('data:audio/') for s in pack(p,root)['scenes'])))
@@ -77,6 +77,17 @@ def main(a):
         with sync_playwright() as pw:
             browser=pw.chromium.launch(executable_path=browser_path(root),args=['--autoplay-policy=no-user-gesture-required']);page=browser.new_page(accept_downloads=True,viewport={'width':1440,'height':1100});errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.goto(server.ktv_url);page.wait_for_function('!!window.KTVEditor')
             check('browser agrees audio signature',lambda:assert_true(page.evaluate('KTVEditor.getProject().scenes.every(KTVEditor.valid)')))
+            page.locator('#direction').fill('定义稍慢，强调电荷');page.wait_for_function('!KTVEditor.valid(KTVEditor.getProject().scenes[0])')
+            check('scene delivery edit invalidates old voice in UI',lambda:assert_true(not page.evaluate('KTVEditor.valid(KTVEditor.getProject().scenes[0])')))
+            page.locator('#direction').fill('');page.wait_for_function('KTVEditor.valid(KTVEditor.getProject().scenes[0])')
+            with page.expect_download() as d:page.locator('#saveSVG').click()
+            svg=run/'editable-scene.svg';d.value.save_as(svg)
+            import xml.etree.ElementTree as ET
+            svg_root=ET.fromstring(svg.read_text())
+            check('SVG retains editable text and named object groups',lambda:assert_true(svg_root.tag.endswith('svg') and any(e.attrib.get('id')=='charge' for e in svg_root.iter()) and any(e.tag.endswith('text') for e in svg_root.iter())))
+            native=page.evaluate('''()=>{const p=KTVEditor.getProject(),src='data:image/svg+xml;base64,'+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dot" width="10" height="10" patternUnits="userSpaceOnUse"><circle r="1"/></pattern></defs><g id="body"><rect width="90" height="90" fill="url(#dot)"/></g></svg>');p.scenes[0].layers=[{id:'a',type:'image',src,x:0,y:0,width:100,height:100},{id:'b',type:'image',src,x:200,y:0,width:100,height:100}];return KTVRenderer.toSVG(p,0)}''')
+            native_root=ET.fromstring(native);ids=[e.attrib['id'] for e in native_root.iter() if 'id' in e.attrib]
+            check('SVG sources retain nested vector groups with unique IDs',lambda:assert_true(len(ids)==len(set(ids)) and sum(e.tag.endswith('rect') for e in native_root.iter())>=2 and not any(e.tag.endswith('image') for e in native_root.iter())))
             page.screenshot(path=str(run/'editor-preview.png'),full_page=True)
             page.locator('#narration').fill('电荷定向移动形成电流。');page.wait_for_timeout(100)
             check('UI edit stops stale audio',lambda:assert_true(page.evaluate('!KTVEditor.valid(KTVEditor.getProject().scenes[0])')))
@@ -121,15 +132,23 @@ def main(a):
             webm=run/'offline-with-audio.webm';d.value.save_as(webm)
             from lib.project_data import probe
             check('offline WebM has audio and video',lambda:assert_true({s['codec_type'] for s in probe(webm,root)['streams']}=={'audio','video'}))
+            gated=read(saved);gated['teaching']={'version':1};gate_file=run/'pending-timing.json';write(gate_file,gated)
+            page.locator('#loadProject').set_input_files(str(gate_file));page.wait_for_timeout(200)
+            for button in ['export','webm']:
+                page.locator('#'+button).click();page.wait_for_function('document.getElementById("status").classList.contains("error")')
+                check(button+' rejects unresolved teaching timing in UI',lambda:assert_true('计时待校准' in page.locator('#status').text_content()))
             check('no browser errors',lambda:assert_empty(errors));page.screenshot(path=str(run/'editor-edited.png'),full_page=True);browser.close()
         p=read(path)
     server.shutdown();server.server_close()
     if a.video:
         clip=run/'source-clip.mp4';subprocess.run([tool('ffmpeg',root),'-v','error','-nostdin','-y','-f','lavfi','-i','testsrc2=size=640x360:rate=12','-t','1','-c:v','libx264','-pix_fmt','yuv420p',str(clip)],check=True)
         media=ingest(root,str(clip),'video');p['scenes'][1]['layers'].append({'id':'clip','type':'clip',**media,'x':160,'y':350,'width':640,'height':160,'scale':1,'visible':True});write(path,p);build_html(path)
-        check('video import retains original and frame sequence',lambda:assert_true(len(media['frames'])==8 and (root/media['src']).exists()))
+        check('video import retains original and frame sequence',lambda:assert_true(len(media['frames'])==12 and media['frameFps']==12 and (root/media['src']).exists()))
         target=render(path);package(path,target);r=report(path,delivery=True);write(run/'video-check.json',r)
         check('actual voiced MP4 and complete delivery',lambda:assert_empty(r['errors']))
+        bad=copy.deepcopy(p);bad['teaching']={'version':1};write(path,bad)
+        check('render blocks an incomplete teaching plan',lambda:assert_raises(lambda:render(path,progress=lambda m:None),ValueError))
+        write(path,p)
         changed=copy.deepcopy(p);changed['revision']+=1;write(path,changed)
         check('old video rejected after saved project change',lambda:assert_true(any('旧工程' in x for x in report(path,delivery=True)['errors'])))
         write(path,p)
@@ -151,7 +170,7 @@ def main(a):
         check('preview/export PSNR above 30dB',lambda:assert_true(psnr and float(psnr[1])>30))
         write(run/'preview-export-comparison.json',{'timeSeconds':1,'psnrDb':float(psnr[1]),'thresholdDb':30,'preview':'reference.png','encodedFrame':'encoded.png'})
     if a.serena:
-        voice_out=run/'02-Serena真实生成';vp=create(voice_out,'Serena配音实测');q=read(vp);q['scenes'][0].update(narration='大家好，我是曦曦。本节我们要来学习电流。',title='Serena课堂开场');write(vp,q);generate_project(vp);build_html(vp)
+        voice_out=run/'02-Serena真实生成';vp=create(voice_out,'Serena配音实测');q=read(vp);q.pop('teaching',None);q['scenes'][0].update(narration='大家好，我是曦曦。本节我们要来学习电流。',title='Serena课堂开场');write(vp,q);generate_project(vp);build_html(vp)
         check('actual Serena local generation',lambda:assert_empty(validate(read(vp),vp.parent,True)))
         if a.video:target=render(vp);package(vp,target);check('actual Serena voiced MP4',lambda:assert_empty(report(vp,delivery=True)['errors']))
     write(run/'checks.json',{'checks':checks,'passed':len(checks),'failed':0,'testAudio':'synthetic tones clearly labelled, plus real Serena only when --serena','subjectiveReview':'pending','platform':sys.platform});print(json.dumps({'output':str(run),'passed':len(checks)},ensure_ascii=False))

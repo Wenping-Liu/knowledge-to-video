@@ -1,0 +1,32 @@
+{
+  "platform": "macOS Apple Silicon",
+  "date": "2026-10-26",
+  "passed": 23,
+  "failed": 0,
+  "checks": [
+    "test_teaching.TeachingChecks.test_anchors_follow_real_new_cues_not_old_scene_ratio",
+    "test_teaching.TeachingChecks.test_audio_change_requires_new_animation_timing",
+    "test_teaching.TeachingChecks.test_decorative_wiggle_cannot_cover_silent_teaching_gap",
+    "test_teaching.TeachingChecks.test_delivery_change_invalidates_old_voice",
+    "test_teaching.TeachingChecks.test_existing_voice_signatures_are_preserved_without_direction",
+    "test_teaching.TeachingChecks.test_five_second_hold_is_reported_with_range",
+    "test_teaching.TeachingChecks.test_forced_alignment_cannot_bind_another_audio",
+    "test_teaching.TeachingChecks.test_lead_in_or_duration_change_requires_retiming",
+    "test_teaching.TeachingChecks.test_missing_plan_is_not_misreported_as_teaching_pass",
+    "test_teaching.TeachingChecks.test_old_resolved_marker_cannot_hide_tampered_derived_times",
+    "test_teaching.TeachingChecks.test_perceptibility_is_independent_of_keyframe_density",
+    "test_teaching.TeachingChecks.test_python_and_browser_retime_agree",
+    "test_teaching.TeachingChecks.test_renderer_change_invalidates_render_fingerprint",
+    "test_teaching.TeachingChecks.test_repeated_loop_cannot_cover_teaching_gap",
+    "test_teaching.TeachingChecks.test_replacing_media_at_same_path_invalidates_render_fingerprint",
+    "test_teaching.TeachingChecks.test_retiming_is_atomic_when_script_changed",
+    "test_teaching.TeachingChecks.test_review_binds_actual_video_renderer_media_and_evidence",
+    "test_teaching.TeachingChecks.test_subpixel_drift_is_not_observable_activity",
+    "test_teaching.TeachingChecks.test_two_repeated_back_and_forth_cycles_are_excluded",
+    "test_teaching.TeachingChecks.test_unexplained_three_point_wiggle_is_not_teaching",
+    "test_teaching.TeachingChecks.test_unverified_source_and_missing_link_are_blocked",
+    "test_teaching.TeachingChecks.test_valid_mechanism_remains_pending_subjective_review",
+    "test_teaching.TeachingChecks.test_whole_illustration_pan_is_not_mechanism"
+  ],
+  "scope": "Executable regression invariants, not subjective teaching or listening"
+}

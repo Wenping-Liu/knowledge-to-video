@@ -1,0 +1,274 @@
+{
+  "skill": "knowledge-to-video",
+  "version": "1.1.0",
+  "date": "2026-10-23",
+  "platformTested": "macOS Apple Silicon",
+  "static": {
+    "skillCreatorQuickValidate": "pass",
+    "pythonSyntax": "pass",
+    "jsonParsing": "pass",
+    "relativeReferenceLinks": "pass",
+    "machineSpecificPathsInSkill": "none"
+  },
+  "functional": {
+    "passed": 40,
+    "failed": 0,
+    "evidenceDirectory": "tests/evidence",
+    "checks": [
+      {
+        "name": "valid current audio",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "materialize-pack audio MIME roundtrip",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "signature integers canonical",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "edited narration invalidates audio",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "changed voice invalidates audio",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "duplicate IDs rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "path traversal rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "missing media rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "changed bytes detected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "short scene rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "SRT uses audio interval and sequence",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "invalid subtitle cues rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "service token enforced",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "foreign Origin rejected",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "authenticated health",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "browser agrees audio signature",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "UI edit stops stale audio",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "async import binds original scene",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "image added",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "async TTS binds original scene",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "stale TTS response rejected after text edit",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "moving animated layer shifts its keyframes",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "JSON snapshot embeds audio/images",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "saved HTML restores current narration and media",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "saved HTML excludes session token",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "actual playback advances timeline",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "local save response",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "service saves edited project",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "editor export button completes real voiced MP4 job",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "offline WebM has audio and video",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "no browser errors",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "video import retains original and frame sequence",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "actual voiced MP4 and complete delivery",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "old video rejected after saved project change",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "moved project references exist",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "copied runtime validates without original skill",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "moved project renders",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "preview/export PSNR above 30dB",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "actual Serena local generation",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "actual Serena voiced MP4",
+        "status": "pass",
+        "detail": null
+      }
+    ]
+  },
+  "additionalCheck": {
+    "name": "readable duration display; timeline unchanged",
+    "status": "pass",
+    "evidence": {
+      "status": "pass",
+      "display": "2.22",
+      "storedDurationUnchanged": 2.2199999999999998
+    }
+  },
+  "previewExport": {
+    "timeSeconds": 1,
+    "psnrDb": 39.707059,
+    "thresholdDb": 30,
+    "preview": "本地测试生成的reference.png，未附带原图",
+    "encodedFrame": "本地测试生成的encoded.png，未附带原图"
+  },
+  "voice": {
+    "model": "Qwen3-TTS 12Hz 1.7B CustomVoice",
+    "speaker": "Serena",
+    "backend": "mlx",
+    "actualLocalGeneration": "pass",
+    "voicedMP4": "pass",
+    "subjectiveListening": "pending; not inferred from technical checks"
+  },
+  "versions": {
+    "playwright": "1.64.0",
+    "imageio-ffmpeg": "0.6.0",
+    "mlx-audio": "0.6.1",
+    "numpy": "2.5.4"
+  },
+  "notVerified": [
+    "Windows/Linux实机启动",
+    "官方PyTorch/qwen适配器实际生成",
+    "目标宿主自动触发率",
+    "完整新教材课程的教学与听感人工验收",
+    "透明曦曦角色模块（默认关闭，按需制作）",
+    "首次完整多GB权重下载（已验证下载API和配置文件，推理使用已有本地权重）"
+  ],
+  "notes": [
+    "功能测试音明确标为合成测试音；真实Serena另有独立生成与MP4证据。",
+    "模型权重与第三方运行库不包含在压缩包。",
+    "当前缺少ffprobe，已实测FFmpeg探测回退链路。",
+    "GitHub发布包含机器可读的精简验收证据，测试视频、模型及本机课程资料不上传。",
+    "v1.1增加一次性安装器；本机已准备隔离环境并复用已有模型，原课程素材保持原样。"
+  ],
+  "installation": {
+    "evidence": "tests/evidence/setup-checks.json",
+    "unitTestsPassed": 23,
+    "freshEnvironment": "uv and standard venv/pip paths passed on macOS Apple Silicon",
+    "browserDownload": "pass",
+    "actualSerenaAndVoicedMP4": "pass",
+    "fullModelDownload": "not repeated; existing local weights reused; SDK metadata/config download verified"
+  },
+  "note": "Historical v1.1 evidence; not the current code acceptance"
+}

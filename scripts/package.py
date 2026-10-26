@@ -1,7 +1,7 @@
 """Build current self-contained HTML and managed delivery, without deleting old or unique files."""
 import argparse,base64,copy,json,os,shutil,subprocess,sys
 from pathlib import Path
-from lib.project_data import read,write,pack,materialize,validate,bytes_for,fingerprint,sha,tool,inside
+from lib.project_data import read,write,pack,materialize,validate,bytes_for,fingerprint,sha,tool,inside,render_fingerprint,content_fingerprint
 from lib.timeline import srt,slug
 SKILL=Path(__file__).resolve().parents[1]
 
@@ -34,16 +34,16 @@ def package(path,video=None,preview720=False):
             f.write(data);f.flush();subprocess.run([ff,'-v','error','-nostdin','-y','-i',f.name,'-ar','24000','-ac','1','-c:a','pcm_s16le',str(target)],check=True)
         spoken.append(f'{i+1:03} | {s["id"]} | {s["title"]}\n{s["narration"]}\n')
     (dest/'分镜旁白.txt').write_text('\n'.join(spoken),encoding='utf-8');(dest/'字幕.srt').write_text(srt(p),encoding='utf-8-sig')
-    (dest/'分镜画面参考/说明.txt').write_text('这里是按镜头顺序编号的静态画面参考，不是动画视频本身。实际动画见成片及可编辑工程。\n',encoding='utf-8')
+    (dest/'分镜画面参考/说明.txt').write_text('这里是按镜头顺序编号的静态画面参考，不是动画视频本身。PNG供查看，SVG保留分组矢量图形和文字；导入的位图仍为位图。实际动画与语音锚点见成片及可编辑工程。\n',encoding='utf-8')
     main=out/(slug(p['title'])+'.mp4');record=out/'资料与来源/渲染记录.json';video_ready=False
     if video:
         source=Path(video).resolve()
         if not record.exists():raise ValueError('需先用render.py生成与当前工程对应的渲染记录')
         r=read(record)
-        if r.get('projectFingerprint')!=fingerprint(p) or r.get('sha256')!=sha(source.read_bytes()):raise ValueError('视频不属于当前工程版本，请重新渲染')
+        if r.get('projectFingerprint')!=content_fingerprint(p) or r.get('renderFingerprint')!=render_fingerprint(p,root) or r.get('sha256')!=sha(source.read_bytes()):raise ValueError('视频不属于当前工程版本，请重新渲染')
         if source!=main:shutil.copy2(source,main)
     if main.exists() and record.exists():
-        r=read(record);video_ready=r.get('projectFingerprint')==fingerprint(p) and r.get('sha256')==sha(main.read_bytes())
+        r=read(record);video_ready=r.get('projectFingerprint')==content_fingerprint(p) and r.get('renderFingerprint')==render_fingerprint(p,root) and r.get('sha256')==sha(main.read_bytes())
     if video_ready:
         shutil.copy2(main,dest/'无旁白字幕版.mp4')
         if preview720:subprocess.run([ff,'-v','error','-nostdin','-y','-i',str(main),'-vf','scale=-2:720','-c:v','libx264','-preset','fast','-crf','23','-c:a','aac','-b:a','192k',str(dest/'无旁白字幕版-流畅播放720p.mp4')],check=True)
@@ -53,6 +53,8 @@ def package(path,video=None,preview720=False):
     write(data/'核验记录.json',{'review':p.get('review',{}),'note':'记录实际检查证据；缺失项待复核'})
     from validate import report
     write(data/'自动检查.json',report(path,True,False))
+    from quality import inspect
+    write(data/'教学与节奏检查.json',inspect(p,root,'final'))
     files=[]
     # Freeze actual files; runtime.settings.json may contain local paths, so never copy it to a public skill.
     for f in sorted(out.rglob('*')):

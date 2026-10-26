@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-26",
+  "scope": "Actual local Serena audio and forced alignment; no private narration or media included",
+  "scenes": [
+    {
+      "id": "s01",
+      "duration": 24.8,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "fac94a7e79f8398adfcdeab4ebe040bd510ee1e63d0118d1b55432ca0b0bdd57",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 4,
+      "units": 89,
+      "timing": "resolved"
+    },
+    {
+      "id": "s02",
+      "duration": 30.88,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "5313732e8dddc26bdeac26e5a6c123e4e0998bd99e27c8cbe2aa3b42202b3f3f",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 4,
+      "units": 118,
+      "timing": "resolved"
+    },
+    {
+      "id": "s03",
+      "duration": 37.52,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "6834b03250a9ee65f874010a54d87e08e440d9f7731c7cf12bf3382754e11c98",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 7,
+      "units": 120,
+      "timing": "resolved"
+    },
+    {
+      "id": "s04",
+      "duration": 30.96,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "03b3a4f9230b9bceb13c650f12ce39d4cd11916af0a58a240d13fc1b1e1a843a",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 4,
+      "units": 126,
+      "timing": "resolved"
+    },
+    {
+      "id": "s05",
+      "duration": 37.04,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "4811625d28ef4756a0f26db59cdc7db4b8b4016556a30082d7f1887723789285",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 5,
+      "units": 132,
+      "timing": "resolved"
+    },
+    {
+      "id": "s06",
+      "duration": 24.08,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "3b711ea082756d4a21b434e03b6401c5aeb73dd2d044e7d5e1044104f7c48ff3",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 4,
+      "units": 97,
+      "timing": "resolved"
+    },
+    {
+      "id": "s07",
+      "duration": 36.0,
+      "provenance": {
+        "type": "local-tts",
+        "backend": "mlx",
+        "modelFamily": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "seed": 42,
+        "temperature": 0.65,
+        "modelConfigHash": "43f29f9ab55cf387bd2ce1d07e9d95a5ca8974fa2fda4e2b45c13ae64aad3bfa"
+      },
+      "audioSHA256": "a680bd38a30f65605ada0781d6dd1b677e101a83222ff30a782732f8783faa97",
+      "alignmentMethod": "local-forced-alignment",
+      "cues": 4,
+      "units": 121,
+      "timing": "resolved"
+    }
+  ],
+  "listening": "pending"
+}

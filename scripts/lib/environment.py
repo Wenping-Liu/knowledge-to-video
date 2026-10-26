@@ -23,7 +23,7 @@ def merged_settings(root=None):
                 if value is None or value=='':continue
                 # Moved projects may still contain the author's absolute paths. Reuse a valid
                 # local installation where it is compatible, while preserving explicit env overrides.
-                if key in ['python','ffmpeg','ffprobe','chromium','modelPath'] and path!=paths[0]:
+                if key in ['python','ffmpeg','ffprobe','chromium','modelPath','alignmentModelPath'] and path!=paths[0]:
                     previous=result.get(key)
                     compatible=key!='modelPath' or data.get('voiceBackend',result.get('voiceBackend'))==result.get('voiceBackend')
                     if isinstance(value,str) and not Path(value).expanduser().exists() and previous and Path(previous).expanduser().exists() and compatible:

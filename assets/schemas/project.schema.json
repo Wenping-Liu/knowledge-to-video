@@ -201,6 +201,9 @@
                       },
                       "opacity": {
                         "type": "number"
+                      },
+                      "anchor": {
+                        "type": "object"
                       }
                     }
                   }
@@ -219,12 +222,102 @@
                 },
                 "scale": {
                   "type": "number"
+                },
+                "semanticRole": {
+                  "enum": [
+                    "concept",
+                    "data",
+                    "relationship",
+                    "evidence",
+                    "decorative",
+                    "camera"
+                  ]
+                },
+                "startAnchor": {
+                  "type": "object"
+                },
+                "endAnchor": {
+                  "type": "object"
+                },
+                "motionPurpose": {
+                  "enum": [
+                    "transfer",
+                    "compare",
+                    "update",
+                    "construct",
+                    "transform",
+                    "trace",
+                    "highlight",
+                    "layout"
+                  ]
+                },
+                "fit": {
+                  "enum": [
+                    "contain",
+                    "stretch"
+                  ]
+                },
+                "align": {
+                  "enum": [
+                    "left",
+                    "center",
+                    "right"
+                  ]
+                },
+                "isolatedObject": {
+                  "type": "boolean"
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "contentAction": {
+                  "type": "string"
                 }
               }
             }
+          },
+          "delivery": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "type": "string"
+              }
+            }
+          },
+          "teaching": {
+            "type": "object"
+          },
+          "beats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "speech",
+                "change",
+                "layerIds"
+              ]
+            }
+          },
+          "timing": {
+            "type": "object"
           }
         }
       }
+    },
+    "teaching": {
+      "type": "object",
+      "required": [
+        "version",
+        "objective",
+        "anchor",
+        "claims",
+        "concepts",
+        "maxIdleSeconds"
+      ]
+    },
+    "review": {
+      "type": "object"
     }
   }
 }

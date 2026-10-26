@@ -61,6 +61,15 @@ def pack(p,root):
             owner[key]='data:'+mime+';base64,'+base64.b64encode(bytes_for(root,src)).decode()
     return q
 
+def content_fingerprint(p):return fingerprint({**p,'review':{}})
+
+def render_fingerprint(p,root):
+    root=Path(root);media=[]
+    for owner,key,kind in media_refs(p):
+        media.append({'kind':kind,'src':owner[key],'sha256':sha(bytes_for(root,owner[key]))})
+    renderer=root/'动画代码/renderer.js'
+    return sha(json.dumps({'project':{**p,'review':{}},'rendererSHA256':sha(renderer.read_bytes()),'media':media},sort_keys=True,ensure_ascii=False,allow_nan=False).encode())
+
 def materialize(p,root):
     q=copy.deepcopy(p)
     for owner,key,kind in media_refs(q):
@@ -74,9 +83,14 @@ def materialize(p,root):
         else:inside(root,src)
     return q
 
+def effective_voice(p,s):
+    voice=copy.deepcopy(p.get('voice',{}));direction=(s.get('delivery') or {}).get('direction','').strip()
+    if direction:voice['instruction']=voice.get('instruction','')+'\n本镜表达：'+direction
+    return voice
+
 def audio_valid(s,p):
     a=s.get('audio') or {}
-    return bool(a.get('src') and a.get('signature')==signature(s.get('narration',''),p.get('voice',{})) and a.get('text')==s.get('narration'))
+    return bool(a.get('src') and a.get('signature')==signature(s.get('narration',''),effective_voice(p,s)) and a.get('text')==s.get('narration'))
 
 def fit_duration(s):
     s['duration']=round(float(s.get('leadIn',.22))+float((s.get('audio') or {}).get('duration',0))+float(s.get('gapAfter',.5)),4)

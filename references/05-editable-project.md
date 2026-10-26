@@ -11,3 +11,7 @@ project.schema.json定义portable v1结构。稳定镜头ID与顺序分开；图
 项目自带runtime脚本与模板，离开原Skill目录也能运行。外部Python库、浏览器、模型/权重不捆绑；项目内runtime/scripts/setup.py和requirements可在新机器准备隔离环境，运行配置由安装器保存到本机共享缓存，移机后doctor检测。启动入口可以用KTV_PYTHON指定解释器，也可读取runtime.settings.json中的python。
 
 原有课程使用不同字段时，先 `project.py migrate --source ... --out <新文件夹>` 复制迁移，旧项目保持不变。迁移不能完整移植自定义绘图代码，须手工适配并审查，避免把“数据可读”误报“画面完全一致”。
+
+## v1.2教学计时与配音表达
+
+新工程含`teaching`计划，逐镜`teaching / beats / delivery / timing`随JSON及HTML保存。本镜表达可直接编辑；表达变化与文稿变化一样使旧音频失效。可编辑教学节拍JSON、校准配音与字幕，带anchor的动作会按新声学时间重排。未校准的教学计时会阻止正式渲染，仍可保存草稿。源文字发生语义变化时，应同步审查beat.speech、动作与知识卡；不能宣称任意改稿后画面都能自动理解新语义。

@@ -1,7 +1,7 @@
 """Project and encoded-delivery checks; subjective review remains explicitly pending."""
 import argparse,array,json,math,re,subprocess
 from pathlib import Path
-from lib.project_data import read,write,validate,probe,tool,fingerprint,sha,bytes_for
+from lib.project_data import read,write,validate,probe,tool,fingerprint,sha,bytes_for,render_fingerprint,content_fingerprint
 from lib.timeline import slug,cues
 
 def check_video(path,root,expected=None):
@@ -46,8 +46,12 @@ def report(path,require_audio=False,delivery=False):
         elif not record.exists():errors.append('缺少当前渲染记录')
         else:
             r=read(record)
-            if r.get('projectFingerprint')!=fingerprint(p):errors.append('成片对应旧工程，请重新导出')
+            if r.get('projectFingerprint')!=content_fingerprint(p):errors.append('成片对应旧工程，请重新导出')
             if r.get('sha256')!=sha(main.read_bytes()):errors.append('成片指纹不符')
+            if r.get('renderFingerprint'):
+                if r['renderFingerprint']!=render_fingerprint(p,root):errors.append('画面代码或素材已变化，请重新导出')
+            elif p.get('teaching'):errors.append('缺少绑定画面代码与素材的渲染指纹，请重新导出')
+            else:warnings.append('旧渲染记录未绑定代码/素材内容；仅核对旧版工程字段')
             details['video']=check_video(main,root,sum(s['duration'] for s in p['scenes']));errors+=details['video']['errors']
         required=['可编辑工程/编辑器.html','使用说明.txt','剪映素材/无旁白字幕版.mp4','剪映素材/字幕.srt','剪映素材/分镜旁白.txt','资料与来源/交付清单.json']
         for rel in required:
@@ -65,9 +69,12 @@ def report(path,require_audio=False,delivery=False):
                     f=inside(delivery_root,item['path'])
                     if not f.is_file() or sha(f.read_bytes())!=item['sha256']:errors.append('交付文件指纹不符：'+item['path'])
                 except ValueError as e:errors.append(str(e))
+    from quality import inspect
+    details['teaching']=inspect(p,root,'timing' if require_audio or delivery else 'script')
+    if p.get('teaching'):errors+=details['teaching']['errors']
     review=p.get('review',{})
-    if review.get('projectFingerprint')!=fingerprint({**p,'review':{}}) or not review.get('evidence'):warnings.append('教学、完整观看和听感待人工复核；自动检查不能代替')
-    return {'status':'fail' if errors else 'pass','projectFingerprint':fingerprint(p),'errors':errors,'warnings':warnings,'details':details}
+    if (p.get('teaching') and details['teaching']['readiness']!='reviewed') or (not p.get('teaching') and (review.get('projectFingerprint')!=fingerprint({**p,'review':{}}) or not review.get('evidence'))):warnings.append('教学、完整观看和听感待人工复核；自动检查不能代替')
+    return {'status':'fail' if errors else 'pass','scope':'technical-and-teaching-structure' if p.get('teaching') else 'technical-only','readiness':details['teaching']['readiness'],'projectFingerprint':fingerprint(p),'errors':errors,'warnings':warnings,'details':details}
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--require-audio',action='store_true');ap.add_argument('--delivery',action='store_true');ap.add_argument('--out');a=ap.parse_args()
     from lib.environment import bootstrap_cli

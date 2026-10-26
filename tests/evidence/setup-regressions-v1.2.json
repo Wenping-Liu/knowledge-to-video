@@ -1,0 +1,32 @@
+{
+  "platform": "macOS Apple Silicon",
+  "date": "2026-10-26",
+  "passed": 23,
+  "failed": 0,
+  "checks": [
+    "test_setup.SetupTests.test_auto_apple",
+    "test_setup.SetupTests.test_auto_linux",
+    "test_setup.SetupTests.test_auto_windows",
+    "test_setup.SetupTests.test_cache_symlinks_accepted",
+    "test_setup.SetupTests.test_different_model_backend_is_not_silently_replaced",
+    "test_setup.SetupTests.test_explicit_settings",
+    "test_setup.SetupTests.test_failed_setup_preserves_active_config",
+    "test_setup.SetupTests.test_global_config_and_local_override",
+    "test_setup.SetupTests.test_index_traversal_rejected",
+    "test_setup.SetupTests.test_local_model_complete",
+    "test_setup.SetupTests.test_model_type_rejected",
+    "test_setup.SetupTests.test_moved_project_uses_valid_local_python",
+    "test_setup.SetupTests.test_native_qwen_accepted",
+    "test_setup.SetupTests.test_new_project_inherits_runtime",
+    "test_setup.SetupTests.test_no_mlx_on_intel",
+    "test_setup.SetupTests.test_no_yes_no_writes",
+    "test_setup.SetupTests.test_partial_model_rejected",
+    "test_setup.SetupTests.test_plan_no_writes",
+    "test_setup.SetupTests.test_render_only_has_no_model",
+    "test_setup.SetupTests.test_requirements_are_separate",
+    "test_setup.SetupTests.test_same_base_python_still_reexecutes_venv",
+    "test_setup.SetupTests.test_wrong_backend_rejected",
+    "test_setup.SetupTests.test_wrong_size_rejected"
+  ],
+  "scope": "Executable regression invariants, not subjective teaching or listening"
+}

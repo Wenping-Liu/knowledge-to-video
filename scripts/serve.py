@@ -6,6 +6,8 @@ from package import build_html,package
 from voice import synthesize
 from render import render
 from lib.media_paths import ingest
+from lib.project_data import settings,bytes_for
+from align import align_audio
 
 MAX_BODY=120*1024*1024
 
@@ -55,7 +57,7 @@ def make_server(project,port=0):
                     try:commit(data['project']);self.send({'path':str(project)})
                     finally:mutex.release()
                     return
-                if action not in ['voice','media','export']:self.send({'error':'没有此接口'},404);return
+                if action not in ['voice','align','media','export']:self.send({'error':'没有此接口'},404);return
                 if not mutex.acquire(False):self.send({'error':'已有处理任务，请稍后重试'},409);return
                 jid=secrets.token_hex(12)
                 with jobs_lock:
@@ -65,6 +67,11 @@ def make_server(project,port=0):
                 def worker():
                     try:
                         if action=='voice':result=synthesize(data['text'],data['voice'],root)
+                        elif action=='align':
+                            result=data['audio'];model=settings(root).get('alignmentModelPath')
+                            if not model:raise ValueError('请先配置alignmentModelPath，或手动导入已核对的字幕计时')
+                            if not result.get('src','').startswith('data:audio/'):raise ValueError('仅接受当前内嵌配音')
+                            result['cues'],result['alignment']=align_audio(bytes_for(root,result['src']),result['text'],result['duration'],root,model)
                         elif action=='media':
                             if data.get('kind')!='video' or not data.get('src','').startswith('data:video/'):raise ValueError('只接受本地视频数据')
                             media={'type':'clip',**ingest(root,data['src'],'video')};result=pack({'scenes':[{'layers':[media]}]},root)['scenes'][0]['layers'][0]

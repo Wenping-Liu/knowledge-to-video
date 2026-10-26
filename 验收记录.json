@@ -1,7 +1,7 @@
 {
   "skill": "knowledge-to-video",
-  "version": "1.1.0",
-  "date": "2026-10-23",
+  "version": "1.2.0",
+  "date": "2026-10-26",
   "platformTested": "macOS Apple Silicon",
   "static": {
     "skillCreatorQuickValidate": "pass",
@@ -11,9 +11,6 @@
     "machineSpecificPathsInSkill": "none"
   },
   "functional": {
-    "passed": 40,
-    "failed": 0,
-    "evidenceDirectory": "tests/evidence",
     "checks": [
       {
         "name": "valid current audio",
@@ -96,6 +93,21 @@
         "detail": null
       },
       {
+        "name": "scene delivery edit invalidates old voice in UI",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "SVG retains editable text and named object groups",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "SVG sources retain nested vector groups with unique IDs",
+        "status": "pass",
+        "detail": null
+      },
+      {
         "name": "UI edit stops stale audio",
         "status": "pass",
         "detail": null
@@ -166,6 +178,16 @@
         "detail": null
       },
       {
+        "name": "export rejects unresolved teaching timing in UI",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "webm rejects unresolved teaching timing in UI",
+        "status": "pass",
+        "detail": null
+      },
+      {
         "name": "no browser errors",
         "status": "pass",
         "detail": null
@@ -177,6 +199,11 @@
       },
       {
         "name": "actual voiced MP4 and complete delivery",
+        "status": "pass",
+        "detail": null
+      },
+      {
+        "name": "render blocks an incomplete teaching plan",
         "status": "pass",
         "detail": null
       },
@@ -204,18 +231,14 @@
         "name": "preview/export PSNR above 30dB",
         "status": "pass",
         "detail": null
-      },
-      {
-        "name": "actual Serena local generation",
-        "status": "pass",
-        "detail": null
-      },
-      {
-        "name": "actual Serena voiced MP4",
-        "status": "pass",
-        "detail": null
       }
-    ]
+    ],
+    "passed": 44,
+    "failed": 0,
+    "testAudio": "synthetic tones clearly labelled, plus real Serena only when --serena",
+    "subjectiveReview": "pending",
+    "platform": "darwin",
+    "evidenceDirectory": "tests/evidence"
   },
   "additionalCheck": {
     "name": "readable duration display; timeline unchanged",
@@ -224,14 +247,15 @@
       "status": "pass",
       "display": "2.22",
       "storedDurationUnchanged": 2.2199999999999998
-    }
+    },
+    "scope": "historical v1.1; unchanged display behavior"
   },
   "previewExport": {
     "timeSeconds": 1,
-    "psnrDb": 39.707059,
+    "psnrDb": 39.562366,
     "thresholdDb": 30,
-    "preview": "本地测试生成的reference.png，未附带原图",
-    "encodedFrame": "本地测试生成的encoded.png，未附带原图"
+    "preview": "reference.png",
+    "encodedFrame": "encoded.png"
   },
   "voice": {
     "model": "Qwen3-TTS 12Hz 1.7B CustomVoice",
@@ -239,7 +263,8 @@
     "backend": "mlx",
     "actualLocalGeneration": "pass",
     "voicedMP4": "pass",
-    "subjectiveListening": "pending; not inferred from technical checks"
+    "subjectiveListening": "pending; actual local generation and alignment are not a listening pass",
+    "currentVersionEvidence": "tests/evidence/serena-v1.2-sample.json"
   },
   "versions": {
     "playwright": "1.64.0",
@@ -260,7 +285,8 @@
     "模型权重与第三方运行库不包含在压缩包。",
     "当前缺少ffprobe，已实测FFmpeg探测回退链路。",
     "GitHub发布包含机器可读的精简验收证据，测试视频、模型及本机课程资料不上传。",
-    "v1.1增加一次性安装器；本机已准备隔离环境并复用已有模型，原课程素材保持原样。"
+    "v1.1增加一次性安装器；本机已准备隔离环境并复用已有模型，原课程素材保持原样。",
+    "v1.2以当前音频对齐教学节拍，加入实际素材/渲染器/成片/审查证据内容绑定；低文字量漫画对象为当前课程默认样式。"
   ],
   "installation": {
     "evidence": "tests/evidence/setup-checks.json",
@@ -268,6 +294,13 @@
     "freshEnvironment": "uv and standard venv/pip paths passed on macOS Apple Silicon",
     "browserDownload": "pass",
     "actualSerenaAndVoicedMP4": "pass",
-    "fullModelDownload": "not repeated; existing local weights reused; SDK metadata/config download verified"
+    "fullModelDownload": "not repeated; existing local weights reused; SDK metadata/config download verified",
+    "currentUnitEvidence": "tests/evidence/setup-regressions-v1.2.json"
+  },
+  "teachingRegression": {
+    "passed": 23,
+    "failed": 0,
+    "evidence": "tests/evidence/teaching-regressions.json",
+    "scope": "structure, freshness and motion activity; not proof of teaching or natural listening"
   }
 }

@@ -86,3 +86,9 @@ python3 scripts/smoke_test.py
 - https://ffmpeg.org/documentation.html
 
 依赖直接版本写入requirements，安装报告记录实际解析版本；上游有变化时修改清单并重新验证。默认不捆绑模型权重、密钥或个人路径。
+
+## 可选的本地语音对齐
+
+用于新版句意驱动动画时，可在工程`runtime.settings.json`增加`alignmentModelPath`，指向本地MLX Qwen3-ForcedAligner模型；MLX语音环境已包含运行库，但模型另行准备，不会因为普通编辑自动下载。配置后TTS会生成词级位置和句级SRT；已有音频可运行`python3 scripts/align.py --project /工程/工程数据.json --model /模型目录`。也可导入核对后的句级cues并让节拍对齐完整句边界。
+
+此适配器只在兼容Apple Silicon/MLX的机器上验证。Windows/Linux可用外部对齐器后导入cues，不把MLX当通用依赖。强制对齐只定位给定文稿，不能发现所有漏读；读音与听感另行审核。

@@ -1,4 +1,4 @@
-knowledge-to-video 1.1.0 — 使用与验证
+knowledge-to-video 1.2.0 — 使用与验证
 
 一、这是什么
 这是提供给AI编码助手使用的知识点讲解视频Skill，包含教学流程、资源规范、工程模板和工具脚本。它指导助手依据实际教材创作讲稿与动画；初始化生成的是待制作工程，不是自动完成的教材课程。
@@ -9,6 +9,8 @@ agents/openai.yaml：界面显示名称和默认调用提示，保留正常自�
 references/：资料范围、教学讲稿、分镜素材、配音时间轴、编辑器、检查、交付清理，以及运行配置。
 requirements/：渲染、Apple Silicon MLX和其他平台PyTorch依赖分开管理。
 scripts/：setup首次安装、smoke_test真实出片验证、doctor环境检测、project新建/迁移/导入、voice配音、render渲染、package整理、validate核验、serve本地服务，共享逻辑在lib。
+quality.py：讲稿计划、节拍、计时与教学动作结构检查；人工复核仍单独记录。
+align.py：可选本地强制对齐；生成与当前音频绑定的SRT及动画锚点。
 assets/：离线编辑器、工程Schema、曦曦漫画Serena配置、说明与跨平台启动模板。
 tests/：可重复运行的功能检查与触发场景评测集。
 
@@ -34,7 +36,8 @@ python3 scripts/project.py init --out ../我的视频/01-电流 --title 电流�
 5. 配音：
 python3 scripts/voice.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
 只生成某镜加--scene s01；导入音频另加--import-audio 音频.wav。
-6. 渲染、整理、验证：
+6. 新版教学工程先检查quality.py --stage script，再制作节拍；配音后运行quality.py --stage timing。配音与表达变更后需重新校准语音和动画。
+7. 渲染、整理、验证：
 python3 scripts/render.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
 python3 scripts/package.py --project ../我的视频/01-电流/可编辑工程/工程数据.json
 python3 scripts/validate.py --project ../我的视频/01-电流/可编辑工程/工程数据.json --delivery
@@ -59,13 +62,15 @@ python3 scripts/setup.py --plan
 离线可用：内嵌HTML播放、暂停、拖动、逐镜、文字/素材编辑、图片/配音导入、JSON保存加载、保存当前HTML。浏览器支持时可离线录制有声WebM。
 本地服务：生成Serena配音、短片预处理、保存到交付目录、渲染有声MP4。
 联网：资料搜索、可选图片生成、首次安装依赖/模型等。
-默认人物不出镜；透明曦曦需要另行启用并制作。原视频以原片+帧序列交付，模板预处理默认8fps、最多30秒，复杂视频需按内容调整策略。
+默认人物不出镜；透明曦曦需要另行启用并制作。原视频以原片+帧序列交付，模板预处理默认按源帧率、最高30fps、最多30秒，复杂视频需按内容调整策略。
 SRT默认无精细cues时每镜一条，字幕区间对应真实音频；需要短句字幕可填核对后的cues，重新配音后旧cues清空。SRT没有声音/字体/动画，剪映配合无字幕有声视频使用。
 技术通过不能证明课堂讲解质量；必须完整审看并试听。Windows/Linux启动模板与官方PyTorch配音适配器的实际验证状态见验收记录，未经实测不宣称通过。
 
 七、怎样验证Skill
 安装器逻辑与故障保护：
 python3 tests/test_setup.py
+教学与计时回归：
+python3 tests/test_teaching.py
 基础功能：
 python3 tests/run_checks.py --out ../knowledge-to-video-测试
 浏览器和实际MP4：

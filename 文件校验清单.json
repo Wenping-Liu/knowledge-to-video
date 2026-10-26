@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f173482de66915b8068b3837a9940c73de7cb8c48a909a2efe30a4c9324b53eb"
+      "sha256": "5e7ecfa7bf44ca5dbb8990579e2ff646fea470bb64ad70ea11310bc68852206b"
     },
     {
       "path": "SKILL.md",
-      "sha256": "bc327ed663cd5adaee43c94b5d8c07fb6245ccbc22090e5112ce8f4b3fd78d00"
+      "sha256": "d28349e3cdf05099dac99963891f3f77e6fb8581291e64fa4d4d9cade19eba10"
     },
     {
       "path": "agents/openai.yaml",
@@ -30,7 +30,7 @@
     },
     {
       "path": "assets/delivery-templates/使用说明.template.txt",
-      "sha256": "3e5cb97fca87f022cf36b8da2764f12ae9823527d5ddd097f4f09a92cd0ca1f7"
+      "sha256": "f06aa77b40346de61ab93cb0f1f4177d81f20214bdb096f5c09ba33de88c0e0c"
     },
     {
       "path": "assets/editor-template/editor.css",
@@ -38,23 +38,23 @@
     },
     {
       "path": "assets/editor-template/editor.js",
-      "sha256": "78f8aa94b70d7e5711b92788fc870310126cc931e5f7f7143b7252ec9a0a0939"
+      "sha256": "c669abebc23dedd2183e75c413d6099f46d6d0b737b831a5500369ad47207896"
     },
     {
       "path": "assets/editor-template/index.html",
-      "sha256": "55f9788462922cda345e4dfef0a05af6f7e1187c7f93a89911f2fb0fdfc9ba11"
+      "sha256": "a6c40fbf9f11f882562fa8de0d5ad82c7e99a665fa27786065312d255bb05a59"
     },
     {
       "path": "assets/editor-template/renderer.js",
-      "sha256": "423e4f8d1a9a5b3980ee5ad664720053d711f0b02c760e204ed60693fa9f6be0"
+      "sha256": "7da6baa418325a6a4b79ecab0e449ab389cb861b956ed03ac96dc53e2dddf0e8"
     },
     {
       "path": "assets/profiles/xixi-comic-serena.json",
-      "sha256": "c6c8f724a3954e7d505311a39440df724284e2a2562300ac2190e29e79090d94"
+      "sha256": "748b257da306804be7dc3f82989a9a56d075a689935eeef2e3050e42fca715c0"
     },
     {
       "path": "assets/schemas/project.schema.json",
-      "sha256": "abb2a959ee53c4ba606e7ecda7624153fd8b9fc87ab4480cc3720a91928fe6f2"
+      "sha256": "2f8cc8e893a2f0e47a315ce26eca05a7c58ada051c9348840f676ef5b7a3b794"
     },
     {
       "path": "docs/readme/01-token.png",
@@ -82,7 +82,7 @@
     },
     {
       "path": "docs/readme/badges.svg",
-      "sha256": "facec19147447fb72dca6fd3f3102c0dafa05f3a52ac42717af5dc0596d13960"
+      "sha256": "3a79e594872d93404146cba7b115326eb35ea9a09667b64644a4801cb12c7280"
     },
     {
       "path": "docs/readme/editor.png",
@@ -106,31 +106,35 @@
     },
     {
       "path": "references/02-teaching-and-script.md",
-      "sha256": "e24841a76e47e1d630e02745868b4bd203ad49b7ff68e4c571b9465f5595dfa1"
+      "sha256": "d5602029d1ee2e8a67b3ae2fe407d521208b0cde21792533804d105c29cd7153"
     },
     {
       "path": "references/03-storyboard-and-media.md",
-      "sha256": "199a0adc7b8aa61c24ce81ec648a2c383c638637123efdbdd645dcbd6dd038e5"
+      "sha256": "f98bd29c610bc6e92b958fe512287fd2da1e3cd41b9ed0d55fb97865089d4b20"
     },
     {
       "path": "references/04-voice-and-timing.md",
-      "sha256": "bb87974446b5b394f20a3d790ecd1b8235c61afdaa4229e129df0690248b0381"
+      "sha256": "2f606ae738a6032f4dfb613c556838241df4a89adba7cebd9d43bd76ee32f796"
     },
     {
       "path": "references/05-editable-project.md",
-      "sha256": "8dcacd7abda66c9287107c90d111d38ae426f16f2bb0af0f43198d321725f786"
+      "sha256": "c291f67425729915d26311d4917abe9c246ac389ac5c727ccfe4f871cc218e2f"
     },
     {
       "path": "references/06-quality-checks.md",
-      "sha256": "045f0ba4b1d9b568f18337e4c999ea8d7b142eebd535ca6652ea347b018d62cb"
+      "sha256": "97863bdd1dd1bbaa5f6453be698f86f54a5628aef4283f566c6069e663dee4a7"
     },
     {
       "path": "references/07-delivery-and-cleanup.md",
       "sha256": "b67f49d57ac580534079e5ce8df4d0ca8e183e5c4b59b8f8761656025f093129"
     },
     {
+      "path": "references/08-teaching-contract.md",
+      "sha256": "b6d7aac6877273dd761d878f99f33d7bcecf48eaebbce33d43cc6f0a7ea90be5"
+    },
+    {
       "path": "references/runtime.md",
-      "sha256": "999c4fecd219c2f3d5bee6e5561e7646205c76d5426d12ac227be0e9b2f0d746"
+      "sha256": "6c322d493f476b31386a9e177984d0d1bc32ced06dc850c4136934429e84975c"
     },
     {
       "path": "requirements/render.txt",
@@ -145,6 +149,10 @@
       "sha256": "4f2ee27243756d511e9c2ecc5f43334d306d30a3778d5e55e78e44595697c6d2"
     },
     {
+      "path": "scripts/align.py",
+      "sha256": "2f3ac345cfaa85543750c052ef5d472a1546781703ea5724bda123efc29a7332"
+    },
+    {
       "path": "scripts/doctor.py",
       "sha256": "b2cbc9794d998c77e04825d0d67a726f05dcaba374bd877c1d627701cfae7c79"
     },
@@ -154,11 +162,11 @@
     },
     {
       "path": "scripts/lib/environment.py",
-      "sha256": "6fb5e3c93e3175f0080236410ef6fca89f762a88d936c078e9932828be181e6a"
+      "sha256": "63cc14c77b0155756b5f987246153fd95b31e5a541c0219c216671d5c47b88f4"
     },
     {
       "path": "scripts/lib/media_paths.py",
-      "sha256": "a4cba6c59efcbe7a514540ac4c40f0fe5546f11a7661cf5137a30b52cc6ad183"
+      "sha256": "6cf1f5634209dd2a5f02f6aa76fe1cff1ce1d719b6db012ef108429a8b06a93f"
     },
     {
       "path": "scripts/lib/model_assets.py",
@@ -166,7 +174,11 @@
     },
     {
       "path": "scripts/lib/project_data.py",
-      "sha256": "489bdd6c87c66ed2d4929a16eb47e451c1f5075748a12172c73c2a3e0ba93457"
+      "sha256": "ccc0880f547bad4859f0e3b6b2bb65307fef0580b6973c7c5bbbf9fc3336b590"
+    },
+    {
+      "path": "scripts/lib/teaching_timing.py",
+      "sha256": "87458b4e07d1cd19c1c20adb981b828aee551823d98c40122f4cf12cd012f1b4"
     },
     {
       "path": "scripts/lib/timeline.py",
@@ -174,19 +186,23 @@
     },
     {
       "path": "scripts/package.py",
-      "sha256": "3ee438a0d5ded03f338bdeb76948e902128ad94f7aaf7d59561242f30c75950a"
+      "sha256": "ff869a71397d62a07e301e6eb7eace07482c943e54ebb34262bd342fe2052760"
     },
     {
       "path": "scripts/project.py",
-      "sha256": "c7332e73d298dc06311827990904482bcfa32717c732d35c719e0c7dab092991"
+      "sha256": "008ddd07d8a1aee14cc9084b188bc55e32968e7cef30d67e33e297e380be6020"
+    },
+    {
+      "path": "scripts/quality.py",
+      "sha256": "7b93b2cd14c47187871a18f639b1ec1242cbb655047fda43f0e43cc3a976bbea"
     },
     {
       "path": "scripts/render.py",
-      "sha256": "79fc041a898c15082fe5ea487e92a4af3d0ce10b4fe9e48bc899dacdc00db526"
+      "sha256": "6e335a8b3c5685aea5ebcccd058e77487236174e9a6565eabe132b9c28747670"
     },
     {
       "path": "scripts/serve.py",
-      "sha256": "24c60f071f80b27ceadb779d5c614333d7342756c1d6c437f43b996fc525dc8e"
+      "sha256": "83f6740940be4a3ea95a05e4aff02b0115373da8415765c15e23cc44751a5c66"
     },
     {
       "path": "scripts/setup.py",
@@ -194,23 +210,27 @@
     },
     {
       "path": "scripts/smoke_test.py",
-      "sha256": "062c4e29f07ee99ed0cfa09c11493e9c9f7d869a1fddba76ae856a2c12d44581"
+      "sha256": "a06e3c12f4779776b798fb8b15c83f9fa5afb064dc5bd368f428445c7520b65a"
     },
     {
       "path": "scripts/validate.py",
-      "sha256": "16976ba148fcebf1c6d75cfda5f8a3cba8836aa783d0a3a5229ac50686b800ef"
+      "sha256": "4109e446d26bca1d4068a8e5ac025ed4c5270f09b01594536ee6992ffd2f24ad"
     },
     {
       "path": "scripts/voice.py",
-      "sha256": "03b3c090376aec5cdcebf4035f2868d6090082cde56dbc1be177b264e081261d"
+      "sha256": "1a5c01aeff8f921cb66006790a370d6f3065630dd856aad8d2913f45f9f2105d"
     },
     {
       "path": "tests/evidence/checks.json",
-      "sha256": "a4d78822548ca22087dafef69cd3a5792de19208bd55d42ec5d5d4c2a642edb7"
+      "sha256": "a237ae08317636a04540b2562272a8bd2433c1675416f88faf9c06a3291b920a"
     },
     {
       "path": "tests/evidence/preview-export-comparison.json",
-      "sha256": "6cf44a08a73429d106e11d05901c986e127a2bea2888858f12a3d03d1ca15d12"
+      "sha256": "d111ca0b17e819ecd57b2f2f9da8298a0bc68cb0b53a576b81c37fafbdf81aad"
+    },
+    {
+      "path": "tests/evidence/serena-v1.2-sample.json",
+      "sha256": "d6c2a2f7acbc6117d5eadb92f89147407a3eff4ea52981545d6624a2665c1995"
     },
     {
       "path": "tests/evidence/serena-video-check.json",
@@ -221,12 +241,32 @@
       "sha256": "930cfecddfab393c4463af79641571c66af121501e1f93d8b9eaeb5510bb8b85"
     },
     {
+      "path": "tests/evidence/setup-regressions-v1.2.json",
+      "sha256": "a64d7db4b1bc1fd80e26351e014c136cac5616cee2a4ee8c4ab556cde3e709ae"
+    },
+    {
+      "path": "tests/evidence/teaching-regressions.json",
+      "sha256": "f12cb6bc32fc29e825b77355d2d313a56f0c069c29856a1fdb935b4c10db04fd"
+    },
+    {
+      "path": "tests/evidence/v1.1-acceptance.json",
+      "sha256": "fac80fe03d59fd8434642064d097b3f8ba4d35642f4893e8d324f0946af98f1a"
+    },
+    {
+      "path": "tests/evidence/v1.1-checks.json",
+      "sha256": "a4d78822548ca22087dafef69cd3a5792de19208bd55d42ec5d5d4c2a642edb7"
+    },
+    {
       "path": "tests/run_checks.py",
-      "sha256": "346d968efa478487ca237814b9964df3720f7f04e46c44d7151a72a408bf0aa6"
+      "sha256": "d8033ceb39dc1e40d06e5a01bb964725882f07c937d7c6a40751f3a664c8d13e"
     },
     {
       "path": "tests/test_setup.py",
       "sha256": "c038d9ded96e51bb1b9c445aaac05f434f0e8783e0473e9cebef553b52897817"
+    },
+    {
+      "path": "tests/test_teaching.py",
+      "sha256": "0054e50a1d34c789b02c5ff42df77ea193c1bdc77416fcf1eb2999759028d173"
     },
     {
       "path": "tests/trigger-cases.json",
@@ -234,7 +274,7 @@
     },
     {
       "path": "使用与验证.txt",
-      "sha256": "eda0ea505fd10e10e8951e546fe5fcf191c3a51c0b2abbe5c44544b23379bdf7"
+      "sha256": "47c1db13ef4c35316aade40a508d0136878ceba93efae49f1e74c24192d25e67"
     },
     {
       "path": "安装环境.cmd",
@@ -250,7 +290,7 @@
     },
     {
       "path": "验收记录.json",
-      "sha256": "f2a9d2c70b1e0b0428ff13e4f9fbcd746258084fa27ba761c5afc156fd0631fa"
+      "sha256": "03fa1c24f7f99ff86db6bd8d64408fbea1aa024036d2a1013b4b5f97675630fd"
     }
   ]
 }
