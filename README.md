@@ -10,7 +10,7 @@
 
 每个知识点独立制作，先做一个样片，确认内容、画风、动作和声音后，再继续整套课程。
 
-[看案例](#第二课案例画廊) · [开始使用](#开始使用) · [编辑与导出](#编辑与导出) · [文件整理](#交付目录) · [验证方法](#如何验证)
+[先看有声视频](docs/demo/README.md) · [看案例](#第二课案例画廊) · [开始使用](#开始使用) · [编辑与导出](#编辑与导出) · [文件整理](#交付目录) · [验证方法](#如何验证)
 
 </div>
 
@@ -53,9 +53,13 @@
 
 | 训练与推理 | 模型评测 |
 |---|---|
-| ![训练与推理](docs/demo/media/training.jpg) | ![模型评测](docs/demo/media/evaluation.jpg) |
+| [![训练与推理](docs/demo/media/training.jpg)](docs/demo/media/training.mp4) | [![模型评测](docs/demo/media/evaluation.jpg)](docs/demo/media/evaluation.mp4) |
 | LoRA参数适配 | RAG资料链路 |
-| ![LoRA](docs/demo/media/lora.jpg) | ![RAG](docs/demo/media/rag.jpg) |
+| [![LoRA](docs/demo/media/lora.jpg)](docs/demo/media/lora.mp4) | [![RAG](docs/demo/media/rag.jpg)](docs/demo/media/rag.mp4) |
+
+**点击截图即可打开对应有声MP4；若GitHub页面未显示播放器，点击Raw／Download下载后观看。** [全部视频入口](docs/demo/README.md)包含四段案例、约2分11秒的项目演示，以及一支完整可编辑讲解样例。
+
+案例直接基于GitLink上[Christin-liu / Full_Link_Development_of_Large_Models](https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models)仓库中“两天培训材料包”的知识点和实践任务开发，该材料包源于《大模型全链路开发：基于书生开源体系的项目实战》。项目已形成前五课27支独立知识点视频；本仓库公开精选片段和一套完整样例，原始教材与其余完整课程不随仓库分发。
 
 打开[Demo](docs/demo/index.html)播放真实片段，或查看[技术文档与推广计划](docs/technical.md)。来源、截取时间和SHA见[cases.json](docs/demo/cases.json)。历史课程片段展示已有制作效果，不代表全部已按v1.3重制或已经过课堂效果实验。
 

@@ -13,7 +13,10 @@
     "poster": "media/training.jpg",
     "clipSHA256": "9da6372180182300228c592e68d09f38f09c55ceedbeb30468fa27d1e80b61b1",
     "use": "已生成课程的实际片段，展示制作效果；不代表课堂学习效果实测",
-    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发"
+    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发",
+    "curriculumSourceRepository": "https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models",
+    "directMaterials": "两天培训材料包中的知识点和实践任务",
+    "upstreamTextbook": "大模型全链路开发：基于书生开源体系的项目实战"
   },
   {
     "id": "evaluation",
@@ -29,7 +32,10 @@
     "poster": "media/evaluation.jpg",
     "clipSHA256": "31a04b088e509b32a6e6ad90e5f683589d7d54bee5e78de0f6270c9f5b44d74d",
     "use": "已生成课程的实际片段，展示制作效果；不代表课堂学习效果实测",
-    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发"
+    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发",
+    "curriculumSourceRepository": "https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models",
+    "directMaterials": "两天培训材料包中的知识点和实践任务",
+    "upstreamTextbook": "大模型全链路开发：基于书生开源体系的项目实战"
   },
   {
     "id": "lora",
@@ -45,7 +51,10 @@
     "poster": "media/lora.jpg",
     "clipSHA256": "c4b2c4693ee7ee9ab05bbbe3c4ed85c62bff61258df5ca668198e16999bb884d",
     "use": "已生成课程的实际片段，展示制作效果；不代表课堂学习效果实测",
-    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发"
+    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发",
+    "curriculumSourceRepository": "https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models",
+    "directMaterials": "两天培训材料包中的知识点和实践任务",
+    "upstreamTextbook": "大模型全链路开发：基于书生开源体系的项目实战"
   },
   {
     "id": "rag",
@@ -61,6 +70,9 @@
     "poster": "media/rag.jpg",
     "clipSHA256": "e29e37e193e77310a7dffed5d7e954da037bbb80361cbfec0f04e889aa9efe8e",
     "use": "已生成课程的实际片段，展示制作效果；不代表课堂学习效果实测",
-    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发"
+    "rights": "本项目制作的画面与合成旁白，原始教材不随仓库分发",
+    "curriculumSourceRepository": "https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models",
+    "directMaterials": "两天培训材料包中的知识点和实践任务",
+    "upstreamTextbook": "大模型全链路开发：基于书生开源体系的项目实战"
   }
 ]

@@ -26,7 +26,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "3e9bf73dd1757b5d06b14c0ad7bb1f41a24faae3e29d7cd22a1ce2c3a70cefdd"
+      "sha256": "0046e00d7f7f572ac79645896de8aa226a541383ef1e10a7b27fc0bb2974ec3f"
     },
     {
       "path": "SKILL.md",
@@ -89,8 +89,12 @@
       "sha256": "2f8cc8e893a2f0e47a315ce26eca05a7c58ada051c9348840f676ef5b7a3b794"
     },
     {
+      "path": "docs/demo/README.md",
+      "sha256": "3810826455ac1fa6b946547d9283c7923801ebdba300d4c70024b9b64928a2be"
+    },
+    {
       "path": "docs/demo/cases.json",
-      "sha256": "98d2d76d6e007c8afabf562d23a4ef3ed89ab8cb9fcaf36adb856a1ebba67c51"
+      "sha256": "9b04b84f09d4407b82a08d25709768f97dd6d5bbc9c988b950ec06b9c8a6f8e1"
     },
     {
       "path": "docs/demo/demo.css",
@@ -102,7 +106,7 @@
     },
     {
       "path": "docs/demo/index.html",
-      "sha256": "e9534e87e5a6a02a6ca7a256968a47d0a43dfb7a3af57c5d7635d9c93d086239"
+      "sha256": "a88f4f7e78e5833f9620a4bcf0b50d7cc0c46bdaf08f1a6b443a69ddb98acc1f"
     },
     {
       "path": "docs/demo/media/evaluation.jpg",
@@ -131,6 +135,10 @@
     {
       "path": "docs/demo/media/mvp.png",
       "sha256": "a8b6af8f6ec18fb3ec64af5ca22c9af48cca1903f7c241ddc031329bb5ab13d6"
+    },
+    {
+      "path": "docs/demo/media/project-demo.mp4",
+      "sha256": "17b7332012b093f507cee3caaad35162c62900e3fec135e3c62be6701ed041fd"
     },
     {
       "path": "docs/demo/media/rag.jpg",
@@ -202,7 +210,7 @@
     },
     {
       "path": "docs/technical.md",
-      "sha256": "5d5039be999a61ee9f5496717cb8da8c5b34ab070326595c914fe37a1b977a67"
+      "sha256": "bd6f3585c61e7cc9480b752f00998cfab05e8beb46877293d51342aa6cd46f6e"
     },
     {
       "path": "examples/notice-training/使用说明.txt",

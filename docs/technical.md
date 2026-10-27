@@ -95,7 +95,7 @@ serve.py仅监听127.0.0.1，使用会话令牌并检查Origin；素材引用限
 
 ## 实际案例与画面效果
 
-内部课程资料覆盖前五课共27个知识点，另有迭代样片。本次公开一套完整可编辑工程，并选取四类真实片段。数量表示已制作产物，不代表外部用户数量或学习效果验证。第三至第五课片段为历史实例，尚未全部按v1.3重制。
+案例直接基于GitLink上[Christin-liu / Full_Link_Development_of_Large_Models](https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models)仓库中“两天培训材料包”的知识点和实践任务开发，该材料包源于《大模型全链路开发：基于书生开源体系的项目实战》。前五课已形成27支独立视频，另有迭代样片。本仓库公开一套完整可编辑工程和四类真实片段，见[视频入口](demo/README.md)。数量表示已制作产物，不代表外部用户数量或学习效果验证。第三至第五课片段为历史实例，尚未全部按v1.3重制。
 
 ![实际项目画面](demo/media/training.png)
 
