@@ -1,0 +1,3 @@
+# Direct versions verified with the shipped renderer; installer records resolved transitive versions.
+playwright==1.64.0
+imageio-ffmpeg==0.6.0

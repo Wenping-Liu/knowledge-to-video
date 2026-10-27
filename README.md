@@ -37,6 +37,39 @@
 
 ---
 
+## 教师和学生怎样开始
+
+1. 将仓库链接发给自己的智能体：**“请安装这个 knowledge-to-video Skill，检查可用环境。”**
+2. 提供上课要讲的知识点、教案或教材，说明学段与用途：教师备课或课堂讲解，学生自学或备考。
+3. 指定声音和画面：默认千问Serena、白底漫画物件；晓晓或BreezeBlue等可按接入状态选择；曦曦角色按需出镜。
+4. 请智能体使用`$knowledge-to-video`先开发一支样片，核对内容、动作和声音后，再制作其他知识点。
+5. 在HTML中修改讲稿和素材，重新配音与校准，导出有声MP4及对应SRT。
+
+完整步骤见[用户指南](references/09-user-guide.md)，能力和配置见[声音 智能体与曦曦](references/10-providers-and-avatar.md)。本项目面向全学科设计，现有实测案例以大模型课程为主。
+
+**MVP体验：**克隆后打开[任务配置与案例Demo](docs/demo/index.html)，或运行`python3 -m http.server 8000`后访问该页面。它可生成智能体任务、保存配置、打开可编辑示例与实际片段；视频制作仍由智能体和本地工具执行。浏览器页面不会假装在后台调用未配置的模型。
+
+### 实际案例预览
+
+| 训练与推理 | 模型评测 |
+|---|---|
+| ![训练与推理](docs/demo/media/training.jpg) | ![模型评测](docs/demo/media/evaluation.jpg) |
+| LoRA参数适配 | RAG资料链路 |
+| ![LoRA](docs/demo/media/lora.jpg) | ![RAG](docs/demo/media/rag.jpg) |
+
+打开[Demo](docs/demo/index.html)播放真实片段，或查看[技术文档与推广计划](docs/technical.md)。来源、截取时间和SHA见[cases.json](docs/demo/cases.json)。历史课程片段展示已有制作效果，不代表全部已按v1.3重制或已经过课堂效果实验。
+
+v1.3本轮通过55项单元检查、44项浏览器/音视频检查和10项MVP操作检查。证据分别保存在`tests/evidence/v1.3-*.json`；Azure为模拟请求，真实账号调用、Breeze原生API和课堂效果验证仍分别列为未验证或未实现。
+
+## v1.3 可选择的能力
+
+| 层次 | 默认与选项 | 验证边界 |
+|---|---|---|
+| 声音 | Qwen3-TTS 1.7B Serena；Azure晓晓；BreezeBlue及其他音频导入 | Qwen本地生成实测；Azure模拟请求测试、待账号实测；Breeze原生API未接入 |
+| 编程智能体 | Codex实际验证；其他具备文件和执行工具的智能体可适配 | 具体编程模型由宿主选择，不捆绑单一模型API |
+| 角色 | 纯动画默认；曦曦透明PNG独立图层可选 | 可调整位置大小，不等同自动口型同步 |
+| 案例 | 多课真实片段、原始工程与来源记录 | 展示产物和工具能力，不代表已经完成课堂效果实验 |
+
 ## v1.2：让讲解和动画按同一条主线前进
 
 这次修订针对实际课程里出现的断句、场景跳跃、装饰循环和文字缺失。新的工程要求先写连续讲稿，再把每段话绑定到具体对象的状态变化；配音变化后重新对齐这些动作。
@@ -344,3 +377,7 @@ knowledge-to-video/
 - [Agent Skills](https://agentskills.io/specification)：Skill 文件组织规范。
 
 展示图片和动图截取自本项目第二课已完成课程。教材、模型、字体与第三方素材的使用遵循各自的来源和许可记录。
+
+## 开源协议与参与
+
+本项目原创代码和Skill文档采用[MIT](LICENSE)，这是OSI认可的开源许可证。教材、模型与第三方素材不因本仓库而改变许可，参见[NOTICE](NOTICE.md)。欢迎按[贡献指南](CONTRIBUTING.md)提交学科样片、术语校对和兼容修复。

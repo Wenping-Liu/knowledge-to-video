@@ -1,0 +1,5 @@
+# Official Qwen adapter; GPU wheels can be prepared separately and adopted with --use-python.
+qwen-tts==0.1.1
+torch>=2.5,<3
+numpy>=1.26,<3
+huggingface-hub>=0.34,<1

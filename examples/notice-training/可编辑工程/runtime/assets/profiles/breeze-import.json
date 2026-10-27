@@ -1,0 +1,32 @@
+{
+  "name": "曦曦白底漫画与BreezeBlue导入配音",
+  "audience": "零基础、初中生也能理解",
+  "background": "#FFFFFF",
+  "palette": [
+    "#171717",
+    "#FFCE45",
+    "#F07846",
+    "#82B8CB"
+  ],
+  "style": "参考已确认样片：粗墨线漫画物件、浅色纸张、橙黄强调；对象演示为主，画面只留短定义、关键词和案例必要数据",
+  "opening": "大家好，我是曦曦，今天我们要学习……",
+  "closing": "本节课我们学习了……，它就是……。本节课的学习就到这里了，同学们再见。",
+  "narrationSubtitles": false,
+  "characterEnabled": false,
+  "excludedScreenTerms": [
+    "happyllm"
+  ],
+  "leadIn": 0.28,
+  "gapAfter": 0.65,
+  "voice": {
+    "backend": "import",
+    "modelFamily": "BreezeBlue-External-Audio",
+    "speaker": "BreezeBlue-UserSelected",
+    "language": "Chinese",
+    "instruction": "在平台选择同一声音，并按当前镜头讲稿导出音频后导入",
+    "speed": 1
+  },
+  "maxIdleSeconds": 5,
+  "referenceStyle": "第二课样片：文字怎样变成模型的输入（Serena版），白底漫画物件与少量关键词",
+  "screenTextMode": "keywords-and-data"
+}

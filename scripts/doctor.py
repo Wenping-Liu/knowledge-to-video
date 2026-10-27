@@ -26,15 +26,25 @@ def diagnose(root=None,verify_browser=False):
                 b=pw.chromium.launch(executable_path=chrom);page=b.new_page();page.set_content('<canvas></canvas>');page.screenshot();b.close()
             result['tools']['chromium']['launchVerified']=True
         except Exception as e:browser_error=str(e);result['tools']['chromium']['launchError']=browser_error
-    model=os.environ.get('KTV_MODEL') or cfg.get('modelPath','');backend=cfg.get('voiceBackend') or ('mlx' if platform.system()=='Darwin' and platform.machine().lower() in ['arm64','aarch64'] else 'qwen')
-    model_errors=check_model(model,backend)
-    result['voice']={'requested':cfg.get('voiceEnabled',True),'modelConfigured':bool(model),'modelFilesReady':not model_errors,'modelErrors':model_errors,'backend':backend,'moduleReady':result['modules'].get({'mlx':'mlx_audio','qwen':'qwen_tts'}.get(backend,''),False),'speaker':'Serena','runtimeLoadVerified':False}
+    project_voice={}
+    if root and (Path(root)/'工程数据.json').exists():
+        from lib.project_data import read
+        project_voice=read(Path(root)/'工程数据.json').get('voice',{})
+    model=os.environ.get('KTV_MODEL') or cfg.get('modelPath','');backend=project_voice.get('backend') or cfg.get('voiceBackend') or ('mlx' if platform.system()=='Darwin' and platform.machine().lower() in ['arm64','aarch64'] else 'qwen')
+    model_errors=check_model(model,backend) if backend in ['mlx','qwen'] else []
+    result['voice']={'requested':cfg.get('voiceEnabled',True),'modelConfigured':bool(model),'modelFilesReady':not model_errors,'modelErrors':model_errors,'backend':backend,'moduleReady':result['modules'].get({'mlx':'mlx_audio','qwen':'qwen_tts'}.get(backend,''),False),'speaker':project_voice.get('speaker','Serena'),'runtimeLoadVerified':False}
+    if backend=='azure':
+        from lib.cloud_voice import azure_config
+        cloud=azure_config();result['voice'].update(cloud=cloud,moduleReady=True,modelConfigured=False,modelFilesReady=True)
+    if backend=='import':result['voice'].update(requested=False,moduleReady=True,modelConfigured=False,modelFilesReady=True)
     result['versions']={}
     for distribution in ['playwright','imageio-ffmpeg','mlx-audio','numpy','torch','qwen-tts','huggingface-hub']:
         try:result['versions'][distribution]=importlib.metadata.version(distribution)
         except importlib.metadata.PackageNotFoundError:pass
     result['renderReady']=isinstance(result['tools']['ffmpeg'],str) and result['modules']['playwright'] and result['tools']['chromium']['exists'] and not browser_error
     result['voiceReady']=result['voice']['moduleReady'] and result['modules']['numpy'] and not model_errors
+    if backend=='azure':result['voiceReady']=all(cloud.values())
+    if backend=='import':result['voiceReady']=True
     result['configurationReady']=result['renderReady'] and (not result['voice']['requested'] or result['voiceReady'])
     setup=Path(__file__).resolve().parent/'setup.py'
     result['nextSteps']=[] if result['configurationReady'] else ['运行：python3 "'+str(setup)+'" --yes','已有模型可加 --model-path "本地模型目录"；暂不生成配音可加 --voice none']

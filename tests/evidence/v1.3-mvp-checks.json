@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-27",
+  "checks": [
+    {
+      "name": "Default task has Serena and required greeting",
+      "status": "pass"
+    },
+    {
+      "name": "Azure option discloses cloud configuration",
+      "status": "pass"
+    },
+    {
+      "name": "Breeze option states audio import and API limit",
+      "status": "pass"
+    },
+    {
+      "name": "Avatar is optional explicit choice",
+      "status": "pass"
+    },
+    {
+      "name": "Configuration download and restore preserve topic",
+      "status": "pass"
+    },
+    {
+      "name": "Task TXT contains current topic",
+      "status": "pass"
+    },
+    {
+      "name": "Actual editable course has valid audio",
+      "status": "pass"
+    },
+    {
+      "name": "Saved HTML contains edited screen text",
+      "status": "pass"
+    },
+    {
+      "name": "Narration edit invalidates old audio",
+      "status": "pass"
+    },
+    {
+      "name": "No browser JS errors",
+      "status": "pass"
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "note": "Real local browser operations; video generation is executed by the agent/local runtime, not this task form"
+}

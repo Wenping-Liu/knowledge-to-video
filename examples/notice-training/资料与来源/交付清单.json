@@ -1,0 +1,395 @@
+{
+  "projectFingerprint": "dbf7c5b80c12789d49011a68434fcb8b748cedc63a93627b65fe93193b35d95f",
+  "videoReady": true,
+  "subtitleGranularity": "provided-cues",
+  "files": [
+    {
+      "path": "使用说明.txt",
+      "sha256": "0fcbb2e585448e4c9513e6097ede96ac97ad68a9e3d73b0ceb6ea1765d7da71e"
+    },
+    {
+      "path": "剪映素材/分镜旁白.txt",
+      "sha256": "cc7072a9c37907246414ac0f42a59ccded3532d8c1336475d9bb34c1c5759b22"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/001-一份秋游通知里的问题.png",
+      "sha256": "ea258508cfdf0a5d9a7d662f8d7ccafe974118cc5860fd9c877240458276485f"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/001-一份秋游通知里的问题.svg",
+      "sha256": "a366208beaf550d1afeb607f2371842df31c3091423fac74c85ef6da46dc67a5"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/002-先给文字助手下定义.png",
+      "sha256": "04002b4cce33e3b0a5b31b124934d4e514d54164312d696ccd88ebf41e8bd3ae"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/002-先给文字助手下定义.svg",
+      "sha256": "75b40312813da7aa3dc53fd617a0e110f8c47cf8e59fb3b9b1f87b26b0b826e7"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/003-训练怎样改变模型.png",
+      "sha256": "869ddaad1948e9bf0403b883c5e43f83078350f4291bfc2f355b0d77208aa7cc"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/003-训练怎样改变模型.svg",
+      "sha256": "9978b474e52a7b64e804f183279c993f046f72749053a64a96f312ddf7ef1a4b"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/004-参数是什么，类比到哪里.png",
+      "sha256": "98a0ccfd75860c22c480ca6b6e39d62dcdc02e5e7748a8bb61bb699f73c33892"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/004-参数是什么，类比到哪里.svg",
+      "sha256": "cf47936fc64d2748782d8a7faf4e3911e9e9eece3047f546e99182534c805f23"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/005-推理怎样写出摘要.png",
+      "sha256": "f3f2c82cd55e7d13013e3150e2fdb79d7a0e246f5100a6e5fe9134274d7edd14"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/005-推理怎样写出摘要.svg",
+      "sha256": "3cf0c4ae66c7cb3ffbf9b87edc7cad004434f5474d8048f8db7f2923ea9fed21"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/006-通知变成照片又怎样.png",
+      "sha256": "7fcf2360f3c8e2b21622d89849e098afa543ca5c99dc984bc836348d245ab83a"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/006-通知变成照片又怎样.svg",
+      "sha256": "76feec292430bf1cf2a6e36239db0b7a7f18cd2b431c115f422000491b6c7d3c"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/007-回到最初的通知.png",
+      "sha256": "32b6f78030fdffba9f2030385395fc26b9a0f2fb0f1abfe5e15f2374d27ae91c"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/007-回到最初的通知.svg",
+      "sha256": "f702f5b70e7a41adcd0345818f88c4f163d64db380e4c17ac31dcd909c4e3fef"
+    },
+    {
+      "path": "剪映素材/分镜画面参考/说明.txt",
+      "sha256": "f2eb4d0f65e20189f5ef76da335c152c90ca6b57ea709cbbdeb6b740d0325fc5"
+    },
+    {
+      "path": "剪映素材/分镜配音/001-一份秋游通知里的问题.wav",
+      "sha256": "e9e8db8428a234f23b43748e5ec6844409dbd87a0bca504fc0bcaf34cf818955"
+    },
+    {
+      "path": "剪映素材/分镜配音/002-先给文字助手下定义.wav",
+      "sha256": "8738f87df4ec2d786c971501d4d65cdc76f44abe89e410b07be42769181b3599"
+    },
+    {
+      "path": "剪映素材/分镜配音/003-训练怎样改变模型.wav",
+      "sha256": "9b4ddbaee7984260cf8aaf66147739a39e1da756ed7bf45d24fbace92d65815a"
+    },
+    {
+      "path": "剪映素材/分镜配音/004-参数是什么，类比到哪里.wav",
+      "sha256": "ace0188091b79b5280530b119621ad23be28d569faee32b9119932d2635f94fc"
+    },
+    {
+      "path": "剪映素材/分镜配音/005-推理怎样写出摘要.wav",
+      "sha256": "cbf273ad73050ab823a4590e4e88c8faa014e78c1e5a861366069dc47e1e7edc"
+    },
+    {
+      "path": "剪映素材/分镜配音/006-通知变成照片又怎样.wav",
+      "sha256": "f3f2bab286d9e8bfec9dca0767c2f2504b0a346570bcba38fd4689164491c1d7"
+    },
+    {
+      "path": "剪映素材/分镜配音/007-回到最初的通知.wav",
+      "sha256": "1cc57dc9ce4ba2bc3ad0b1afe9d07b79124f852386610c12464b3c7e4884cd34"
+    },
+    {
+      "path": "剪映素材/字幕.srt",
+      "sha256": "ea11577963aafd71d293bee3ab50067e98096cca5831e30023a88bf05e32a85e"
+    },
+    {
+      "path": "剪映素材/无旁白字幕版.mp4",
+      "sha256": "ff1684abce6a9f5074d5e1e73c324daf7a3c868cadd45857007f8d608c4fcaa6"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/delivery-templates/launchers/linux.sh.template",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/delivery-templates/launchers/macos.command.template",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/delivery-templates/launchers/windows.cmd.template",
+      "sha256": "15276727773d72c8c410f05509bd47c4c3b17ff3146a2d2a36bebf0fcbca37ee"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/delivery-templates/使用说明.template.txt",
+      "sha256": "f06aa77b40346de61ab93cb0f1f4177d81f20214bdb096f5c09ba33de88c0e0c"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/editor-template/editor.css",
+      "sha256": "c4d7067b8123b5ec5ca475d69f64b8cf3b6aea8c4fe8ebeec7ef868b741260e6"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/editor-template/editor.js",
+      "sha256": "ee22e33e912e1a2122cd50578330b41bc7313182b3de385eaaa712469b1c1af5"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/editor-template/index.html",
+      "sha256": "28a6e220847ef3bc508d40361a5a7abceb9201ecdd612254b5221371a14d4d40"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/editor-template/renderer.js",
+      "sha256": "7da6baa418325a6a4b79ecab0e449ab389cb861b956ed03ac96dc53e2dddf0e8"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/profiles/azure-xiaoxiao.json",
+      "sha256": "265b97a6660b0491811e1b3e3766bc9ffe352ea8ba08d81566ac71c064ee699e"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/profiles/breeze-import.json",
+      "sha256": "7bf6b2507cf0417033942018944db2588d9d8209a6407b31db8db2cf746c3383"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/profiles/xixi-comic-serena.json",
+      "sha256": "748b257da306804be7dc3f82989a9a56d075a689935eeef2e3050e42fca715c0"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/provider-options.json",
+      "sha256": "59ec9140facd3a1e79e4166188d2ff0b781e126aaa7ec71f9ddf6fc10eeed8a3"
+    },
+    {
+      "path": "可编辑工程/runtime/assets/schemas/project.schema.json",
+      "sha256": "2f8cc8e893a2f0e47a315ce26eca05a7c58ada051c9348840f676ef5b7a3b794"
+    },
+    {
+      "path": "可编辑工程/runtime/requirements/render.txt",
+      "sha256": "3f96b53f1469f946cfee9fb0ffb5d8f6b827b30f90cc1ef0464fc9514f8fbfb3"
+    },
+    {
+      "path": "可编辑工程/runtime/requirements/voice-mlx.txt",
+      "sha256": "29a83c602884636a98ffc01c3d5eafdf25548eab4e44158faf515afe44ac9792"
+    },
+    {
+      "path": "可编辑工程/runtime/requirements/voice-qwen.txt",
+      "sha256": "4f2ee27243756d511e9c2ecc5f43334d306d30a3778d5e55e78e44595697c6d2"
+    },
+    {
+      "path": "可编辑工程/runtime/requirements.txt",
+      "sha256": "09c95b234e3198f97cee90eb6eef54e52f218eb2fb6a0818024f81068b1bff27"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/align.py",
+      "sha256": "2f3ac345cfaa85543750c052ef5d472a1546781703ea5724bda123efc29a7332"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/avatar.py",
+      "sha256": "7fb61425333f7d978a6fbd7b6c6a7ca84588c2219d84f857e5eb88a8b9267fa5"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/doctor.py",
+      "sha256": "18810dd941d4653b13d4dc0d7454f9b6f4f36a44b96686e1e8c6b8a50ca349f9"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/__init__.py",
+      "sha256": "d27aa4f06798b41006364580847a416e9d07eace684fbef3ee9f60fc5eee6c80"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/cloud_voice.py",
+      "sha256": "729d28c355e42100d9ac3985b4f907b6deba2ef2501362094118917de2955ac3"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/environment.py",
+      "sha256": "63cc14c77b0155756b5f987246153fd95b31e5a541c0219c216671d5c47b88f4"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/media_paths.py",
+      "sha256": "6cf1f5634209dd2a5f02f6aa76fe1cff1ce1d719b6db012ef108429a8b06a93f"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/model_assets.py",
+      "sha256": "9e76a2a51cb7a92b88ef843a751fd15f1f413b449054fa35775f9652f4f4addd"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/project_data.py",
+      "sha256": "ccc0880f547bad4859f0e3b6b2bb65307fef0580b6973c7c5bbbf9fc3336b590"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/teaching_timing.py",
+      "sha256": "87458b4e07d1cd19c1c20adb981b828aee551823d98c40122f4cf12cd012f1b4"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/lib/timeline.py",
+      "sha256": "e195695c6a81e02c62d1877d3e50371b798a03d1408b1c4152b14822d9f2312c"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/package.py",
+      "sha256": "ff869a71397d62a07e301e6eb7eace07482c943e54ebb34262bd342fe2052760"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/project.py",
+      "sha256": "008ddd07d8a1aee14cc9084b188bc55e32968e7cef30d67e33e297e380be6020"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/quality.py",
+      "sha256": "7b93b2cd14c47187871a18f639b1ec1242cbb655047fda43f0e43cc3a976bbea"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/render.py",
+      "sha256": "6e335a8b3c5685aea5ebcccd058e77487236174e9a6565eabe132b9c28747670"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/serve.py",
+      "sha256": "83f6740940be4a3ea95a05e4aff02b0115373da8415765c15e23cc44751a5c66"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/setup.py",
+      "sha256": "d6e01ec3c3ebd0862cf7bf0ff2de8e72b38c7bd59863c2d025be881f30a1c09d"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/smoke_test.py",
+      "sha256": "a06e3c12f4779776b798fb8b15c83f9fa5afb064dc5bd368f428445c7520b65a"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/validate.py",
+      "sha256": "4109e446d26bca1d4068a8e5ac025ed4c5270f09b01594536ee6992ffd2f24ad"
+    },
+    {
+      "path": "可编辑工程/runtime/scripts/voice.py",
+      "sha256": "662ce08f64a4c15b829a36ce302446b58014fe0b5adf94c7c1090ef90f8cd6b2"
+    },
+    {
+      "path": "可编辑工程/动画代码/editor.css",
+      "sha256": "c4d7067b8123b5ec5ca475d69f64b8cf3b6aea8c4fe8ebeec7ef868b741260e6"
+    },
+    {
+      "path": "可编辑工程/动画代码/editor.js",
+      "sha256": "ee22e33e912e1a2122cd50578330b41bc7313182b3de385eaaa712469b1c1af5"
+    },
+    {
+      "path": "可编辑工程/动画代码/index.html",
+      "sha256": "28a6e220847ef3bc508d40361a5a7abceb9201ecdd612254b5221371a14d4d40"
+    },
+    {
+      "path": "可编辑工程/动画代码/renderer.js",
+      "sha256": "7da6baa418325a6a4b79ecab0e449ab389cb861b956ed03ac96dc53e2dddf0e8"
+    },
+    {
+      "path": "可编辑工程/图片/1ce1db6eaf1d0c26a21c.svg",
+      "sha256": "1ce1db6eaf1d0c26a21c4516da8197693082236deda40ef7887aac35ce7ee237"
+    },
+    {
+      "path": "可编辑工程/图片/3305e309eee64c94aff2.svg",
+      "sha256": "3305e309eee64c94aff2dad6e0374bf4ab1f08bf9501f5cf7aeb07f988b33ebd"
+    },
+    {
+      "path": "可编辑工程/图片/3a46d73fbd1b54bbff0c.svg",
+      "sha256": "3a46d73fbd1b54bbff0c86c295cb933a1dbb9df4972d36b21e85722fa616126b"
+    },
+    {
+      "path": "可编辑工程/图片/7840e8c2fb0ca7a0f073.svg",
+      "sha256": "7840e8c2fb0ca7a0f0733c35ce6f89cf184c97f638ecc055c4215335c79dafc5"
+    },
+    {
+      "path": "可编辑工程/图片/7d99a33952eed7a1ae19.svg",
+      "sha256": "7d99a33952eed7a1ae1916c86c3abcc9c718369d7213d60c2dde8603882d5904"
+    },
+    {
+      "path": "可编辑工程/图片/9b81822fc8cc8a0d7ca2.svg",
+      "sha256": "9b81822fc8cc8a0d7ca2ae035511c39f8f198523fde2590d1860f5c4a6c61997"
+    },
+    {
+      "path": "可编辑工程/图片/aa40f02545a8638209c5.svg",
+      "sha256": "aa40f02545a8638209c5b4d07fe0a42c96b7eb75f08777016b3f0b6284b03249"
+    },
+    {
+      "path": "可编辑工程/图片/e08a458952416dc98803.svg",
+      "sha256": "e08a458952416dc98803736eafab113f0be3053a480e221581918f9801dd1ce0"
+    },
+    {
+      "path": "可编辑工程/图片/f008a1c2ccf9f3e73578.svg",
+      "sha256": "f008a1c2ccf9f3e7357891a60206504d9e53505a59247c29c5e65ee04e56a3a7"
+    },
+    {
+      "path": "可编辑工程/工程数据.json",
+      "sha256": "611308f04aeb6eea044a686e98b976afe9a0c22e7defde61aa1b5b9bcdfb2f9e"
+    },
+    {
+      "path": "可编辑工程/编辑器.html",
+      "sha256": "2a4bac6df1217f58ff06fc5ba0b8da9c9e9d4c95ee9232bb06093d9a0978ea2b"
+    },
+    {
+      "path": "可编辑工程/配音/1cc57dc9ce4ba2bc3ad0.wav",
+      "sha256": "1cc57dc9ce4ba2bc3ad0b1afe9d07b79124f852386610c12464b3c7e4884cd34"
+    },
+    {
+      "path": "可编辑工程/配音/8738f87df4ec2d786c97.wav",
+      "sha256": "8738f87df4ec2d786c971501d4d65cdc76f44abe89e410b07be42769181b3599"
+    },
+    {
+      "path": "可编辑工程/配音/9b4ddbaee7984260cf8a.wav",
+      "sha256": "9b4ddbaee7984260cf8aaf66147739a39e1da756ed7bf45d24fbace92d65815a"
+    },
+    {
+      "path": "可编辑工程/配音/ace0188091b79b528053.wav",
+      "sha256": "ace0188091b79b5280530b119621ad23be28d569faee32b9119932d2635f94fc"
+    },
+    {
+      "path": "可编辑工程/配音/cbf273ad73050ab823a4.wav",
+      "sha256": "cbf273ad73050ab823a4590e4e88c8faa014e78c1e5a861366069dc47e1e7edc"
+    },
+    {
+      "path": "可编辑工程/配音/e9e8db8428a234f23b43.wav",
+      "sha256": "e9e8db8428a234f23b43748e5ec6844409dbd87a0bca504fc0bcaf34cf818955"
+    },
+    {
+      "path": "可编辑工程/配音/f3f2bab286d9e8bfec9d.wav",
+      "sha256": "f3f2bab286d9e8bfec9dca0767c2f2504b0a346570bcba38fd4689164491c1d7"
+    },
+    {
+      "path": "启动编辑器.cmd",
+      "sha256": "15276727773d72c8c410f05509bd47c4c3b17ff3146a2d2a36bebf0fcbca37ee"
+    },
+    {
+      "path": "启动编辑器.command",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "启动编辑器.sh",
+      "sha256": "70e000db15843d288872bacf7d39c60d369dccfe98232818033f62fef4ee384e"
+    },
+    {
+      "path": "训练与推理可编辑示例.mp4",
+      "sha256": "ff1684abce6a9f5074d5e1e73c324daf7a3c868cadd45857007f8d608c4fcaa6"
+    },
+    {
+      "path": "资料与来源/AI生成说明.txt",
+      "sha256": "510436e31854bbc540247d46dc4b4ad87bfa2326aef605c8970b69081b0fa3b8"
+    },
+    {
+      "path": "资料与来源/教学与节奏检查.json",
+      "sha256": "0a7175389f3bb94e36876abdc6cfbeb5e39516a0761622353db856850ff9e15f"
+    },
+    {
+      "path": "资料与来源/教材依据与覆盖.json",
+      "sha256": "5018ca6416d81a2ffe8b10ee58cc558756ee749cbbc2e2a9de76965e87c488f5"
+    },
+    {
+      "path": "资料与来源/来源清单.json",
+      "sha256": "aff27b77f750cb127b4e01a1c74bd8ddabace77ca3fd4eb557b97f0fc853e5da"
+    },
+    {
+      "path": "资料与来源/来源记录.md",
+      "sha256": "f660df54cd471cd06cdbd37eb885c5ed70ab1614562d43ff84c22122ac224bdc"
+    },
+    {
+      "path": "资料与来源/核验记录.json",
+      "sha256": "fe1ed6791c4aa2b223617bc0d633eb0cfeb517a31aea850268bc5d2009f633f7"
+    },
+    {
+      "path": "资料与来源/渲染记录.json",
+      "sha256": "4e01f31c328de8fc04abaf0e4dd88fd83255ef979112f09b59d08b7e038755a4"
+    },
+    {
+      "path": "资料与来源/自动检查.json",
+      "sha256": "1e3f4e08b8ddec81fc2e96c54ab0a0ed0d4e45b8bc0854ce47a3ed025288f126"
+    }
+  ]
+}

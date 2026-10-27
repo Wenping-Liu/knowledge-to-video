@@ -1,0 +1,16 @@
+{
+  "coverage": [
+    {
+      "topic": "导学单第一课第2项",
+      "claims": [
+        "language",
+        "train",
+        "parameter",
+        "infer",
+        "multimodal"
+      ],
+      "note": "参数/权重、训练/推理、文字与多模态；例子及数值为教学示意"
+    }
+  ],
+  "status": "recorded"
+}

@@ -1,0 +1,41 @@
+{
+  "renderFingerprint": "92db5b39bf1ada578d14aeadf1ae9cd2bf175e07782c31689262113cf2d539e3",
+  "rendererSHA256": "7da6baa418325a6a4b79ecab0e449ab389cb861b956ed03ac96dc53e2dddf0e8",
+  "projectFingerprint": "dbf7c5b80c12789d49011a68434fcb8b748cedc63a93627b65fe93193b35d95f",
+  "file": "训练与推理可编辑示例.mp4",
+  "sha256": "ff1684abce6a9f5074d5e1e73c324daf7a3c868cadd45857007f8d608c4fcaa6",
+  "duration": 191.06666666666666,
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "technical": {
+    "duration": 191.07,
+    "video": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "avg_frame_rate": "30"
+    },
+    "audio": {
+      "codec_name": "aac",
+      "sample_rate": "48000",
+      "channels": 1
+    },
+    "rms": 0.1458912361817285,
+    "loudness": {
+      "input_i": "-16.01",
+      "input_tp": "-1.93",
+      "input_lra": "2.20",
+      "input_thresh": "-26.56",
+      "output_i": "-16.02",
+      "output_tp": "-1.50",
+      "output_lra": "2.10",
+      "output_thresh": "-26.55",
+      "normalization_type": "dynamic",
+      "target_offset": "0.02"
+    },
+    "fullDecode": true,
+    "errors": []
+  },
+  "visualAndListeningReview": "pending"
+}

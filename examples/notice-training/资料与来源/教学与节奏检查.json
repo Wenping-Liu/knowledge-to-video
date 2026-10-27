@@ -1,0 +1,80 @@
+{
+  "status": "structural-pass",
+  "readiness": "ready-for-review",
+  "scope": "structure-and-observable-motion; source truth, story quality and listening require evidence",
+  "projectFingerprint": "dbf7c5b80c12789d49011a68434fcb8b748cedc63a93627b65fe93193b35d95f",
+  "stage": "final",
+  "errors": [],
+  "warnings": [],
+  "manualReview": {
+    "accuracy": "pending",
+    "narrative": "pending",
+    "visual": "pending",
+    "listening": "pending"
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "semanticBeats": 4,
+      "maxDeclaredActivityGapSeconds": 1.139,
+      "longestHold": [
+        9.081,
+        10.22
+      ]
+    },
+    {
+      "id": "s02",
+      "semanticBeats": 4,
+      "maxDeclaredActivityGapSeconds": 0.8,
+      "longestHold": [
+        7.9,
+        8.7
+      ]
+    },
+    {
+      "id": "s03",
+      "semanticBeats": 5,
+      "maxDeclaredActivityGapSeconds": 1.587,
+      "longestHold": [
+        24.873,
+        26.46
+      ]
+    },
+    {
+      "id": "s04",
+      "semanticBeats": 4,
+      "maxDeclaredActivityGapSeconds": 0.684,
+      "longestHold": [
+        26.06,
+        26.744
+      ]
+    },
+    {
+      "id": "s05",
+      "semanticBeats": 5,
+      "maxDeclaredActivityGapSeconds": 1.56,
+      "longestHold": [
+        18.98,
+        20.54
+      ]
+    },
+    {
+      "id": "s06",
+      "semanticBeats": 4,
+      "maxDeclaredActivityGapSeconds": 0.851,
+      "longestHold": [
+        14.46,
+        15.311
+      ]
+    },
+    {
+      "id": "s07",
+      "semanticBeats": 4,
+      "maxDeclaredActivityGapSeconds": 1.046,
+      "longestHold": [
+        8.854,
+        9.9
+      ]
+    }
+  ]
+}

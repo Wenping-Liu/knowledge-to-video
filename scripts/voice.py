@@ -1,4 +1,4 @@
-"""Local Qwen3-TTS adapters; never changes speaker or uploads narration."""
+"""Qwen local voices and explicitly enabled Azure Speech; no silent provider switches."""
 import argparse, base64, io, json, math, os, subprocess, tempfile, threading, wave
 from pathlib import Path
 from lib.project_data import read,write,settings,signature,sha,fit_duration,audio_valid,tool,inside,effective_voice
@@ -16,8 +16,15 @@ def apply_tempo(raw,factor,root):
 
 def synthesize(text,voice,root):
     if not text.strip() or len(text)>3000:raise ValueError('每段旁白须为1–3000字')
-    if voice.get('speaker')!='Serena' or '1.7B' not in voice.get('modelFamily',''):raise ValueError('当前适配器需要指定的Qwen3-TTS 1.7B Serena')
-    speed=tempo_factor(voice.get('speed',1))
+    backend=voice.get('backend','mlx');speed=tempo_factor(voice.get('speed',1));cfg=settings(root)
+    if backend=='import':raise ValueError('当前选用外部配音导入，请先在所选平台生成，再导入与本镜文稿一致的音频')
+    if backend=='azure':
+        from lib.cloud_voice import azure_audio
+        raw=normalize(apply_tempo(azure_audio(text,voice),speed,root),root)
+        result=bind_audio(raw,text,voice,{'type':'cloud-tts','provider':'Microsoft Azure Speech','speaker':voice.get('speaker'),'modelFamily':voice.get('modelFamily'),'sentData':'current scene narration only','instructionSupport':'Named neural voice; free-form scene instructions are not translated by this adapter'})
+        if speed!=1:result['provenance']['tempo']={'method':'ffmpeg-atempo','factor':speed,'preservePitch':True}
+        return maybe_align(result,raw,text,root,cfg)
+    if voice.get('speaker')!='Serena' or '1.7B' not in voice.get('modelFamily',''):raise ValueError('本地适配器需要指定的Qwen3-TTS 1.7B Serena')
     cfg=settings(root);model=Path(os.environ.get('KTV_MODEL') or cfg.get('modelPath','')).expanduser()
     if not model.is_dir() or not (model/'config.json').is_file():raise RuntimeError('请在runtime.settings.json中配置本地1.7B CustomVoice模型路径，或设置KTV_MODEL')
     backend=voice.get('backend','mlx')
@@ -54,6 +61,9 @@ def synthesize(text,voice,root):
     raw=normalize(apply_tempo(stream.getvalue(),speed,root),root)
     result=bind_audio(raw,text,voice,{'type':'local-tts','backend':backend,'modelFamily':voice['modelFamily'],'speaker':'Serena','seed':voice.get('seed',42),'temperature':voice.get('temperature',.65),'modelConfigHash':sha((model/'config.json').read_bytes())})
     if speed!=1:result['provenance']['tempo']={'method':'ffmpeg-atempo','factor':speed,'preservePitch':True}
+    return maybe_align(result,raw,text,root,cfg)
+
+def maybe_align(result,raw,text,root,cfg):
     if cfg.get('alignmentModelPath'):
         try:
             from align import align_audio

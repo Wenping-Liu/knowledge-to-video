@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "voices": [
+    {
+      "id": "qwen-serena",
+      "name": "Qwen3-TTS 1.7B Serena",
+      "status": "local-generation-verified",
+      "profile": "profiles/xixi-comic-serena.json",
+      "cost": "无按次云API费；自备计算资源",
+      "sendsNarration": false
+    },
+    {
+      "id": "azure-xiaoxiao",
+      "name": "Microsoft Azure 晓晓",
+      "status": "adapter-implemented-mocked-tests; account-live-call-not-run",
+      "profile": "profiles/azure-xiaoxiao.json",
+      "cost": "以Azure账号当期计费与额度为准",
+      "sendsNarration": true
+    },
+    {
+      "id": "breeze-import",
+      "name": "BreezeBlue 平台声音",
+      "status": "manual-audio-import-supported; native-api-not-integrated",
+      "profile": "profiles/breeze-import.json",
+      "cost": "以平台当期方案和用量为准",
+      "sendsNarration": "user-initiated-on-provider-site"
+    }
+  ],
+  "codingAgents": {
+    "verified": "Codex；具体编程模型由用户在宿主中选择",
+    "portable": "其他能读取SKILL.md、访问文件并执行Python/浏览器/FFmpeg的智能体可按同一数据契约尝试；须实测",
+    "directModelAPI": "项目未捆绑独立LLM API网关，不能仅填模型名就自动接入"
+  },
+  "avatar": {
+    "name": "曦曦",
+    "default": "off",
+    "implemented": "透明PNG独立图层，可改位置、尺寸、显隐",
+    "notImplemented": [
+      "自动口型同步",
+      "从任意真人照片自动生成数字人"
+    ],
+    "alphaVideo": "可作为剪映独立角色轨导入；当前clip帧缓存不保留Alpha"
+  }
+}
