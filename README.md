@@ -4,7 +4,7 @@
 
 ### 从教材里的一个知识点，到学生看得懂、老师改得动的讲解视频。
 
-[![Agent Skills · MP4与可编辑HTML · Serena女声 · 可复现检查](docs/readme/badges.svg)](验收记录.json)
+![Agent Skills · MP4与可编辑HTML · Serena女声 · 可复现检查](docs/readme/badges.svg)
 
 **提供教材、导学单和参考素材，让 Agent 完成教学编排、分镜、动画、配音与工程交付。**
 
@@ -20,7 +20,7 @@
 
 <p align="center"><sub>第二课已完成课程的实际画面：纯白背景、漫画物件、大主体，用具体场景带入抽象概念。</sub></p>
 
-> 本 Skill 从第二课的实际制作与反复修改中整理而来。下面的课程截图展示这套方法的实践；旧版通用模板与工具链另有独立的功能验收记录；旧案例截图不等于已经符合 v1.2 的教学验收。图片均截取自已有课程，来源和时间点见 [展示素材记录](docs/readme/media-sources.json)。
+> 本 Skill 从第二课的实际制作与反复修改中整理而来。下面的课程截图展示这套方法的实践；旧版通用模板与工具链另有独立的功能验收记录；旧案例截图不等于已经符合 v1.2 的教学验收。图片均截取自已有课程，来源和时间点记录保留在源码的素材记录中。
 
 ---
 
@@ -47,7 +47,7 @@
 
 完整步骤见[用户指南](references/09-user-guide.md)，能力和配置见[声音 智能体与曦曦](references/10-providers-and-avatar.md)。本项目面向全学科设计，现有实测案例以大模型课程为主。
 
-**MVP体验：**克隆后打开[任务配置与案例Demo](docs/demo/index.html)，或运行`python3 -m http.server 8000`后访问该页面。它可生成智能体任务、保存配置、打开可编辑示例与实际片段；视频制作仍由智能体和本地工具执行。浏览器页面不会假装在后台调用未配置的模型。
+**先看效果：**观看[有声项目演示与课程案例](docs/demo/README.md)。需要制作自己的课程时，克隆仓库并按使用指南运行本地工具；任务配置和编辑工程保留在源码中。当前完整视频制作由智能体和本地工具执行。
 
 ### 实际案例预览
 
@@ -57,11 +57,11 @@
 | LoRA参数适配 | RAG资料链路 |
 | [![LoRA](docs/demo/media/lora.jpg)](docs/demo/media/lora.mp4) | [![RAG](docs/demo/media/rag.jpg)](docs/demo/media/rag.mp4) |
 
-**点击截图即可打开对应有声MP4；若GitHub页面未显示播放器，点击Raw／Download下载后观看。** [全部视频入口](docs/demo/README.md)包含四段案例、约2分11秒的项目演示，以及一支完整可编辑讲解样例。
+**点击截图即可打开对应有声MP4；若GitHub页面未显示播放器，点击Raw／Download下载后观看。** [全部视频入口](docs/demo/README.md)包含四段案例、约1分54秒的项目演示，以及一支完整可编辑讲解样例。
 
 案例直接基于GitLink上[Christin-liu / Full_Link_Development_of_Large_Models](https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models)仓库中“两天培训材料包”的知识点和实践任务开发，该材料包源于《大模型全链路开发：基于书生开源体系的项目实战》。项目已形成前五课27支独立知识点视频；本仓库公开精选片段和一套完整样例，原始教材与其余完整课程不随仓库分发。
 
-打开[Demo](docs/demo/index.html)播放真实片段，或查看[技术文档与推广计划](docs/technical.md)。来源、截取时间和SHA见[cases.json](docs/demo/cases.json)。历史课程片段展示已有制作效果，不代表全部已按v1.3重制或已经过课堂效果实验。
+观看[实际视频](docs/demo/README.md)，或阅读[技术文档与推广计划](docs/technical.md)。来源与截取记录保留在源码中。历史课程片段展示已有制作效果，不代表全部已按v1.3重制或已经过课堂效果实验。
 
 v1.3本轮通过55项单元检查、44项浏览器/音视频检查和10项MVP操作检查。证据分别保存在`tests/evidence/v1.3-*.json`；Azure为模拟请求，真实账号调用、Breeze原生API和课堂效果验证仍分别列为未验证或未实现。
 
@@ -334,7 +334,7 @@ python3 tests/run_checks.py --out ../knowledge-to-video-check --browser --video 
 
 v1.2 已在 **macOS Apple Silicon** 通过 44 项真实浏览器/音视频功能检查、23 项教学计时与审查绑定回归、23 项安装检查；v1.2.1另增加3项保音高倍速检查。新版检查覆盖改文稿/表达后声音失效、语音锚点重排、装饰与循环排除、导出计时门禁、SVG分组保留、工程移动后渲染，以及预览与MP4画面一致性。真实 Serena 生成、局部声学对齐和有声样片另行记录；自然度与教学效果仍需实际审看和试听。
 
-[查看验收记录](验收记录.json) · [查看精简测试证据](tests/evidence) · [完整使用与验证说明](使用与验证.txt)
+[查看精简测试证据](tests/evidence) · [完整使用与验证说明](使用与验证.txt)
 
 技术检查之后，还需要用真实教材完整观看、试听样片，核对知识点覆盖、比喻边界、文字可读性、动作解释力、讲解节奏与音画同步。
 
