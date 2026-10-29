@@ -36,6 +36,10 @@
 | **音色重塑** | 在原音色基础上调整音高、年龄感、节奏、活力与表达风格，保存为新的声音 |
 | **接入视频制作** | 复制Voice ID，由Skill生成分镜旁白；修改讲稿后重新配音、校准动画与字幕，导出有声视频 |
 
+| 音色本地化：选择目标语言 | 音色重塑：调整风格并试听 |
+|---|---|
+| [![音色本地化界面](docs/breeze/media/04-voice-localize.png)](docs/breeze/README.md) | [![音色重塑界面](docs/breeze/media/05-voice-remix.png)](docs/breeze/README.md) |
+
 **[图文教程与28秒真实试听](docs/breeze/README.md)**。音色设计、克隆、本地化和重塑在Breeze网站完成，Skill已直接接入保存后Voice ID的配音接口。多语言可通过工程语言参数配置；当前已实测中文，其他语言与音色效果需逐项试听验证。
 
 ## 你会拿到什么
