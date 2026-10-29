@@ -74,6 +74,8 @@
 
 *上图是现有动画的静态检查帧，棋盘格用于检查透明背景，图片本身不是动画播放器。*
 
+已将曦曦加入169.5秒的项目介绍，按原旁白时间轴驱动近似卡通口型。[下载曦曦出镜版介绍视频播放](docs/demo/media/project-demo.mp4)。
+
 当前Skill已支持将获授权的透明角色PNG作为独立图层，调整位置、尺寸、显隐与关键帧；曦曦动作和口型属于另外制作的独立样例，尚未集成为通用数字人生成器。教师真人或专属卡通形象需要先准备相应素材并单独适配；不能把静态角色导入等同于自动真人建模或精确口型同步。角色可选，课堂核心仍是知识过程的动画演示。
 
 角色图与品牌元素仅用于本项目效果展示，不因仓库代码采用MIT而获得同等素材授权。[当前角色接入方式](references/10-providers-and-avatar.md#曦曦虚拟讲解角色)。
@@ -418,6 +420,8 @@ knowledge-to-video/
 
 ## 参考与致谢
 
+- [BreezeBlue](https://breezeblue.ai)：感谢其音色库与声音定制能力，为教师声音设计、克隆、音色本地化、多语言配音及音色重塑提供支持；接入与实测见[图文教程](docs/breeze/README.md)。当前项目介绍仍沿用已确认的Serena旁白。
+- **沐曦公司及团队成员**：感谢对项目探索、课程实践与制作的支持。**曦曦角色来源于沐曦公司，由项目作者提供的既有角色素材制作**；角色形象及品牌标识保留各自权利，展示许可不随本仓库MIT代码许可扩展。
 - [huashu-design](https://github.com/alchaincyf/huashu-design)：本 README 的展示结构参考。
 - [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion)：分镜、动画语言与画面检查方法参考。
 - [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS)、[MLX Audio](https://github.com/Blaizzy/mlx-audio)：本地语音方案。
