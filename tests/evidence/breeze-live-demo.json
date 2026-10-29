@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-29",
+  "voiceId": "voc_nc4uny6vhms2",
+  "provider": "BreezeBlue",
+  "durationSeconds": 28.32,
+  "text": "大家好，我是曦曦，今天我们要学习模型训练。训练，就是用数据和反馈调整模型参数的过程。想象你在练习投篮：每次看见球偏向哪里，就调整下一次的动作。模型也会根据反馈调整计算中的数值。这个比喻帮助我们理解反馈与调整，而模型真正改变的是参数。",
+  "voiceSettings": {
+    "backend": "breeze",
+    "speaker": "voc_nc4uny6vhms2",
+    "modelFamily": "BreezeBlue-TTS",
+    "languageCode": "zh",
+    "instruction": "温和清晰地讲课，开场从容，句间自然停顿，提问带一点好奇。",
+    "guidanceScale": 1,
+    "speed": 1
+  },
+  "audioSHA256": "7a1ab1341c14757643f42d48e901c433ef2e2ff26e1ac7a1fb47696d2e3673ad",
+  "publishedMp3SHA256": "5419d96b226306660e49ed39809d4030714ba0dd5fa72b6077d0a34270143faf",
+  "verified": [
+    "真实同步API调用返回WAV",
+    "24kHz单声道PCM音频",
+    "发布MP3完整解码成功"
+  ],
+  "notVerified": [
+    "未完成整段人工试听或独立语音识别",
+    "本条为音色试听，不代表完整视频音画对齐测试"
+  ],
+  "keyStored": false,
+  "modelVersion": "未显式指定model_id，服务自动选择，未声称固定版本"
+}

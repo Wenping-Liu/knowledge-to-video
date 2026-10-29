@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-29",
+  "unitTests": 64,
+  "breezeSpecificTests": 9,
+  "command": "python3 -m unittest discover -s tests -p 'test_*.py'",
+  "skillValidation": "passed",
+  "requestTests": "mocked HTTP responses; paid demo recorded separately"
+}

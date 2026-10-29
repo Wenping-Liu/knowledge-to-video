@@ -30,3 +30,7 @@
 案例直接基于GitLink上[Christin-liu / Full_Link_Development_of_Large_Models](https://www.gitlink.org.cn/Christin-liu/Full_Link_Development_of_Large_Models)仓库中“两天培训材料包”的知识点和实践任务开发，材料包源于《大模型全链路开发：基于书生开源体系的项目实战》。前五课共有27支独立知识点视频，修订版、短片与剪映副本不重复计数；这里公开精选案例和一套完整可编辑样例。
 
 片段保留真实合成旁白和已制作动画，来源课次、时间区间和文件指纹保留在源码素材记录中。演示展示工程与画面效果；学校试点及教师学生学习效果测量属于后续计划。第三至第五课片段为历史实例，尚未全部按v1.3重制。原教材、未授权角色和个人材料未上传。
+
+## 自定义课堂声音试听
+
+[Breeze音色定制与API图文教程](../breeze/README.md) · [试听voc_nc4uny6vhms2（约28秒）](../breeze/media/teacher-voc_nc4uny6vhms2.mp3)。支持用自己的Voice ID给视频配音。

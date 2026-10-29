@@ -1,4 +1,4 @@
-"""Qwen local voices and explicitly enabled Azure Speech; no silent provider switches."""
+"""Qwen local voices and explicitly enabled Azure/Breeze Speech; no silent provider switches."""
 import argparse, base64, io, json, math, os, subprocess, tempfile, threading, wave
 from pathlib import Path
 from lib.project_data import read,write,settings,signature,sha,fit_duration,audio_valid,tool,inside,effective_voice
@@ -18,6 +18,12 @@ def synthesize(text,voice,root):
     if not text.strip() or len(text)>3000:raise ValueError('每段旁白须为1–3000字')
     backend=voice.get('backend','mlx');speed=tempo_factor(voice.get('speed',1));cfg=settings(root)
     if backend=='import':raise ValueError('当前选用外部配音导入，请先在所选平台生成，再导入与本镜文稿一致的音频')
+    if backend=='breeze':
+        from lib.breeze_voice import breeze_audio
+        raw=normalize(apply_tempo(breeze_audio(text,voice),speed,root),root)
+        result=bind_audio(raw,text,voice,{'type':'cloud-tts','provider':'BreezeBlue','speaker':voice.get('speaker'),'modelFamily':voice.get('modelFamily'),'sentData':'current scene narration and performance instructions','instructionSupport':True})
+        if speed!=1:result['provenance']['tempo']={'method':'ffmpeg-atempo','factor':speed,'preservePitch':True}
+        return maybe_align(result,raw,text,root,cfg)
     if backend=='azure':
         from lib.cloud_voice import azure_audio
         raw=normalize(apply_tempo(azure_audio(text,voice),speed,root),root)

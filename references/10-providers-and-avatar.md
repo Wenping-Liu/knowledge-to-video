@@ -6,10 +6,10 @@
 |---|---|---|
 | Qwen3-TTS 12Hz 1.7B CustomVoice Serena | 默认，本地实际生成已验证；Apple Silicon为MLX，其他机器提供qwen/PyTorch适配器 | 模型先下载并按许可证使用；本机计算，不按次调用云API；Windows/Linux实际推理仍需实机验证 |
 | Microsoft Azure 晓晓 zh-CN-XiaoxiaoNeural | 官方REST适配器已实现并做模拟请求测试；本轮未使用真实付费账号调用 | Azure Speech资源、区域和密钥；明确允许发送本镜旁白；额度和费用按账号当前规则 |
-| BreezeBlue 平台声音 | 已有音频导入链路可使用；原生Breeze API尚未接入 | 用户在平台选择同一声音，按当前分镜讲稿生成并导出WAV/MP3，再导入；账号、费用和许可按平台规则 |
+| BreezeBlue 自选音色 | 同步REST适配器与音频导入；[图文教程](../docs/breeze/README.md) | 账号Key和有权访问的Voice ID；详见[Breeze接入](11-breeze-api.md) |
 | 其他声音或教师本人录音 | 导入音频 | 需确认声音授权与文稿一致，重新校准并核听；不会自动克隆真人 |
 
-Qwen profile为`assets/profiles/xixi-comic-serena.json`；Azure为`azure-xiaoxiao.json`；Breeze导入为`breeze-import.json`。创建工程时：
+Qwen profile为`assets/profiles/xixi-comic-serena.json`；Azure为`azure-xiaoxiao.json`；Breeze API为`breeze-api.json`，手动导入为`breeze-import.json`。创建工程时：
 
 ```sh
 python3 scripts/project.py init --out 我的知识点 --title 我的知识点 --profile assets/profiles/azure-xiaoxiao.json

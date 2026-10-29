@@ -36,6 +36,9 @@ def diagnose(root=None,verify_browser=False):
     if backend=='azure':
         from lib.cloud_voice import azure_config
         cloud=azure_config();result['voice'].update(cloud=cloud,moduleReady=True,modelConfigured=False,modelFilesReady=True)
+    if backend=='breeze':
+        from lib.breeze_voice import breeze_config
+        cloud=breeze_config();result['voice'].update(cloud=cloud,moduleReady=True,modelConfigured=False,modelFilesReady=True)
     if backend=='import':result['voice'].update(requested=False,moduleReady=True,modelConfigured=False,modelFilesReady=True)
     result['versions']={}
     for distribution in ['playwright','imageio-ffmpeg','mlx-audio','numpy','torch','qwen-tts','huggingface-hub']:
@@ -43,11 +46,12 @@ def diagnose(root=None,verify_browser=False):
         except importlib.metadata.PackageNotFoundError:pass
     result['renderReady']=isinstance(result['tools']['ffmpeg'],str) and result['modules']['playwright'] and result['tools']['chromium']['exists'] and not browser_error
     result['voiceReady']=result['voice']['moduleReady'] and result['modules']['numpy'] and not model_errors
-    if backend=='azure':result['voiceReady']=all(cloud.values())
+    if backend in ['azure','breeze']:result['voiceReady']=all(cloud.values())
     if backend=='import':result['voiceReady']=True
     result['configurationReady']=result['renderReady'] and (not result['voice']['requested'] or result['voiceReady'])
     setup=Path(__file__).resolve().parent/'setup.py'
     result['nextSteps']=[] if result['configurationReady'] else ['运行：python3 "'+str(setup)+'" --yes','已有模型可加 --model-path "本地模型目录"；暂不生成配音可加 --voice none']
+    if backend=='breeze' and not result['voiceReady']:result['nextSteps']=['Breeze需要本机BREEZE_API_KEY与KTV_ALLOW_CLOUD_TTS=1；无需下载Qwen配音模型。也可运行scripts/breeze.py --prompt-key。']
     result['note']='缺少ffprobe不影响基础出片，使用FFmpeg探测回退。配置就绪仍需实际配音/成片验证；首次安装默认会执行该验证。'
     return result
 if __name__=='__main__':

@@ -18,9 +18,17 @@
       "sendsNarration": true
     },
     {
+      "id": "breeze-api",
+      "name": "BreezeBlue 自选Voice ID",
+      "status": "native-rest-adapter; see demo for live evidence",
+      "profile": "profiles/breeze-api.json",
+      "cost": "按平台账号额度和用量计费",
+      "sendsNarration": true
+    },
+    {
       "id": "breeze-import",
-      "name": "BreezeBlue 平台声音",
-      "status": "manual-audio-import-supported; native-api-not-integrated",
+      "name": "BreezeBlue 音频手动导入",
+      "status": "manual-audio-import-supported",
       "profile": "profiles/breeze-import.json",
       "cost": "以平台当期方案和用量为准",
       "sendsNarration": "user-initiated-on-provider-site"

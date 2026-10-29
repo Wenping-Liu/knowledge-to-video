@@ -81,7 +81,7 @@ serve.py仅监听127.0.0.1，使用会话令牌并检查Origin；素材引用限
 | --- | --- | --- |
 | 本地声音 | Qwen3-TTS 12Hz 1.7B CustomVoice Serena | 本地MLX实际生成及有声导出已验证；qwen／PyTorch适配器待更多实机验证。 |
 | 云端声音 | Microsoft Azure zh-CN-XiaoxiaoNeural | REST适配器已实现；模拟请求验证通过，本轮未使用真实付费账号调用。 |
-| 其他平台 | BreezeBlue或其他音频 | 当前支持用户在平台生成并导入；原生Breeze API尚未接入。 |
+| 自选云端声音 | BreezeBlue Voice ID | 已接入同步REST与逐镜表达，支持终端隐藏输入Key；[定制教程与实测](breeze/README.md)。仍可导入平台音频。 |
 | 编程能力 | Codex及其他智能体 | Codex实测；其他具备文件访问和执行工具的智能体属于待适配目标。 |
 | 可选角色 | 曦曦透明PNG独立图层 | 可改位置、尺寸、显隐和关键帧；不是自动口型同步。Alpha角色视频可交给剪映单独合成。 |
 
